@@ -961,7 +961,7 @@
     head.appendChild(nameWrap);
     head.appendChild(compositeWrap);
 
-    // Monthly bar chart: commits (emerald) + PRs (sky) per month
+    // Monthly bar chart: commits (emerald) + PRs (sky) per month with grid + labels
     var monthlyWrap = document.createElement('div');
     monthlyWrap.className = 'scorecard-monthly';
     var monthlyLabel = document.createElement('div');
@@ -969,13 +969,43 @@
     monthlyLabel.textContent = 'Monthly Output';
     monthlyWrap.appendChild(monthlyLabel);
 
-    var monthlyChart = document.createElement('div');
-    monthlyChart.className = 'scorecard-monthly-chart';
     var mb = vm.monthlyBreakdown || [];
     var maxCommits = Math.max.apply(null, mb.map(function (r) { return r.commits; }).concat([1]));
     var maxPrs = Math.max.apply(null, mb.map(function (r) { return r.prs; }).concat([1]));
     var maxVal = Math.max(maxCommits, maxPrs);
-    var barWidth = 100 / mb.length;
+    // Round up to a nice number for grid lines
+    var niceMax = Math.ceil(maxVal / 10) * 10;
+    if (niceMax < 10) niceMax = 10;
+
+    // Chart area: y-axis labels on the left, bars + grid on the right
+    var chartArea = document.createElement('div');
+    chartArea.className = 'scorecard-monthly-chart';
+
+    // Y-axis labels
+    var yAxis = document.createElement('div');
+    yAxis.className = 'scorecard-monthly-yaxis';
+    var gridSteps = 4; // 0, 25%, 50%, 75%, 100%
+    for (var gi = gridSteps; gi >= 0; gi--) {
+      var yLabel = document.createElement('div');
+      yLabel.className = 'scorecard-monthly-ylabel';
+      yLabel.textContent = Math.round(niceMax * gi / gridSteps);
+      yAxis.appendChild(yLabel);
+    }
+
+    // Bars container with grid lines behind
+    var barsArea = document.createElement('div');
+    barsArea.className = 'scorecard-monthly-barsarea';
+
+    // Horizontal grid lines (absolutely positioned behind bars)
+    for (var gl = 0; gl <= gridSteps; gl++) {
+      var gridLine = document.createElement('div');
+      gridLine.className = 'scorecard-monthly-gridline';
+      gridLine.style.bottom = (gl / gridSteps * 100) + '%';
+      barsArea.appendChild(gridLine);
+    }
+
+    var barsRow = document.createElement('div');
+    barsRow.className = 'scorecard-monthly-barsrow';
 
     mb.forEach(function (r) {
       var monthCol = document.createElement('div');
@@ -987,26 +1017,49 @@
       // Commits bar
       var commitBar = document.createElement('div');
       commitBar.className = 'scorecard-month-bar-commits';
-      var commitH = maxVal > 0 ? (r.commits / maxVal) * 100 : 0;
+      var commitH = niceMax > 0 ? (r.commits / niceMax) * 100 : 0;
       commitBar.style.height = commitH + '%';
       commitBar.style.background = '#34d399';
-      commitBar.style.width = '40%';
+      commitBar.style.width = '38%';
       commitBar.style.borderRadius = '2px 2px 0 0';
       commitBar.style.position = 'absolute';
       commitBar.style.bottom = '0';
-      commitBar.style.left = '10%';
+      commitBar.style.left = '12%';
+
+      // Commits value label
+      if (r.commits > 0) {
+        var commitLabel = document.createElement('div');
+        commitLabel.className = 'scorecard-month-value';
+        commitLabel.textContent = r.commits;
+        commitLabel.style.bottom = 'calc(' + commitH + '% + 2px)';
+        commitLabel.style.left = '12%';
+        commitLabel.style.width = '38%';
+        barsContainer.appendChild(commitLabel);
+      }
 
       // PRs bar
       var prBar = document.createElement('div');
       prBar.className = 'scorecard-month-bar-prs';
-      var prH = maxVal > 0 ? (r.prs / maxVal) * 100 : 0;
+      var prH = niceMax > 0 ? (r.prs / niceMax) * 100 : 0;
       prBar.style.height = prH + '%';
       prBar.style.background = '#38bdf8';
-      prBar.style.width = '40%';
+      prBar.style.width = '38%';
       prBar.style.borderRadius = '2px 2px 0 0';
       prBar.style.position = 'absolute';
       prBar.style.bottom = '0';
       prBar.style.left = '50%';
+
+      // PRs value label
+      if (r.prs > 0) {
+        var prLabel = document.createElement('div');
+        prLabel.className = 'scorecard-month-value';
+        prLabel.textContent = r.prs;
+        prLabel.style.bottom = 'calc(' + prH + '% + 2px)';
+        prLabel.style.left = '50%';
+        prLabel.style.width = '38%';
+        prLabel.style.color = '#38bdf8';
+        barsContainer.appendChild(prLabel);
+      }
 
       barsContainer.appendChild(commitBar);
       barsContainer.appendChild(prBar);
@@ -1023,9 +1076,13 @@
 
       monthCol.appendChild(barsContainer);
       monthCol.appendChild(monthLabel);
-      monthlyChart.appendChild(monthCol);
+      barsRow.appendChild(monthCol);
     });
-    monthlyWrap.appendChild(monthlyChart);
+
+    barsArea.appendChild(barsRow);
+    chartArea.appendChild(yAxis);
+    chartArea.appendChild(barsArea);
+    monthlyWrap.appendChild(chartArea);
 
     // Legend for the monthly chart
     var legend = document.createElement('div');

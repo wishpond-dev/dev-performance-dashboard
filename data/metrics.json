@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T12:20:51Z",
+  "generated_at": "2026-07-21T13:16:56Z",
   "window": {
     "start": "2025-07",
     "end": "2026-06",
@@ -38,11 +38,6 @@
       "name": "Igor Negrizoli",
       "handle": "igorFNegrizoli",
       "initials": "IN"
-    },
-    {
-      "name": "Jose Almada",
-      "handle": "PepeAlmada",
-      "initials": "JA"
     },
     {
       "name": "Paulo Mellin",
@@ -135,11 +130,11 @@
       },
       {
         "month": "2025-08",
-        "commits": 189,
-        "prs_merged": 59,
+        "commits": 186,
+        "prs_merged": 56,
         "reviews": 194,
-        "active_devs": 6,
-        "cycle_time_days": 8.969011887947268,
+        "active_devs": 5,
+        "cycle_time_days": 9.147807953042328,
         "ci_pass_rate": 0.0
       },
       {
@@ -180,11 +175,11 @@
       },
       {
         "month": "2026-01",
-        "commits": 61,
-        "prs_merged": 41,
+        "commits": 59,
+        "prs_merged": 39,
         "reviews": 160,
-        "active_devs": 6,
-        "cycle_time_days": 13.736328195573622,
+        "active_devs": 5,
+        "cycle_time_days": 13.36573510208927,
         "ci_pass_rate": null
       },
       {
@@ -198,12 +193,12 @@
       },
       {
         "month": "2026-03",
-        "commits": 146,
-        "prs_merged": 65,
+        "commits": 145,
+        "prs_merged": 64,
         "reviews": 190,
-        "active_devs": 7,
-        "cycle_time_days": 8.75196688034188,
-        "ci_pass_rate": 0.7131221719457013
+        "active_devs": 6,
+        "cycle_time_days": 8.75189995659722,
+        "ci_pass_rate": 0.7138480392156862
       },
       {
         "month": "2026-04",
@@ -234,20 +229,20 @@
       }
     ],
     "h1": {
-      "commits_per_mo": 104.66666666666667,
-      "prs_per_mo": 45.666666666666664,
+      "commits_per_mo": 104.16666666666667,
+      "prs_per_mo": 45.166666666666664,
       "reviews_per_mo": 219.0,
       "active_devs": 5,
-      "cycle_time_days": 12.885325087861586,
+      "cycle_time_days": 12.965625896883967,
       "ci_pass_rate": 0.0
     },
     "h2": {
-      "commits_per_mo": 125.83333333333333,
-      "prs_per_mo": 77.83333333333333,
+      "commits_per_mo": 125.33333333333333,
+      "prs_per_mo": 77.33333333333333,
       "reviews_per_mo": 194.5,
       "active_devs": 6,
-      "cycle_time_days": 10.309922822983586,
-      "ci_pass_rate": 0.7604422393948768
+      "cycle_time_days": 10.267353278655811,
+      "ci_pass_rate": 0.7606628878012961
     },
     "dora": {
       "deploy_frequency_per_month": 113.58333333333333,
@@ -262,9 +257,9 @@
       "handle": "amedwishpond",
       "initials": "AM",
       "composite": {
-        "score": 71.05007319819136,
+        "score": 71.02259410619614,
         "signals": {
-          "commits": 0.9162009526504433,
+          "commits": 0.9148269980506822,
           "prs": 0.714240525269937,
           "reviews": 0.9060224941578786,
           "tests": 0.40108810014395285,
@@ -469,7 +464,7 @@
           "review_turnaround_hours": 106.37232496194827,
           "change_request_rate": 0.014227642276422762,
           "ci_pass_rate": 0.7972972972972973,
-          "composite": 77.21754154076523
+          "composite": 76.8877924368226
         }
       ],
       "h1": {
@@ -478,7 +473,7 @@
       },
       "h2": {
         "commits": 258,
-        "composite": 82.24433611279325
+        "composite": 82.1893779288028
       }
     },
     {
@@ -486,9 +481,9 @@
       "handle": "mc4future",
       "initials": "AP",
       "composite": {
-        "score": 38.11779614488235,
+        "score": 38.078369621584855,
         "signals": {
-          "commits": 0.34694884153206323,
+          "commits": 0.34497751536718874,
           "prs": 0.43157463952742586,
           "reviews": 0.20258726203221777,
           "tests": 0.6347376829519686,
@@ -692,7 +687,7 @@
           "review_turnaround_hours": 140.28704427083332,
           "change_request_rate": 0.06704081449103304,
           "ci_pass_rate": 0.8632897603485838,
-          "composite": 60.66117910092201
+          "composite": 60.18806082135212
         }
       ],
       "h1": {
@@ -701,7 +696,7 @@
       },
       "h2": {
         "commits": 73,
-        "composite": 48.55258567369114
+        "composite": 48.47373262709616
       }
     },
     {
@@ -709,9 +704,9 @@
       "handle": "gabriellaporte-wp",
       "initials": "GL",
       "composite": {
-        "score": 59.093273723473914,
+        "score": 59.045483998264835,
         "signals": {
-          "commits": 0.4489254206895033,
+          "commits": 0.4465359344290493,
           "prs": 0.7926778484673221,
           "reviews": 0.5984237420832436,
           "tests": 0.5349188201264327,
@@ -915,7 +910,7 @@
           "review_turnaround_hours": 173.8439655172414,
           "change_request_rate": 0.01639344262295082,
           "ci_pass_rate": 0.75,
-          "composite": 36.918025213071935
+          "composite": 36.34454851056298
         }
       ],
       "h1": {
@@ -924,7 +919,7 @@
       },
       "h2": {
         "commits": 116,
-        "composite": 52.768112759060536
+        "composite": 52.67253330864238
       }
     },
     {
@@ -932,9 +927,9 @@
       "handle": "igorFNegrizoli",
       "initials": "IN",
       "composite": {
-        "score": 7.680865249125243,
+        "score": 7.637257124871957,
         "signals": {
-          "commits": 0.03354614695340502,
+          "commits": 0.03136574074074074,
           "prs": 0.06574127626759206,
           "reviews": 0.06768624410184518,
           "tests": 0.058928571428571434,
@@ -1138,7 +1133,7 @@
           "review_turnaround_hours": 99.27678451178453,
           "change_request_rate": 0.0,
           "ci_pass_rate": 0.8235294117647058,
-          "composite": 45.630271377437595
+          "composite": 45.106973886398166
         }
       ],
       "h1": {
@@ -1147,228 +1142,7 @@
       },
       "h2": {
         "commits": 29,
-        "composite": 15.361730498250486
-      }
-    },
-    {
-      "name": "Jose Almada",
-      "handle": "PepeAlmada",
-      "initials": "JA",
-      "composite": {
-        "score": 1.8265725152395156,
-        "signals": {
-          "commits": 0.010113347984197996,
-          "prs": 0.035625,
-          "reviews": 0.0,
-          "tests": 0.0,
-          "ci": 0.05555555555555555
-        }
-      },
-      "review_share": 0.0,
-      "active_repos": [
-        "salescloser-dashboard"
-      ],
-      "monthly": [
-        {
-          "month": "2025-07",
-          "commits": 0,
-          "lines_added": 0,
-          "lines_removed": 0,
-          "net": 0,
-          "active_days": 0,
-          "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 0.0
-        },
-        {
-          "month": "2025-08",
-          "commits": 3,
-          "lines_added": 10,
-          "lines_removed": 8,
-          "net": 2,
-          "active_days": 2,
-          "test_touch_rate": 0.0,
-          "prs_merged": 3,
-          "cycle_time_days": 5.631485339506173,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 6.062956204379562
-        },
-        {
-          "month": "2025-09",
-          "commits": 0,
-          "lines_added": 0,
-          "lines_removed": 0,
-          "net": 0,
-          "active_days": 0,
-          "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 0.0
-        },
-        {
-          "month": "2025-10",
-          "commits": 0,
-          "lines_added": 0,
-          "lines_removed": 0,
-          "net": 0,
-          "active_days": 0,
-          "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 0.0
-        },
-        {
-          "month": "2025-11",
-          "commits": 0,
-          "lines_added": 0,
-          "lines_removed": 0,
-          "net": 0,
-          "active_days": 0,
-          "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 0.0
-        },
-        {
-          "month": "2025-12",
-          "commits": 0,
-          "lines_added": 0,
-          "lines_removed": 0,
-          "net": 0,
-          "active_days": 0,
-          "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 0.0
-        },
-        {
-          "month": "2026-01",
-          "commits": 2,
-          "lines_added": 54,
-          "lines_removed": 6,
-          "net": 48,
-          "active_days": 2,
-          "test_touch_rate": 0.0,
-          "prs_merged": 2,
-          "cycle_time_days": 20.96289351851852,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 7.666666666666666
-        },
-        {
-          "month": "2026-02",
-          "commits": 0,
-          "lines_added": 0,
-          "lines_removed": 0,
-          "net": 0,
-          "active_days": 0,
-          "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 0.0
-        },
-        {
-          "month": "2026-03",
-          "commits": 1,
-          "lines_added": 2151,
-          "lines_removed": 0,
-          "net": 2151,
-          "active_days": 1,
-          "test_touch_rate": 0.0,
-          "prs_merged": 1,
-          "cycle_time_days": 8.75625,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
-          "ci_pass_rate": 0.6666666666666666,
-          "composite": 8.189247311827957
-        },
-        {
-          "month": "2026-04",
-          "commits": 0,
-          "lines_added": 0,
-          "lines_removed": 0,
-          "net": 0,
-          "active_days": 0,
-          "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 0.0
-        },
-        {
-          "month": "2026-05",
-          "commits": 0,
-          "lines_added": 0,
-          "lines_removed": 0,
-          "net": 0,
-          "active_days": 0,
-          "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 0.0
-        },
-        {
-          "month": "2026-06",
-          "commits": 0,
-          "lines_added": 0,
-          "lines_removed": 0,
-          "net": 0,
-          "active_days": 0,
-          "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 0.0
-        }
-      ],
-      "h1": {
-        "commits": 3,
-        "composite": 1.010492700729927
-      },
-      "h2": {
-        "commits": 3,
-        "composite": 2.642652329749104
+        "composite": 15.274514249743914
       }
     },
     {
@@ -1602,9 +1376,9 @@
       "handle": "umerbhattiboostani",
       "initials": "UB",
       "composite": {
-        "score": 31.391282649874626,
+        "score": 31.34050606683998,
         "signals": {
-          "commits": 0.25457355900316414,
+          "commits": 0.25203472985143177,
           "prs": 0.526786476623938,
           "reviews": 0.03508479859078832,
           "tests": 0.4217118665648077,
@@ -1807,7 +1581,7 @@
           "review_turnaround_hours": 67.29138888888889,
           "change_request_rate": 0.014925373134328358,
           "ci_pass_rate": 0.75,
-          "composite": 29.542864551161685
+          "composite": 28.933545554745915
         }
       ],
       "h1": {
@@ -1816,7 +1590,7 @@
       },
       "h2": {
         "commits": 55,
-        "composite": 34.340380016949275
+        "composite": 34.23882685087998
       }
     },
     {
@@ -1824,9 +1598,9 @@
       "handle": "davidmoradi",
       "initials": "DM",
       "composite": {
-        "score": 5.244922696639049,
+        "score": 5.196535599864856,
         "signals": {
-          "commits": 0.01075268817204301,
+          "commits": 0.008333333333333333,
           "prs": 0.014102564102564103,
           "reviews": 0.10982291150813223,
           "tests": 0.07142857142857142,
@@ -2030,7 +1804,7 @@
           "review_turnaround_hours": 125.19160660660661,
           "change_request_rate": 0.0,
           "ci_pass_rate": 0.8181818181818182,
-          "composite": 41.06506103295999
+          "composite": 40.48441587166967
         }
       ],
       "h1": {
@@ -2039,7 +1813,7 @@
       },
       "h2": {
         "commits": 12,
-        "composite": 10.489845393278099
+        "composite": 10.393071199729713
       }
     },
     {
@@ -2047,9 +1821,9 @@
       "handle": "marcelon-salescloser",
       "initials": "MN",
       "composite": {
-        "score": 0.08064516129032258,
+        "score": 0.026881720430107527,
         "signals": {
-          "commits": 0.004032258064516129,
+          "commits": 0.0013440860215053762,
           "prs": 0.0,
           "reviews": 0.0,
           "tests": 0.0,
@@ -2252,7 +2026,7 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.6451612903225806
+          "composite": 0.0
         }
       ],
       "h1": {
@@ -2261,18 +2035,18 @@
       },
       "h2": {
         "commits": 4,
-        "composite": 0.16129032258064516
+        "composite": 0.053763440860215055
       }
     }
   ],
   "repo_breakdown": [
     {
       "repo": "salescloser-dashboard",
-      "commits": 900,
-      "prs": 510,
+      "commits": 894,
+      "prs": 504,
       "reviews": 2196,
-      "ci_pass_rate": 0.6911922252831345,
-      "active_devs": 8
+      "ci_pass_rate": 0.6912939910865223,
+      "active_devs": 7
     },
     {
       "repo": "salescloser-bot",

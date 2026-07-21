@@ -26,7 +26,6 @@ ROSTER = [
     Person("Amir Pourjabbari", "mc4future"),
     Person("Gabriel Laporte", "gabriellaporte-wp"),
     Person("Igor Negrizoli", "igorFNegrizoli"),
-    Person("Jose Almada", "PepeAlmada"),
     Person("Paulo Mellin", "pmellingimenes"),
     Person("Umer Boostani", "umerbhattiboostani"),
     Person("David Moradi", "davidmoradi"),
@@ -354,9 +353,9 @@ def test_integration_real_identity_map_loads_and_validates():
     im = load_identity_map(str(config_path))
     validate_identity_map(im)  # should not raise
 
-    assert len(im.roster) == 9
-    assert len(im.aliases) == 19
-    assert len(im.github_logins) == 11
+    assert len(im.roster) == 8
+    assert len(im.aliases) == 17
+    assert len(im.github_logins) == 10
     assert len(im.bots) == 4
     assert im.departed_count == 16
     assert len(im.departed_emails) == 25

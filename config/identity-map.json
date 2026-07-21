@@ -1,15 +1,38 @@
 {
   "_notes": "Populated from `git log --all --format=%an|%ae` across all 8 repos in config/repos.json (TASK-004-002). aliases/github_logins map to a roster handle; bots and departed are excluded entirely at collection time; unmapped lists authors that could not be confidently resolved and must be logged by identity.py, not silently dropped or attributed.",
   "roster": [
-    {"name": "Alejandro Medina", "handle": "amedwishpond"},
-    {"name": "Amir Pourjabbari", "handle": "mc4future"},
-    {"name": "Gabriel Laporte", "handle": "gabriellaporte-wp"},
-    {"name": "Igor Negrizoli", "handle": "igorFNegrizoli"},
-    {"name": "Jose Almada", "handle": "PepeAlmada"},
-    {"name": "Paulo Mellin", "handle": "pmellingimenes"},
-    {"name": "Umer Boostani", "handle": "umerbhattiboostani"},
-    {"name": "David Moradi", "handle": "davidmoradi"},
-    {"name": "Marcelo Negrini", "handle": "marcelon-salescloser"}
+    {
+      "name": "Alejandro Medina",
+      "handle": "amedwishpond"
+    },
+    {
+      "name": "Amir Pourjabbari",
+      "handle": "mc4future"
+    },
+    {
+      "name": "Gabriel Laporte",
+      "handle": "gabriellaporte-wp"
+    },
+    {
+      "name": "Igor Negrizoli",
+      "handle": "igorFNegrizoli"
+    },
+    {
+      "name": "Paulo Mellin",
+      "handle": "pmellingimenes"
+    },
+    {
+      "name": "Umer Boostani",
+      "handle": "umerbhattiboostani"
+    },
+    {
+      "name": "David Moradi",
+      "handle": "davidmoradi"
+    },
+    {
+      "name": "Marcelo Negrini",
+      "handle": "marcelon-salescloser"
+    }
   ],
   "aliases": {
     "83128608+amedwishpond@users.noreply.github.com": "amedwishpond",
@@ -21,8 +44,6 @@
     "gabriel.laporte@wishpond.com": "gabriellaporte-wp",
     "gabrielblpp@gmail.com": "gabriellaporte-wp",
     "igor.negrizoli@gmail.com": "igorFNegrizoli",
-    "44794585+PepeAlmada@users.noreply.github.com": "PepeAlmada",
-    "jfalmada96@gmail.com": "PepeAlmada",
     "pmellingimenes@gmail.com": "pmellingimenes",
     "pmellingimenes@users.noreply.github.com": "pmellingimenes",
     "91120647+umerbhattiboostani@users.noreply.github.com": "umerbhattiboostani",
@@ -38,7 +59,6 @@
     "mc4future": "mc4future",
     "gabriellaporte-wp": "gabriellaporte-wp",
     "igorFNegrizoli": "igorFNegrizoli",
-    "PepeAlmada": "PepeAlmada",
     "pmellingimenes": "pmellingimenes",
     "umerbhattiboostani": "umerbhattiboostani",
     "davidmoradi": "davidmoradi",
@@ -52,62 +72,177 @@
     "salescloser-chart-bumper[bot]"
   ],
   "bots_evidence": {
-    "wishpond": ["wishpond@wishponds-mbp.lan (salescloser-bot)"],
+    "wishpond": [
+      "wishpond@wishponds-mbp.lan (salescloser-bot)"
+    ],
     "salescloser-chart-bumper[bot]": [
       "279809244+salescloser-chart-bumper[bot]@users.noreply.github.com (salescloser-helm-charts)",
       "salescloser-chart-bumper[bot]@users.noreply.github.com (salescloser-helm-charts)"
     ],
-    "cursor[bot]": ["not observed in local git log; excluded per spec section 7 / clarifications.md"],
-    "github-actions[bot]": ["not observed in local git log; excluded per spec section 7 / clarifications.md"]
+    "cursor[bot]": [
+      "not observed in local git log; excluded per spec section 7 / clarifications.md"
+    ],
+    "github-actions[bot]": [
+      "not observed in local git log; excluded per spec section 7 / clarifications.md"
+    ]
   },
   "departed": [
-    {"name": "Ali Tajskandar", "emails": ["alit@wishpond.com"]},
-    {"name": "Bikram", "emails": ["1194355+bikramwp@users.noreply.github.com"]},
-    {"name": "Enzo Haguiwara", "emails": ["haguiwara68@gmail.com"]},
-    {"name": "Foram Kaneria/Lalani", "emails": [
-      "foramkaneria28@gmail.com",
-      "69257817+Foram-152@users.noreply.github.com",
-      "164304346+foramlalani28@users.noreply.github.com",
-      "foram.lalani@fabaf.in"
-    ]},
-    {"name": "Heriberto Cruz", "emails": [
-      "93938389+heriberto-cruz-brax@users.noreply.github.com",
-      "heriberto@brax.io"
-    ]},
-    {"name": "Prakash", "emails": ["prakashnnpatel@gmail.com"]},
-    {"name": "Bassem Kamel", "emails": ["bassem.kamel@wishpond.com"]},
-    {"name": "Caio Barros", "emails": ["caio.b@salescloser.ai", "caio@caio.com"]},
-    {"name": "Carlos Sanchez", "emails": [
-      "carlos.sanchez@wishpond.com",
-      "168004151+csanchezwish@users.noreply.github.com"
-    ]},
-    {"name": "Junaid Masood", "emails": [
-      "junaid.masood@wishpond.com",
-      "m.junaidmasood@gmail.com"
-    ]},
-    {"name": "mohazari", "emails": [
-      "65205950+mohazari@users.noreply.github.com",
-      "mazari@sfu.ca"
-    ]},
-    {"name": "Pankaj Chotaliya", "emails": ["pankajchotaliya.pc@gmail.com"]},
-    {"name": "Vinay Savaliya", "emails": ["vinay.savaliya.info@gmail.com"]},
-    {"name": "James Anderson", "emails": ["58343922+Janderson84@users.noreply.github.com"]},
-    {"name": "Jordan Gutierrez", "emails": [
-      "jordangk@Jordans-MBP.hitronhub.home",
-      "jordangk@Jordans-MacBook-Pro.local"
-    ]},
-    {"name": "Rayan Gomes", "emails": ["rayan.gomes@wishpond.com"]}
+    {
+      "name": "Ali Tajskandar",
+      "emails": [
+        "alit@wishpond.com"
+      ]
+    },
+    {
+      "name": "Bikram",
+      "emails": [
+        "1194355+bikramwp@users.noreply.github.com"
+      ]
+    },
+    {
+      "name": "Enzo Haguiwara",
+      "emails": [
+        "haguiwara68@gmail.com"
+      ]
+    },
+    {
+      "name": "Foram Kaneria/Lalani",
+      "emails": [
+        "foramkaneria28@gmail.com",
+        "69257817+Foram-152@users.noreply.github.com",
+        "164304346+foramlalani28@users.noreply.github.com",
+        "foram.lalani@fabaf.in"
+      ]
+    },
+    {
+      "name": "Heriberto Cruz",
+      "emails": [
+        "93938389+heriberto-cruz-brax@users.noreply.github.com",
+        "heriberto@brax.io"
+      ]
+    },
+    {
+      "name": "Prakash",
+      "emails": [
+        "prakashnnpatel@gmail.com"
+      ]
+    },
+    {
+      "name": "Bassem Kamel",
+      "emails": [
+        "bassem.kamel@wishpond.com"
+      ]
+    },
+    {
+      "name": "Caio Barros",
+      "emails": [
+        "caio.b@salescloser.ai",
+        "caio@caio.com"
+      ]
+    },
+    {
+      "name": "Carlos Sanchez",
+      "emails": [
+        "carlos.sanchez@wishpond.com",
+        "168004151+csanchezwish@users.noreply.github.com"
+      ]
+    },
+    {
+      "name": "Junaid Masood",
+      "emails": [
+        "junaid.masood@wishpond.com",
+        "m.junaidmasood@gmail.com"
+      ]
+    },
+    {
+      "name": "mohazari",
+      "emails": [
+        "65205950+mohazari@users.noreply.github.com",
+        "mazari@sfu.ca"
+      ]
+    },
+    {
+      "name": "Pankaj Chotaliya",
+      "emails": [
+        "pankajchotaliya.pc@gmail.com"
+      ]
+    },
+    {
+      "name": "Vinay Savaliya",
+      "emails": [
+        "vinay.savaliya.info@gmail.com"
+      ]
+    },
+    {
+      "name": "James Anderson",
+      "emails": [
+        "58343922+Janderson84@users.noreply.github.com"
+      ]
+    },
+    {
+      "name": "Jordan Gutierrez",
+      "emails": [
+        "jordangk@Jordans-MBP.hitronhub.home",
+        "jordangk@Jordans-MacBook-Pro.local"
+      ]
+    },
+    {
+      "name": "Rayan Gomes",
+      "emails": [
+        "rayan.gomes@wishpond.com"
+      ]
+    }
   ],
   "unmapped": [
-    {"name": "PJ", "email": "PJ@salescloser1", "reason": "no email corroboration; not force-mapped despite superficial resemblance to Amir PJ/Pourjabbari alias"},
-    {"name": "Harrier", "email": "harrier@openclaw-igor", "reason": "tool/agent identity on a host named after Igor; name does not match any roster member"},
-    {"name": "unknown", "email": "hasamukhchaudhary3@gmail.com", "reason": "single occurrence, git name field literally 'unknown', no roster/departed corroboration"},
-    {"name": "Your Name", "email": "jalil@jalils-mbp.lan", "reason": "unconfigured git identity; email localpart alone is insufficient to confirm identity"},
-    {"name": "kobe", "email": "kobe@salescloser1", "reason": "no name/roster match"},
-    {"name": "OpenClaw Template", "email": "openclaw@openclaw-james.local", "reason": "template/tool identity, not a real person"},
-    {"name": "root", "email": "root@agent-b2f5114d.tailb10f39.ts.net", "reason": "generic root/infra account, unidentifiable individual"},
-    {"name": "root", "email": "root@auth-storm.tailb10f39.ts.net", "reason": "generic root/infra account, unidentifiable individual"},
-    {"name": "Ubuntu", "email": "ubuntu@ip-172-31-32-114.us-west-2.compute.internal", "reason": "generic cloud-instance account, unidentifiable individual"},
-    {"name": "Your Name", "email": "you@example.com", "reason": "unconfigured placeholder git identity, not a real person"}
+    {
+      "name": "PJ",
+      "email": "PJ@salescloser1",
+      "reason": "no email corroboration; not force-mapped despite superficial resemblance to Amir PJ/Pourjabbari alias"
+    },
+    {
+      "name": "Harrier",
+      "email": "harrier@openclaw-igor",
+      "reason": "tool/agent identity on a host named after Igor; name does not match any roster member"
+    },
+    {
+      "name": "unknown",
+      "email": "hasamukhchaudhary3@gmail.com",
+      "reason": "single occurrence, git name field literally 'unknown', no roster/departed corroboration"
+    },
+    {
+      "name": "Your Name",
+      "email": "jalil@jalils-mbp.lan",
+      "reason": "unconfigured git identity; email localpart alone is insufficient to confirm identity"
+    },
+    {
+      "name": "kobe",
+      "email": "kobe@salescloser1",
+      "reason": "no name/roster match"
+    },
+    {
+      "name": "OpenClaw Template",
+      "email": "openclaw@openclaw-james.local",
+      "reason": "template/tool identity, not a real person"
+    },
+    {
+      "name": "root",
+      "email": "root@agent-b2f5114d.tailb10f39.ts.net",
+      "reason": "generic root/infra account, unidentifiable individual"
+    },
+    {
+      "name": "root",
+      "email": "root@auth-storm.tailb10f39.ts.net",
+      "reason": "generic root/infra account, unidentifiable individual"
+    },
+    {
+      "name": "Ubuntu",
+      "email": "ubuntu@ip-172-31-32-114.us-west-2.compute.internal",
+      "reason": "generic cloud-instance account, unidentifiable individual"
+    },
+    {
+      "name": "Your Name",
+      "email": "you@example.com",
+      "reason": "unconfigured placeholder git identity, not a real person"
+    }
   ]
 }

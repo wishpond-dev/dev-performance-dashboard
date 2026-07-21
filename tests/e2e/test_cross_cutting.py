@@ -49,7 +49,7 @@ def test_e2e_002_zero_runtime_data_fetches_after_load(context, server_url):
 
 
 def test_e2e_003_metrics_data_blob_matches_documented_contract(metrics_data):
-    assert len(metrics_data["roster"]) == 9
+    assert len(metrics_data["roster"]) == 8
     assert [p["name"] for p in metrics_data["roster"]] == ROSTER_NAMES
     assert len(metrics_data["window"]["months"]) == 12
     assert metrics_data["team"]["dora"]["mttr"] is None
@@ -65,10 +65,10 @@ def test_e2e_004_dist_is_fully_self_contained(dist_index_path):
 
 
 def test_e2e_005_and_010_roster_integrity_page_wide(loaded_page):
-    """Exactly 9 scorecards render, and no bot/non-roster marker leaks into
+    """Exactly 8 scorecards render, and no bot/non-roster marker leaks into
     ANY panel's rendered text (E2E-005 scope) or free-text field (E2E-010)."""
     page = loaded_page
-    assert page.locator(".scorecard").count() == 9
+    assert page.locator(".scorecard").count() == 8
     body_text = page.locator("body").inner_text()
     for marker in BOT_AND_NON_ROSTER_MARKERS:
         assert marker not in body_text, f"bot/non-roster marker {marker!r} leaked into rendered page"
@@ -104,8 +104,8 @@ def test_e2e_007_all_8_panels_present_and_nonempty(loaded_page):
     assert page.locator("#statRoster").inner_text() != "—"
     for section_id in SECTION_IDS:
         assert page.locator(f"#{section_id}").count() == 1, f"section #{section_id} missing"
-    assert page.locator("#scorecardGrid .scorecard").count() == 9
-    assert page.locator("#reviewList .review-row").count() == 9
+    assert page.locator("#scorecardGrid .scorecard").count() == 8
+    assert page.locator("#reviewList .review-row").count() == 8
     assert page.locator("#doraGrid .dora-box").count() == 4
     assert page.locator("#repoTableBody .repo-row").count() == 8
     assert page.locator("#h1h2Grid").locator("> *").count() >= 4

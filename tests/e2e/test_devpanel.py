@@ -24,7 +24,7 @@ def test_devpanel_e2e_001_smoke_browse_filter_reviews_reflect_clear(loaded_page)
     matching_review_row = page.locator(f'.review-row[data-handle="{handle}"]')
     assert "selected" in (matching_review_row.get_attribute("class") or "")
     other_rows = page.locator(".review-row:not(.selected)")
-    assert other_rows.count() == 8
+    assert other_rows.count() == 7
     for i in range(other_rows.count()):
         assert "dimmed" in (other_rows.nth(i).get_attribute("class") or "")
 
@@ -45,7 +45,7 @@ def test_devpanel_e2e_002_click_highlights_consistently_click_again_clears(loade
     page.wait_for_timeout(150)
     assert page.locator(".scorecard.selected").count() == 1
     assert page.locator(f'.scorecard.selected[data-handle="{handle}"]').count() == 1
-    assert page.locator(".scorecard.dimmed").count() == 8
+    assert page.locator(".scorecard.dimmed").count() == 7
 
     second_card.click()
     page.wait_for_timeout(150)
@@ -65,7 +65,7 @@ def test_devpanel_e2e_003_heading_discloses_composite_formula_and_weights(loaded
 def test_devpanel_e2e_006_all_nine_review_share_rows_render(loaded_page):
     page = loaded_page
     rows = page.locator(".review-row")
-    assert rows.count() == 9
+    assert rows.count() == 8
     for i in range(rows.count()):
         pct_text = rows.nth(i).locator(".review-pct").inner_text()
         assert pct_text.endswith("%")

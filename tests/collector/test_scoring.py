@@ -23,30 +23,29 @@ from collector.scoring import (
 
 WEIGHTS = {"commits": 0.20, "prs": 0.30, "reviews": 0.25, "tests": 0.15, "ci": 0.10}
 
-ROSTER_9 = [
+ROSTER_8 = [
     Person("Alejandro Medina", "amedwishpond"),
     Person("Amir Pourjabbari", "mc4future"),
     Person("Gabriel Laporte", "gabriellaporte-wp"),
     Person("Igor Negrizoli", "igorFNegrizoli"),
-    Person("Jose Almada", "PepeAlmada"),
     Person("Paulo Mellin", "pmellingimenes"),
     Person("Umer Boostani", "umerbhattiboostani"),
     Person("David Moradi", "davidmoradi"),
     Person("Marcelo Negrini", "marcelon-salescloser"),
 ]
-HANDLES = [p.handle for p in ROSTER_9]
+HANDLES = [p.handle for p in ROSTER_8]
 
 
 def _identity_map() -> IdentityMap:
-    aliases = {f"{p.handle}@example.com": p.handle for p in ROSTER_9}
+    aliases = {f"{p.handle}@example.com": p.handle for p in ROSTER_8}
     return IdentityMap(
-        roster=ROSTER_9,
+        roster=ROSTER_8,
         aliases=aliases,
         github_logins={},
         bots=frozenset(),
         departed_emails={},
         departed_count=0,
-        people_by_handle={p.handle: p for p in ROSTER_9},
+        people_by_handle={p.handle: p for p in ROSTER_8},
         unmapped_reasons={},
     )
 
@@ -63,7 +62,7 @@ def _zero_row(month: str, **overrides) -> dict:
 
 
 def _month_rows_9(month: str, overrides_by_handle: dict) -> dict:
-    """{handle: row} for all 9 roster handles in one month; only the
+    """{handle: row} for all 8 roster handles in one month; only the
     handles present in overrides_by_handle get non-zero fields."""
     return {
         handle: _zero_row(month, **overrides_by_handle.get(handle, {}))
@@ -89,7 +88,7 @@ def test_metric_score_002_each_signal_normalized_within_month_across_nine():
     normalized = normalize_month_signals(month_rows)
 
     # Absolute volume alone does not determine relative signal value --
-    # the max in this 9-person set (100) normalizes to 1.0, and everyone
+    # the max in this 8-person set (100) normalizes to 1.0, and everyone
     # else is relative to that same min/max, not to some external scale.
     assert normalized["amedwishpond"]["commits"] == pytest.approx(1.0)
     assert normalized["mc4future"]["commits"] == pytest.approx(0.5)

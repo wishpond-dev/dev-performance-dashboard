@@ -121,6 +121,6 @@ def test_real_metrics_json_inlines_exactly_when_present(
     embedded = json.loads(match.group(1))
     real_data = json.loads(real_metrics_path.read_text(encoding="utf-8"))
     assert embedded == real_data
-    assert len(embedded["roster"]) == 9
+    assert len(embedded["roster"]) == 8
     assert len(embedded["repos"]) == 8
     assert embedded["team"]["dora"]["mttr"] is None

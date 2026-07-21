@@ -147,13 +147,13 @@ def test_overview_e2e_002_toggle_to_per_developer_shows_nine_series(loaded_page)
     dataset_count = page.evaluate(
         "() => { const c = Chart.getChart('activityChart'); return c ? c.data.datasets.length : -1; }"
     )
-    assert dataset_count == 9
+    assert dataset_count == 8
 
     colors = page.evaluate(
         "() => { const c = Chart.getChart('activityChart'); "
         "return c.data.datasets.map(d => d.borderColor || d.backgroundColor); }"
     )
-    assert len(set(colors)) == 9, f"expected 9 distinguishable series colors, got {colors}"
+    assert len(set(colors)) == 8, f"expected 8 distinguishable series colors, got {colors}"
 
 
 def test_overview_e2e_003_developer_filter_highlights_series_in_chart(loaded_page, metrics_data):

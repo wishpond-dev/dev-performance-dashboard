@@ -259,9 +259,15 @@ body.sidebar-expanded { --sidebar-width: 240px; }
 /* Monthly bar chart in scorecards */
 .scorecard-monthly { margin-bottom: 18px; }
 .scorecard-monthly-label { font-size: 10px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .04em; }
-.scorecard-monthly-chart { display: flex; align-items: flex-end; height: 200px; gap: 3px; }
+.scorecard-monthly-chart { display: flex; align-items: stretch; height: 200px; gap: 0; }
+.scorecard-monthly-yaxis { display: flex; flex-direction: column; justify-content: space-between; width: 28px; flex-shrink: 0; padding-right: 4px; }
+.scorecard-monthly-ylabel { font-size: 9px; color: var(--text-muted); text-align: right; line-height: 1; font-family: 'JetBrains Mono', monospace; }
+.scorecard-monthly-barsarea { flex: 1; position: relative; display: block; }
+.scorecard-monthly-gridline { position: absolute; left: 0; right: 0; height: 1px; background: rgba(255,255,255,.06); z-index: 0; }
+.scorecard-monthly-barsrow { display: flex; align-items: flex-end; height: 100%; gap: 3px; position: relative; z-index: 1; }
 .scorecard-month-col { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; }
 .scorecard-month-bars { width: 100%; height: 180px; position: relative; display: flex; }
+.scorecard-month-value { position: absolute; font-size: 8px; font-family: 'JetBrains Mono', monospace; text-align: center; color: #34d399; line-height: 1; z-index: 2; }
 .scorecard-month-label { font-size: 10px; color: var(--text-muted); margin-top: 4px; text-align: center; }
 .scorecard-monthly-legend { font-size: 11px; color: var(--text-muted); margin-top: 6px; text-align: center; }
 .signal-bar-raw { font-size: 11px; color: #fff; font-weight: 600; }

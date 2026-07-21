@@ -1,5 +1,5 @@
 """Identity resolution: raw git-author and GitHub-login records -> the
-9-person roster.
+8-person roster.
 
 spec.md §7 makes `config/identity-map.json` the single source of truth for
 "who is this commit/PR/review by." This module is the code that reads that
@@ -18,7 +18,7 @@ JSON file:
    (spec.md §7's "logs any unmapped author it encounters").
 
 `validate_identity_map()` additionally checks identity-map.json's own data
-against the exact 9-person roster (spec.md §3): the roster must be exactly
+against the exact 8-person roster (spec.md §3): the roster must be exactly
 those 9 people in the canonical order, and every alias/login must resolve
 to one of them.
 
@@ -49,7 +49,6 @@ EXPECTED_ROSTER: list[tuple[str, str]] = [
     ("Amir Pourjabbari", "mc4future"),
     ("Gabriel Laporte", "gabriellaporte-wp"),
     ("Igor Negrizoli", "igorFNegrizoli"),
-    ("Jose Almada", "PepeAlmada"),
     ("Paulo Mellin", "pmellingimenes"),
     ("Umer Boostani", "umerbhattiboostani"),
     ("David Moradi", "davidmoradi"),
@@ -143,7 +142,7 @@ def _build_normalized_map(raw: dict[str, str], label: str) -> dict[str, str]:
 def load_identity_map(path: str = DEFAULT_IDENTITY_MAP_PATH) -> IdentityMap:
     """Read identity-map.json and build the normalized lookup structure
     resolve_author()/resolve_authors() use. Does NOT itself validate against
-    the 9-person roster -- call validate_identity_map() on the result for
+    the 8-person roster -- call validate_identity_map() on the result for
     that (kept separate so callers/tests can validate independently of
     loading, and so a load-time structural conflict raises a distinct,
     specific error from a roster-shape mismatch)."""
@@ -184,11 +183,11 @@ def load_identity_map(path: str = DEFAULT_IDENTITY_MAP_PATH) -> IdentityMap:
 def validate_identity_map(identity_map: IdentityMap) -> None:
     """Structural validation of identity-map.json's own data (IDENT-MAP-007):
 
-    - `roster` must be exactly the 9 canonical people, in the canonical
+    - `roster` must be exactly the 8 canonical people, in the canonical
       order and spelling (EXPECTED_ROSTER) -- no typos, no missing/extra
       person, no reordering.
     - every alias email and every github_logins value must resolve to one
-      of those 9 roster handles (catches a typo'd handle in either map).
+      of those 8 roster handles (catches a typo'd handle in either map).
     - no email is simultaneously an active alias and a departed-dev email
       (a genuine conflicting mapping -- the same person can't be both a
       current roster member and a departed non-roster human).
@@ -198,7 +197,7 @@ def validate_identity_map(identity_map: IdentityMap) -> None:
     actual_roster = [(p.name, p.handle) for p in identity_map.roster]
     if actual_roster != EXPECTED_ROSTER:
         raise IdentityMapError(
-            f"roster does not match the expected 9-person roster.\n"
+            f"roster does not match the expected 8-person roster.\n"
             f"  expected: {EXPECTED_ROSTER!r}\n"
             f"  actual:   {actual_roster!r}"
         )

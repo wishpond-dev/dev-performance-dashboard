@@ -255,6 +255,17 @@ body.sidebar-expanded { --sidebar-width: 240px; }
 .scorecard-composite-val { font-size: 24px; font-weight: 800; color: var(--violet-light); }
 .scorecard-composite-lab { font-size: 9px; color: var(--text-muted); }
 .scorecard-sparkline { height: 24px; margin-bottom: 8px; }
+
+/* Monthly bar chart in scorecards */
+.scorecard-monthly { margin-bottom: 10px; }
+.scorecard-monthly-label { font-size: 9px; color: var(--text-muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: .04em; }
+.scorecard-monthly-chart { display: flex; align-items: flex-end; height: 50px; gap: 1px; }
+.scorecard-month-col { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; }
+.scorecard-month-bars { width: 100%; height: 42px; position: relative; display: flex; }
+.scorecard-month-label { font-size: 7.5px; color: var(--text-muted); margin-top: 2px; text-align: center; }
+.scorecard-monthly-legend { font-size: 9px; color: var(--text-muted); margin-top: 3px; text-align: center; }
+.signal-bar-raw { font-size: 8.5px; color: #fff; font-weight: 600; }
+
 .signal-bars { display: flex; gap: 6px; align-items: flex-end; }
 .signal-bar-col { flex: 1; min-width: 0; }
 .signal-bar-track { height: 44px; display: flex; align-items: flex-end; }

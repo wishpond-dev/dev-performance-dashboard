@@ -351,9 +351,27 @@
         for (var j = 0; j < monthly.length; j++) { if (monthly[j].month === m) { row = monthly[j]; break; } }
         return row && typeof row.composite === 'number' ? row.composite : 0;
       });
+      // Per-month breakdown for the monthly bar chart (commits + PRs)
+      var monthlyBreakdown = months.map(function (m) {
+        var row = null;
+        for (var j = 0; j < monthly.length; j++) { if (monthly[j].month === m) { row = monthly[j]; break; } }
+        return {
+          month: m,
+          commits: row && typeof row.commits === 'number' ? row.commits : 0,
+          prs: row && typeof row.prs_merged === 'number' ? row.prs_merged : 0,
+          reviews: row && typeof row.reviews_given === 'number' ? row.reviews_given : 0
+        };
+      });
+      // Raw totals for signal bars
+      var rawTotals = {
+        commits: monthly.reduce(function (s, r) { return s + (typeof r.commits === 'number' ? r.commits : 0); }, 0),
+        prs: monthly.reduce(function (s, r) { return s + (typeof r.prs_merged === 'number' ? r.prs_merged : 0); }, 0),
+        reviews: monthly.reduce(function (s, r) { return s + (typeof r.reviews_given === 'number' ? r.reviews_given : 0); }, 0)
+      };
       return {
         name: person.name, handle: person.handle, initials: person.initials,
-        score: composite.score || 0, signals: composite.signals || {}, sparkline: sparkline
+        score: composite.score || 0, signals: composite.signals || {}, sparkline: sparkline,
+        monthlyBreakdown: monthlyBreakdown, rawTotals: rawTotals
       };
     });
   }
@@ -655,6 +673,31 @@
     });
   }
 
+  // Chart.js plugin: renders the numeric value on top of each bar in the
+  // team activity chart, so the raw numbers are always visible (not just
+  // the visual bar height).  Only draws for non-zero values.
+  var barDataLabelsPlugin = {
+    id: 'barDataLabels',
+    afterDatasetsDraw: function (chart) {
+      var ctx = chart.ctx;
+      ctx.save();
+      ctx.font = '10px JetBrains Mono';
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#94a3b8';
+      chart.data.datasets.forEach(function (ds, di) {
+        var meta = chart.getDatasetMeta(di);
+        if (meta.hidden) return;
+        meta.data.forEach(function (bar, bi) {
+          var val = ds.data[bi];
+          if (typeof val !== 'number' || val === 0) return;
+          // Only label bars that are tall enough to not overlap the legend
+          ctx.fillText(String(val), bar.x, bar.y - 4);
+        });
+      });
+      ctx.restore();
+    }
+  };
+
   function activityChartOptions() {
     var axisTicks = { color: '#64748b', font: { family: 'JetBrains Mono', size: 11 } };
     return {
@@ -680,7 +723,7 @@
     activityChart.data = data;
     var config = buildTeamActivityChartConfig(data);
     activityChart.instance = new Chart(canvas.getContext('2d'), {
-      type: 'bar', data: config, options: activityChartOptions(), plugins: [h1h2DividerPlugin]
+      type: 'bar', data: config, options: activityChartOptions(), plugins: [h1h2DividerPlugin, barDataLabelsPlugin]
     });
 
     var toggle = document.getElementById('activityToggle');
@@ -882,6 +925,9 @@
     });
   }
 
+  // monthShortLabel already defined above (line ~95); the duplicate below
+  // in renderScorecardCard has been removed to avoid shadowing.
+
   function renderScorecardCard(vm) {
     var card = document.createElement('div');
     card.className = 'card scorecard';
@@ -915,16 +961,84 @@
     head.appendChild(nameWrap);
     head.appendChild(compositeWrap);
 
-    var sparkWrap = document.createElement('div');
-    sparkWrap.className = 'scorecard-sparkline';
-    sparkWrap.innerHTML = '<svg viewBox="0 0 100 24" preserveAspectRatio="none" width="100%" height="24">' +
-      '<polyline points="' + buildSparklinePoints(vm.sparkline, 100, 24, 100) +
-      '" fill="none" stroke="#a78bfa" stroke-width="1.5"/></svg>';
+    // Monthly bar chart: commits (emerald) + PRs (sky) per month
+    var monthlyWrap = document.createElement('div');
+    monthlyWrap.className = 'scorecard-monthly';
+    var monthlyLabel = document.createElement('div');
+    monthlyLabel.className = 'scorecard-monthly-label';
+    monthlyLabel.textContent = 'Monthly Output';
+    monthlyWrap.appendChild(monthlyLabel);
 
+    var monthlyChart = document.createElement('div');
+    monthlyChart.className = 'scorecard-monthly-chart';
+    var mb = vm.monthlyBreakdown || [];
+    var maxCommits = Math.max.apply(null, mb.map(function (r) { return r.commits; }).concat([1]));
+    var maxPrs = Math.max.apply(null, mb.map(function (r) { return r.prs; }).concat([1]));
+    var maxVal = Math.max(maxCommits, maxPrs);
+    var barWidth = 100 / mb.length;
+
+    mb.forEach(function (r) {
+      var monthCol = document.createElement('div');
+      monthCol.className = 'scorecard-month-col';
+
+      var barsContainer = document.createElement('div');
+      barsContainer.className = 'scorecard-month-bars';
+
+      // Commits bar
+      var commitBar = document.createElement('div');
+      commitBar.className = 'scorecard-month-bar-commits';
+      var commitH = maxVal > 0 ? (r.commits / maxVal) * 100 : 0;
+      commitBar.style.height = commitH + '%';
+      commitBar.style.background = '#34d399';
+      commitBar.style.width = '40%';
+      commitBar.style.borderRadius = '2px 2px 0 0';
+      commitBar.style.position = 'absolute';
+      commitBar.style.bottom = '0';
+      commitBar.style.left = '10%';
+
+      // PRs bar
+      var prBar = document.createElement('div');
+      prBar.className = 'scorecard-month-bar-prs';
+      var prH = maxVal > 0 ? (r.prs / maxVal) * 100 : 0;
+      prBar.style.height = prH + '%';
+      prBar.style.background = '#38bdf8';
+      prBar.style.width = '40%';
+      prBar.style.borderRadius = '2px 2px 0 0';
+      prBar.style.position = 'absolute';
+      prBar.style.bottom = '0';
+      prBar.style.left = '50%';
+
+      barsContainer.appendChild(commitBar);
+      barsContainer.appendChild(prBar);
+
+      // Tooltip on hover
+      var tipText = monthShortLabel(r.month) + ': ' + r.commits + ' commits, ' + r.prs + ' PRs, ' + r.reviews + ' reviews';
+      barsContainer.addEventListener('mouseenter', function (evt) { showBarTooltip(evt, tipText); });
+      barsContainer.addEventListener('mousemove', function (evt) { showBarTooltip(evt, tipText); });
+      barsContainer.addEventListener('mouseleave', hideBarTooltip);
+
+      var monthLabel = document.createElement('div');
+      monthLabel.className = 'scorecard-month-label';
+      monthLabel.textContent = monthShortLabel(r.month);
+
+      monthCol.appendChild(barsContainer);
+      monthCol.appendChild(monthLabel);
+      monthlyChart.appendChild(monthCol);
+    });
+    monthlyWrap.appendChild(monthlyChart);
+
+    // Legend for the monthly chart
+    var legend = document.createElement('div');
+    legend.className = 'scorecard-monthly-legend';
+    legend.innerHTML = '<span style="color:#34d399">●</span> Commits <span style="color:#38bdf8;margin-left:8px">●</span> PRs';
+    monthlyWrap.appendChild(legend);
+
+    // Signal bars with raw numbers
     var bars = document.createElement('div');
     bars.className = 'signal-bars';
     SIGNAL_ORDER.forEach(function (sig) {
       var value = vm.signals[sig.key];
+      var rawValue = vm.rawTotals ? vm.rawTotals[sig.key] : null;
       var col = document.createElement('div');
       col.className = 'signal-bar-col';
       var track = document.createElement('div');
@@ -933,24 +1047,28 @@
       fill.className = 'signal-bar-fill';
       fill.style.height = formatSignalBarHeight(value) + '%';
       fill.style.background = sig.color;
-      var tipText = sig.label + ': ' + formatSignalValue(value);
-      // Hover is bound to the track, not the fill: a 0-height fill (a
-      // developer at the roster's relative floor on that signal, per
-      // DEVPANEL-E2E-004) would otherwise be unhoverable.
+      // Tooltip shows both percentage and raw number
+      var tipText = sig.label + ': ' + formatSignalValue(value) +
+        (rawValue !== null && rawValue !== undefined ? ' (' + rawValue + ' total)' : '');
       track.addEventListener('mouseenter', function (evt) { showBarTooltip(evt, tipText); });
       track.addEventListener('mousemove', function (evt) { showBarTooltip(evt, tipText); });
       track.addEventListener('mouseleave', hideBarTooltip);
       track.appendChild(fill);
       var label = document.createElement('div');
       label.className = 'signal-bar-label';
-      label.textContent = sig.label;
+      // Show raw number below the label for commits, PRs, reviews
+      if (rawValue !== null && rawValue !== undefined && sig.key !== 'tests' && sig.key !== 'ci') {
+        label.innerHTML = sig.label + '<br><span class="signal-bar-raw">' + rawValue + '</span>';
+      } else {
+        label.textContent = sig.label;
+      }
       col.appendChild(track);
       col.appendChild(label);
       bars.appendChild(col);
     });
 
     card.appendChild(head);
-    card.appendChild(sparkWrap);
+    card.appendChild(monthlyWrap);
     card.appendChild(bars);
     card.addEventListener('click', function () { toggleDeveloperFilter(vm.handle); });
     return card;

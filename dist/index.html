@@ -264,6 +264,17 @@ body.sidebar-expanded { --sidebar-width: 240px; }
 .scorecard-composite-val { font-size: 24px; font-weight: 800; color: var(--violet-light); }
 .scorecard-composite-lab { font-size: 9px; color: var(--text-muted); }
 .scorecard-sparkline { height: 24px; margin-bottom: 8px; }
+
+/* Monthly bar chart in scorecards */
+.scorecard-monthly { margin-bottom: 10px; }
+.scorecard-monthly-label { font-size: 9px; color: var(--text-muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: .04em; }
+.scorecard-monthly-chart { display: flex; align-items: flex-end; height: 50px; gap: 1px; }
+.scorecard-month-col { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; }
+.scorecard-month-bars { width: 100%; height: 42px; position: relative; display: flex; }
+.scorecard-month-label { font-size: 7.5px; color: var(--text-muted); margin-top: 2px; text-align: center; }
+.scorecard-monthly-legend { font-size: 9px; color: var(--text-muted); margin-top: 3px; text-align: center; }
+.signal-bar-raw { font-size: 8.5px; color: #fff; font-weight: 600; }
+
 .signal-bars { display: flex; gap: 6px; align-items: flex-end; }
 .signal-bar-col { flex: 1; min-width: 0; }
 .signal-bar-track { height: 44px; display: flex; align-items: flex-end; }
@@ -350,7 +361,7 @@ body.sidebar-expanded { --sidebar-width: 240px; }
 
 <script id="metrics-data" type="application/json">
 {
-  "generated_at": "2026-07-20T01:01:09Z",
+  "generated_at": "2026-07-21T12:20:51Z",
   "window": {
     "start": "2025-07",
     "end": "2026-06",
@@ -478,127 +489,127 @@ body.sidebar-expanded { --sidebar-width: 240px; }
       {
         "month": "2025-07",
         "commits": 110,
-        "prs_merged": 0,
-        "reviews": 0,
+        "prs_merged": 42,
+        "reviews": 163,
         "active_devs": 5,
-        "cycle_time_days": 0.0,
+        "cycle_time_days": 13.789109347442682,
         "ci_pass_rate": null
       },
       {
         "month": "2025-08",
         "commits": 189,
-        "prs_merged": 0,
-        "reviews": 0,
+        "prs_merged": 59,
+        "reviews": 194,
         "active_devs": 6,
-        "cycle_time_days": 0.0,
-        "ci_pass_rate": null
+        "cycle_time_days": 8.969011887947268,
+        "ci_pass_rate": 0.0
       },
       {
         "month": "2025-09",
         "commits": 118,
-        "prs_merged": 0,
-        "reviews": 0,
+        "prs_merged": 44,
+        "reviews": 241,
         "active_devs": 5,
-        "cycle_time_days": 0.0,
+        "cycle_time_days": 9.952956123737374,
         "ci_pass_rate": null
       },
       {
         "month": "2025-10",
         "commits": 84,
-        "prs_merged": 0,
-        "reviews": 0,
+        "prs_merged": 48,
+        "reviews": 249,
         "active_devs": 5,
-        "cycle_time_days": 0.0,
+        "cycle_time_days": 16.10019000771605,
         "ci_pass_rate": null
       },
       {
         "month": "2025-11",
         "commits": 59,
-        "prs_merged": 0,
-        "reviews": 0,
+        "prs_merged": 36,
+        "reviews": 132,
         "active_devs": 5,
-        "cycle_time_days": 0.0,
+        "cycle_time_days": 20.989246720679013,
         "ci_pass_rate": null
       },
       {
         "month": "2025-12",
         "commits": 68,
-        "prs_merged": 0,
-        "reviews": 0,
+        "prs_merged": 45,
+        "reviews": 335,
         "active_devs": 5,
-        "cycle_time_days": 0.0,
+        "cycle_time_days": 10.131393518518518,
         "ci_pass_rate": null
       },
       {
         "month": "2026-01",
         "commits": 61,
-        "prs_merged": 0,
-        "reviews": 0,
-        "active_devs": 5,
-        "cycle_time_days": 0.0,
+        "prs_merged": 41,
+        "reviews": 160,
+        "active_devs": 6,
+        "cycle_time_days": 13.736328195573622,
         "ci_pass_rate": null
       },
       {
         "month": "2026-02",
         "commits": 76,
-        "prs_merged": 0,
-        "reviews": 0,
-        "active_devs": 4,
-        "cycle_time_days": 0.0,
-        "ci_pass_rate": null
+        "prs_merged": 61,
+        "reviews": 174,
+        "active_devs": 5,
+        "cycle_time_days": 12.922128870673953,
+        "ci_pass_rate": 1.0
       },
       {
         "month": "2026-03",
         "commits": 146,
-        "prs_merged": 0,
-        "reviews": 37,
+        "prs_merged": 65,
+        "reviews": 190,
         "active_devs": 7,
-        "cycle_time_days": 0.0,
-        "ci_pass_rate": null
+        "cycle_time_days": 8.75196688034188,
+        "ci_pass_rate": 0.7131221719457013
       },
       {
         "month": "2026-04",
         "commits": 141,
-        "prs_merged": 4,
-        "reviews": 11,
-        "active_devs": 5,
-        "cycle_time_days": 26.231200810185186,
-        "ci_pass_rate": null
+        "prs_merged": 43,
+        "reviews": 197,
+        "active_devs": 6,
+        "cycle_time_days": 13.973966139104222,
+        "ci_pass_rate": 0.7054263565891472
       },
       {
         "month": "2026-05",
         "commits": 108,
-        "prs_merged": 0,
-        "reviews": 1,
-        "active_devs": 6,
-        "cycle_time_days": 0.0,
-        "ci_pass_rate": null
+        "prs_merged": 73,
+        "reviews": 181,
+        "active_devs": 7,
+        "cycle_time_days": 14.146752917300864,
+        "ci_pass_rate": 0.8033929477422628
       },
       {
         "month": "2026-06",
         "commits": 223,
-        "prs_merged": 4,
-        "reviews": 13,
+        "prs_merged": 184,
+        "reviews": 265,
         "active_devs": 8,
-        "cycle_time_days": 31.55002314814815,
-        "ci_pass_rate": 0.9375
+        "cycle_time_days": 6.852300473027375,
+        "ci_pass_rate": 0.693556708082763
       }
     ],
     "h1": {
       "commits_per_mo": 104.66666666666667,
-      "prs_per_mo": 0.0,
-      "reviews_per_mo": 0.0,
+      "prs_per_mo": 45.666666666666664,
+      "reviews_per_mo": 219.0,
       "active_devs": 5,
-      "cycle_time_days": 0.0,
-      "ci_pass_rate": null
+      "cycle_time_days": 12.885325087861586,
+      "ci_pass_rate": 0.0
     },
     "h2": {
       "commits_per_mo": 125.83333333333333,
-      "prs_per_mo": 1.3333333333333333,
-      "reviews_per_mo": 10.333333333333334,
+      "prs_per_mo": 77.83333333333333,
+      "reviews_per_mo": 194.5,
       "active_devs": 6,
-      "cycle_time_days": 28.890611979166668,
-      "ci_pass_rate": 0.9375
+      "cycle_time_days": 10.309922822983586,
+      "ci_pass_rate": 0.7604422393948768
     },
     "dora": {
       "deploy_frequency_per_month": 113.58333333333333,
@@ -613,16 +624,16 @@ body.sidebar-expanded { --sidebar-width: 240px; }
       "handle": "amedwishpond",
       "initials": "AM",
       "composite": {
-        "score": 30.590340555168165,
+        "score": 71.05007319819136,
         "signals": {
           "commits": 0.9162009526504433,
-          "prs": 0.0,
-          "reviews": 0.25,
+          "prs": 0.714240525269937,
+          "reviews": 0.9060224941578786,
           "tests": 0.40108810014395285,
-          "ci": 0.0
+          "ci": 0.26319545309781267
         }
       },
-      "review_share": 0.6774193548387096,
+      "review_share": 0.5985489721886336,
       "active_repos": [
         "salescloser-dashboard",
         "salescloser-bot",
@@ -638,13 +649,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 11402,
           "active_days": 21,
           "test_touch_rate": 0.04225352112676056,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 12,
+          "cycle_time_days": 5.979182098765432,
+          "reviews_given": 117,
+          "review_turnaround_hours": 275.6525403608737,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 28.87323943661972
+          "composite": 81.56554712892742
         },
         {
           "month": "2025-08",
@@ -654,13 +665,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 10929,
           "active_days": 24,
           "test_touch_rate": 0.0364963503649635,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 16,
+          "cycle_time_days": 11.315894097222222,
+          "reviews_given": 146,
+          "review_turnaround_hours": 103.50598554033489,
           "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 22.18978102189781
+          "ci_pass_rate": 0.0,
+          "composite": 77.1897810218978
         },
         {
           "month": "2025-09",
@@ -670,13 +681,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 4217,
           "active_days": 21,
           "test_touch_rate": 0.016129032258064516,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 4,
+          "cycle_time_days": 6.863561921296297,
+          "reviews_given": 163,
+          "review_turnaround_hours": 144.6396404226313,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 22.661290322580648
+          "composite": 54.720113851992416
         },
         {
           "month": "2025-10",
@@ -686,13 +697,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 2347,
           "active_days": 17,
           "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
+          "prs_merged": 7,
+          "cycle_time_days": 25.248553240740744,
+          "reviews_given": 174,
+          "review_turnaround_hours": 148.17691890166026,
+          "change_request_rate": 0.047619047619047616,
           "ci_pass_rate": null,
-          "composite": 20.0
+          "composite": 47.56285805635203
         },
         {
           "month": "2025-11",
@@ -702,13 +713,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 2532,
           "active_days": 12,
           "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
+          "prs_merged": 8,
+          "cycle_time_days": 16.673532986111113,
+          "reviews_given": 104,
+          "review_turnaround_hours": 260.7184615384616,
+          "change_request_rate": 0.041666666666666664,
           "ci_pass_rate": null,
-          "composite": 18.947368421052634
+          "composite": 59.94736842105264
         },
         {
           "month": "2025-12",
@@ -718,13 +729,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 442,
           "active_days": 16,
           "test_touch_rate": 0.045454545454545456,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 6,
+          "cycle_time_days": 10.72546875,
+          "reviews_given": 167,
+          "review_turnaround_hours": 185.03376912840983,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 23.238636363636363
+          "composite": 38.1491932213146
         },
         {
           "month": "2026-01",
@@ -734,13 +745,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 5455,
           "active_days": 15,
           "test_touch_rate": 0.20833333333333334,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 10,
+          "cycle_time_days": 8.529806712962962,
+          "reviews_given": 99,
+          "review_turnaround_hours": 207.37065937149276,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 25.72916666666667
+          "composite": 80.72916666666666
         },
         {
           "month": "2026-02",
@@ -750,13 +761,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 6550,
           "active_days": 16,
           "test_touch_rate": 0.06896551724137931,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 15,
+          "cycle_time_days": 18.66524614197531,
+          "reviews_given": 120,
+          "review_turnaround_hours": 126.33047685185184,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 21.974921630094045
+          "composite": 69.47492163009404
         },
         {
           "month": "2026-03",
@@ -766,13 +777,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 15666,
           "active_days": 18,
           "test_touch_rate": 0.2903225806451613,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 30,
-          "review_turnaround_hours": 160.68290740740744,
+          "prs_merged": 25,
+          "cycle_time_days": 6.815812500000001,
+          "reviews_given": 132,
+          "review_turnaround_hours": 115.5505997474748,
           "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 50.22580645161291
+          "ci_pass_rate": 0.7066666666666666,
+          "composite": 87.29247311827957
         },
         {
           "month": "2026-04",
@@ -782,13 +793,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 11159,
           "active_days": 19,
           "test_touch_rate": 0.24285714285714285,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 11,
-          "review_turnaround_hours": 281.38469696969696,
-          "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 60.0
+          "prs_merged": 19,
+          "cycle_time_days": 8.622461013645221,
+          "reviews_given": 110,
+          "review_turnaround_hours": 139.1632702020202,
+          "change_request_rate": 0.03157894736842106,
+          "ci_pass_rate": 0.7192982456140351,
+          "composite": 97.19298245614036
         },
         {
           "month": "2026-05",
@@ -798,13 +809,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 21454,
           "active_days": 17,
           "test_touch_rate": 0.6923076923076923,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 1,
-          "review_turnaround_hours": 1491.6744444444444,
-          "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 49.184981684981686
+          "prs_merged": 17,
+          "cycle_time_days": 18.72263888888889,
+          "reviews_given": 80,
+          "review_turnaround_hours": 153.9614201388889,
+          "change_request_rate": 0.046983044425499665,
+          "ci_pass_rate": 0.8088235294117647,
+          "composite": 81.55893126481362
         },
         {
           "month": "2026-06",
@@ -814,22 +825,22 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 15932,
           "active_days": 24,
           "test_touch_rate": 0.723404255319149,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 24.058894662875446
+          "prs_merged": 41,
+          "cycle_time_days": 4.876801885727191,
+          "reviews_given": 73,
+          "review_turnaround_hours": 106.37232496194827,
+          "change_request_rate": 0.014227642276422762,
+          "ci_pass_rate": 0.7972972972972973,
+          "composite": 77.21754154076523
         }
       ],
       "h1": {
         "commits": 343,
-        "composite": 22.65171926096453
+        "composite": 59.855810283589484
       },
       "h2": {
         "commits": 258,
-        "composite": 38.52896184937179
+        "composite": 82.24433611279325
       }
     },
     {
@@ -837,16 +848,16 @@ body.sidebar-expanded { --sidebar-width: 240px; }
       "handle": "mc4future",
       "initials": "AP",
       "composite": {
-        "score": 18.073718666981776,
+        "score": 38.11779614488235,
         "signals": {
           "commits": 0.34694884153206323,
-          "prs": 0.0,
-          "reviews": 0.06454706368243919,
+          "prs": 0.43157463952742586,
+          "reviews": 0.20258726203221777,
           "tests": 0.6347376829519686,
-          "ci": 0.0
+          "ci": 0.3645833333333333
         }
       },
-      "review_share": 0.08064516129032258,
+      "review_share": 0.07053607416364369,
       "active_repos": [
         "salescloser-dashboard",
         "salescloser-bot",
@@ -861,13 +872,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 5137,
           "active_days": 12,
           "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 8,
+          "cycle_time_days": 29.81237413194445,
+          "reviews_given": 1,
+          "review_turnaround_hours": 0.2925,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 4.507042253521127
+          "composite": 25.604304522404664
         },
         {
           "month": "2025-08",
@@ -877,13 +888,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 1483,
           "active_days": 9,
           "test_touch_rate": 0.06666666666666667,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 6,
+          "cycle_time_days": 0.8482195216049383,
+          "reviews_given": 5,
+          "review_turnaround_hours": 31.28266666666667,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 6.189781021897811
+          "composite": 19.4144701983225
         },
         {
           "month": "2025-09",
@@ -893,13 +904,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 2609,
           "active_days": 15,
           "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 7,
+          "cycle_time_days": 2.9282010582010582,
+          "reviews_given": 6,
+          "review_turnaround_hours": 110.5575925925926,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 7.096774193548387
+          "composite": 20.60304941947345
         },
         {
           "month": "2025-10",
@@ -909,13 +920,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 880,
           "active_days": 12,
           "test_touch_rate": 0.06666666666666667,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 5,
+          "cycle_time_days": 17.597780092592593,
+          "reviews_given": 4,
+          "review_turnaround_hours": 67.13041666666666,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 24.09090909090909
+          "composite": 33.11466566496482
         },
         {
           "month": "2025-11",
@@ -925,13 +936,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 2717,
           "active_days": 10,
           "test_touch_rate": 0.06666666666666667,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
+          "prs_merged": 6,
+          "cycle_time_days": 12.458348765432099,
+          "reviews_given": 2,
+          "review_turnaround_hours": 82.77583333333334,
+          "change_request_rate": 0.008771929824561403,
           "ci_pass_rate": null,
-          "composite": 30.789473684210527
+          "composite": 44.07144799868223
         },
         {
           "month": "2025-12",
@@ -941,13 +952,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 109,
           "active_days": 8,
           "test_touch_rate": 0.09090909090909091,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 3,
+          "cycle_time_days": 5.780586419753086,
+          "reviews_given": 10,
+          "review_turnaround_hours": 7.9878333333333345,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 16.47727272727273
+          "composite": 23.290101892593633
         },
         {
           "month": "2026-01",
@@ -957,13 +968,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 6670,
           "active_days": 8,
           "test_touch_rate": 0.5454545454545454,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
+          "prs_merged": 9,
+          "cycle_time_days": 4.947741769547325,
+          "reviews_given": 10,
+          "review_turnaround_hours": 41.92688888888889,
+          "change_request_rate": 0.2222222222222222,
           "ci_pass_rate": null,
-          "composite": 24.166666666666668
+          "composite": 60.029049704821446
         },
         {
           "month": "2026-02",
@@ -973,13 +984,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 10504,
           "active_days": 13,
           "test_touch_rate": 0.5238095238095238,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 29.48275862068965
+          "prs_merged": 20,
+          "cycle_time_days": 2.2599600694444444,
+          "reviews_given": 12,
+          "review_turnaround_hours": 28.536296296296296,
+          "change_request_rate": 0.17142857142857143,
+          "ci_pass_rate": 1.0,
+          "composite": 76.63640702426248
         },
         {
           "month": "2026-03",
@@ -989,13 +1000,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 2339,
           "active_days": 3,
           "test_touch_rate": 0.8333333333333334,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 5,
+          "cycle_time_days": 5.404914351851852,
+          "reviews_given": 11,
+          "review_turnaround_hours": 111.60979797979799,
           "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 16.93548387096774
+          "ci_pass_rate": 1.0,
+          "composite": 35.07935857966602
         },
         {
           "month": "2026-04",
@@ -1005,13 +1016,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 0,
           "active_days": 1,
           "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 1,
+          "cycle_time_days": 0.890162037037037,
+          "reviews_given": 45,
+          "review_turnaround_hours": 130.50069753086424,
           "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 0.2857142857142857
+          "ci_pass_rate": 0.5,
+          "composite": 17.66535893316475
         },
         {
           "month": "2026-05",
@@ -1021,13 +1032,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 43511,
           "active_days": 7,
           "test_touch_rate": 0.7142857142857143,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 16.6921768707483
+          "prs_merged": 8,
+          "cycle_time_days": 10.494542824074074,
+          "reviews_given": 5,
+          "review_turnaround_hours": 39.58072222222222,
+          "change_request_rate": 0.009868421052631578,
+          "ci_pass_rate": 0.875,
+          "composite": 41.244160699310164
         },
         {
           "month": "2026-06",
@@ -1037,22 +1048,22 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 16882,
           "active_days": 22,
           "test_touch_rate": 0.7777777777777778,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 5,
-          "review_turnaround_hours": 61.80916666666667,
-          "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 40.17057071763498
+          "prs_merged": 27,
+          "cycle_time_days": 5.247394547325103,
+          "reviews_given": 64,
+          "review_turnaround_hours": 140.28704427083332,
+          "change_request_rate": 0.06704081449103304,
+          "ci_pass_rate": 0.8632897603485838,
+          "composite": 60.66117910092201
         }
       ],
       "h1": {
         "commits": 94,
-        "composite": 14.858542161893281
+        "composite": 27.683006616073552
       },
       "h2": {
         "commits": 73,
-        "composite": 21.288895172070273
+        "composite": 48.55258567369114
       }
     },
     {
@@ -1060,16 +1071,16 @@ body.sidebar-expanded { --sidebar-width: 240px; }
       "handle": "gabriellaporte-wp",
       "initials": "GL",
       "composite": {
-        "score": 19.96761763804732,
+        "score": 59.093273723473914,
         "signals": {
           "commits": 0.4489254206895033,
-          "prs": 0.08333333333333333,
-          "reviews": 0.01861307689443048,
+          "prs": 0.7926778484673221,
+          "reviews": 0.5984237420832436,
           "tests": 0.5349188201264327,
-          "ci": 0.0
+          "ci": 0.33500540016866137
         }
       },
-      "review_share": 0.03225806451612903,
+      "review_share": 0.2132204756146715,
       "active_repos": [
         "salescloser-dashboard",
         "salescloser-bot",
@@ -1084,13 +1095,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 22358,
           "active_days": 7,
           "test_touch_rate": 0.07142857142857142,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 13,
+          "cycle_time_days": 5.8453952991452995,
+          "reviews_given": 12,
+          "review_turnaround_hours": 114.52872685185186,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 18.943661971830984
+          "composite": 54.49009168745853
         },
         {
           "month": "2025-08",
@@ -1100,13 +1111,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 1950,
           "active_days": 7,
           "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 16,
+          "cycle_time_days": 6.601438078703704,
+          "reviews_given": 30,
+          "review_turnaround_hours": 39.14092592592592,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 2.3357664233576645
+          "composite": 42.70933145203299
         },
         {
           "month": "2025-09",
@@ -1116,13 +1127,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 3687,
           "active_days": 10,
           "test_touch_rate": 0.058823529411764705,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 17,
+          "cycle_time_days": 11.287834286492375,
+          "reviews_given": 56,
+          "review_turnaround_hours": 67.83587797619047,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 15.189753320683112
+          "composite": 60.96178775119575
         },
         {
           "month": "2025-10",
@@ -1132,13 +1143,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 2225,
           "active_days": 11,
           "test_touch_rate": 0.05555555555555555,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 18,
+          "cycle_time_days": 11.400961934156378,
+          "reviews_given": 58,
+          "review_turnaround_hours": 12.492763409961686,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 23.409090909090907
+          "composite": 78.4090909090909
         },
         {
           "month": "2025-11",
@@ -1148,13 +1159,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 1579,
           "active_days": 10,
           "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
+          "prs_merged": 15,
+          "cycle_time_days": 21.19998688271605,
+          "reviews_given": 23,
+          "review_turnaround_hours": 60.32612318840579,
+          "change_request_rate": 0.015555555555555555,
           "ci_pass_rate": null,
-          "composite": 20.0
+          "composite": 68.66757905481838
         },
         {
           "month": "2025-12",
@@ -1164,13 +1175,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 3947,
           "active_days": 11,
           "test_touch_rate": 0.21052631578947367,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 20,
+          "cycle_time_days": 5.992620949074074,
+          "reviews_given": 143,
+          "review_turnaround_hours": 18.317929292929296,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 32.27272727272727
+          "composite": 87.27272727272727
         },
         {
           "month": "2026-01",
@@ -1180,13 +1191,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 3510,
           "active_days": 9,
           "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 10,
+          "cycle_time_days": 9.380934027777776,
+          "reviews_given": 48,
+          "review_turnaround_hours": 113.80109953703703,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 11.666666666666668
+          "composite": 62.01841168385944
         },
         {
           "month": "2026-02",
@@ -1196,13 +1207,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 8460,
           "active_days": 8,
           "test_touch_rate": 0.3333333333333333,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 17.82131661442006
+          "prs_merged": 12,
+          "cycle_time_days": 8.791086998456791,
+          "reviews_given": 35,
+          "review_turnaround_hours": 44.20369047619049,
+          "change_request_rate": 0.008409785932721714,
+          "ci_pass_rate": 1.0,
+          "composite": 61.89317019582437
         },
         {
           "month": "2026-03",
@@ -1212,13 +1223,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 19411,
           "active_days": 15,
           "test_touch_rate": 0.058823529411764705,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 1,
-          "review_turnaround_hours": 71.39,
-          "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 19.12383849616107
+          "prs_merged": 18,
+          "cycle_time_days": 11.911576003086417,
+          "reviews_given": 29,
+          "review_turnaround_hours": 77.55888888888887,
+          "change_request_rate": 0.006488240064882401,
+          "ci_pass_rate": 0.6862745098039216,
+          "composite": 53.52024221126808
         },
         {
           "month": "2026-04",
@@ -1228,13 +1239,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 6439,
           "active_days": 7,
           "test_touch_rate": 0.11764705882352941,
-          "prs_merged": 4,
-          "cycle_time_days": 26.231200810185186,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.047619047619047616,
-          "ci_pass_rate": null,
-          "composite": 42.12357884330202
+          "prs_merged": 11,
+          "cycle_time_days": 16.32751367845118,
+          "reviews_given": 23,
+          "review_turnaround_hours": 110.4307608695652,
+          "change_request_rate": 0.06626706626706627,
+          "ci_pass_rate": 0.6666666666666666,
+          "composite": 42.50318850759765
         },
         {
           "month": "2026-05",
@@ -1244,13 +1255,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 27694,
           "active_days": 9,
           "test_touch_rate": 0.6666666666666666,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 16.607142857142858
+          "prs_merged": 9,
+          "cycle_time_days": 22.823069701646087,
+          "reviews_given": 43,
+          "review_turnaround_hours": 83.19815891472868,
+          "change_request_rate": 0.09523809523809523,
+          "ci_pass_rate": 0.7983539094650206,
+          "composite": 59.75563874274178
         },
         {
           "month": "2026-06",
@@ -1260,22 +1271,22 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 11355,
           "active_days": 11,
           "test_touch_rate": 0.6923076923076923,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 1,
-          "review_turnaround_hours": 59.69777777777778,
-          "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 20.117868281185185
+          "prs_merged": 12,
+          "cycle_time_days": 17.587248263888892,
+          "reviews_given": 29,
+          "review_turnaround_hours": 173.8439655172414,
+          "change_request_rate": 0.01639344262295082,
+          "ci_pass_rate": 0.75,
+          "composite": 36.918025213071935
         }
       ],
       "h1": {
         "commits": 103,
-        "composite": 18.69183331628166
+        "composite": 65.4184346878873
       },
       "h2": {
         "commits": 116,
-        "composite": 21.243401959812978
+        "composite": 52.768112759060536
       }
     },
     {
@@ -1283,16 +1294,16 @@ body.sidebar-expanded { --sidebar-width: 240px; }
       "handle": "igorFNegrizoli",
       "initials": "IN",
       "composite": {
-        "score": 6.971518177163339,
+        "score": 7.680865249125243,
         "signals": {
           "commits": 0.03354614695340502,
-          "prs": 0.08333333333333333,
-          "reviews": 0.08333333333333333,
+          "prs": 0.06574127626759206,
+          "reviews": 0.06768624410184518,
           "tests": 0.058928571428571434,
-          "ci": 0.08333333333333333
+          "ci": 0.2461619348054679
         }
       },
-      "review_share": 0.06451612903225806,
+      "review_share": 0.01894397420395002,
       "active_repos": [
         "salescloser-dashboard",
         "salescloser-bot",
@@ -1451,13 +1462,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 0,
           "active_days": 0,
           "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 1,
+          "cycle_time_days": 8.783773148148148,
+          "reviews_given": 5,
+          "review_turnaround_hours": 57.50033333333333,
           "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 0.0
+          "ci_pass_rate": 1.0,
+          "composite": 13.85394183119728
         },
         {
           "month": "2026-05",
@@ -1467,13 +1478,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 741,
           "active_days": 7,
           "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 9,
+          "cycle_time_days": 7.041422325102882,
+          "reviews_given": 9,
+          "review_turnaround_hours": 58.33496913580247,
           "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 3.7500000000000004
+          "ci_pass_rate": 1.0,
+          "composite": 32.686169780868035
         },
         {
           "month": "2026-06",
@@ -1483,13 +1494,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 5930,
           "active_days": 13,
           "test_touch_rate": 0.55,
-          "prs_merged": 1,
-          "cycle_time_days": 6.734120370370371,
-          "reviews_given": 4,
-          "review_turnaround_hours": 29.171805555555558,
+          "prs_merged": 20,
+          "cycle_time_days": 9.75502314814815,
+          "reviews_given": 33,
+          "review_turnaround_hours": 99.27678451178453,
           "change_request_rate": 0.0,
-          "ci_pass_rate": 1.0,
-          "composite": 79.90821812596006
+          "ci_pass_rate": 0.8235294117647058,
+          "composite": 45.630271377437595
         }
       ],
       "h1": {
@@ -1498,7 +1509,7 @@ body.sidebar-expanded { --sidebar-width: 240px; }
       },
       "h2": {
         "commits": 29,
-        "composite": 13.943036354326678
+        "composite": 15.361730498250486
       }
     },
     {
@@ -1506,13 +1517,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
       "handle": "PepeAlmada",
       "initials": "JA",
       "composite": {
-        "score": 0.20226695968395994,
+        "score": 1.8265725152395156,
         "signals": {
           "commits": 0.010113347984197996,
-          "prs": 0.0,
+          "prs": 0.035625,
           "reviews": 0.0,
           "tests": 0.0,
-          "ci": 0.0
+          "ci": 0.05555555555555555
         }
       },
       "review_share": 0.0,
@@ -1544,13 +1555,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 2,
           "active_days": 2,
           "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
+          "prs_merged": 3,
+          "cycle_time_days": 5.631485339506173,
           "reviews_given": 0,
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.43795620437956206
+          "composite": 6.062956204379562
         },
         {
           "month": "2025-09",
@@ -1624,13 +1635,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 48,
           "active_days": 2,
           "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
+          "prs_merged": 2,
+          "cycle_time_days": 20.96289351851852,
           "reviews_given": 0,
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 1.6666666666666667
+          "composite": 7.666666666666666
         },
         {
           "month": "2026-02",
@@ -1656,13 +1667,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 2151,
           "active_days": 1,
           "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
+          "prs_merged": 1,
+          "cycle_time_days": 8.75625,
           "reviews_given": 0,
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 0.3225806451612903
+          "ci_pass_rate": 0.6666666666666666,
+          "composite": 8.189247311827957
         },
         {
           "month": "2026-04",
@@ -1715,11 +1726,11 @@ body.sidebar-expanded { --sidebar-width: 240px; }
       ],
       "h1": {
         "commits": 3,
-        "composite": 0.07299270072992702
+        "composite": 1.010492700729927
       },
       "h2": {
         "commits": 3,
-        "composite": 0.33154121863799285
+        "composite": 2.642652329749104
       }
     },
     {
@@ -1727,16 +1738,16 @@ body.sidebar-expanded { --sidebar-width: 240px; }
       "handle": "pmellingimenes",
       "initials": "PM",
       "composite": {
-        "score": 12.572834774964164,
+        "score": 27.549932876378147,
         "signals": {
           "commits": 0.2876601705607721,
-          "prs": 0.08333333333333333,
-          "reviews": 0.06621335159521861,
+          "prs": 0.34785906917872866,
+          "reviews": 0.2917259264613485,
           "tests": 0.12206428270232823,
-          "ci": 0.08333333333333333
+          "ci": 0.22368449877322116
         }
       },
-      "review_share": 0.08064516129032258,
+      "review_share": 0.06811769447803305,
       "active_repos": [
         "salescloser-dashboard",
         "salescloser-bot",
@@ -1754,13 +1765,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 1434,
           "active_days": 2,
           "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 2,
+          "cycle_time_days": 6.466417824074074,
+          "reviews_given": 30,
+          "review_turnaround_hours": 67.3360925925926,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.5633802816901409
+          "composite": 26.209329739233223
         },
         {
           "month": "2025-08",
@@ -1770,13 +1781,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 14895,
           "active_days": 6,
           "test_touch_rate": 0.2,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 10,
+          "cycle_time_days": 4.374300925925925,
+          "reviews_given": 12,
+          "review_turnaround_hours": 21.62935185185185,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 13.459854014598541
+          "composite": 37.95174141365684
         },
         {
           "month": "2025-09",
@@ -1786,13 +1797,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": -4,
           "active_days": 6,
           "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 5,
+          "cycle_time_days": 3.2866064814814813,
+          "reviews_given": 10,
+          "review_turnaround_hours": 98.63008333333333,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 1.935483870967742
+          "composite": 12.868200100671503
         },
         {
           "month": "2025-10",
@@ -1802,13 +1813,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 161,
           "active_days": 7,
           "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 7,
+          "cycle_time_days": 3.3913227513227513,
+          "reviews_given": 12,
+          "review_turnaround_hours": 131.83930555555557,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 4.242424242424243
+          "composite": 17.120310839372596
         },
         {
           "month": "2025-11",
@@ -1818,13 +1829,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 84,
           "active_days": 1,
           "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 1,
+          "cycle_time_days": 13.052442129629629,
+          "reviews_given": 3,
+          "review_turnaround_hours": 0.36157407407407405,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 1.0526315789473684
+          "composite": 11.480897050839767
         },
         {
           "month": "2025-12",
@@ -1834,13 +1845,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 52,
           "active_days": 1,
           "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 1,
+          "cycle_time_days": 0.10075231481481481,
+          "reviews_given": 12,
+          "review_turnaround_hours": 24.80810185185185,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.9090909090909092
+          "composite": 4.228028119801975
         },
         {
           "month": "2026-01",
@@ -1852,11 +1863,11 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "test_touch_rate": 0.0,
           "prs_merged": 0,
           "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "reviews_given": 2,
+          "review_turnaround_hours": 74.81750000000001,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 1.1825220064203283
         },
         {
           "month": "2026-02",
@@ -1868,11 +1879,11 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "test_touch_rate": 0.0,
           "prs_merged": 0,
           "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "reviews_given": 5,
+          "review_turnaround_hours": 6.501055555555555,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 5.134059915908598
         },
         {
           "month": "2026-03",
@@ -1882,13 +1893,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 958,
           "active_days": 3,
           "test_touch_rate": 0.0625,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 2,
-          "review_turnaround_hours": 84.04416666666667,
+          "prs_merged": 7,
+          "cycle_time_days": 0.011744378306878309,
+          "reviews_given": 14,
+          "review_turnaround_hours": 42.120892857142856,
           "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 9.135170138819488
+          "ci_pass_rate": 0.6666666666666666,
+          "composite": 26.94907817945722
         },
         {
           "month": "2026-04",
@@ -1898,13 +1909,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 2041,
           "active_days": 16,
           "test_touch_rate": 0.041666666666666664,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 6,
+          "cycle_time_days": 0.002770061728395062,
+          "reviews_given": 12,
+          "review_turnaround_hours": 51.91425925925926,
           "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 16.28781512605042
+          "ci_pass_rate": 0.75,
+          "composite": 39.12325365331039
         },
         {
           "month": "2026-05",
@@ -1914,13 +1925,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 7661,
           "active_days": 20,
           "test_touch_rate": 0.25,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 21,
+          "cycle_time_days": 0.6083691578483246,
+          "reviews_given": 30,
+          "review_turnaround_hours": 52.373000000000005,
           "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 24.821428571428573
+          "ci_pass_rate": 0.7125,
+          "composite": 83.79169213056706
         },
         {
           "month": "2026-06",
@@ -1930,22 +1941,22 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 24270,
           "active_days": 34,
           "test_touch_rate": 0.07526881720430108,
-          "prs_merged": 1,
-          "cycle_time_days": 3.472222222222222e-05,
-          "reviews_given": 3,
-          "review_turnaround_hours": 34.59324074074075,
+          "prs_merged": 65,
+          "cycle_time_days": 0.2110673076923077,
+          "reviews_given": 27,
+          "review_turnaround_hours": 135.49963991769548,
           "change_request_rate": 0.0,
-          "ci_pass_rate": 1.0,
-          "composite": 78.46673856555255
+          "ci_pass_rate": 0.4791666666666667,
+          "composite": 64.56008136729828
         }
       ],
       "h1": {
         "commits": 27,
-        "composite": 3.6938108162864913
+        "composite": 18.309751210595984
       },
       "h2": {
         "commits": 205,
-        "composite": 21.45185873364184
+        "composite": 36.79011454216032
       }
     },
     {
@@ -1953,18 +1964,19 @@ body.sidebar-expanded { --sidebar-width: 240px; }
       "handle": "umerbhattiboostani",
       "initials": "UB",
       "composite": {
-        "score": 15.277378177215317,
+        "score": 31.391282649874626,
         "signals": {
           "commits": 0.25457355900316414,
-          "prs": 0.08333333333333333,
-          "reviews": 0.029409159947196745,
+          "prs": 0.526786476623938,
+          "reviews": 0.03508479859078832,
           "tests": 0.4217118665648077,
-          "ci": 0.0625
+          "ci": 0.3293419207851384
         }
       },
-      "review_share": 0.06451612903225806,
+      "review_share": 0.010882708585247884,
       "active_repos": [
-        "salescloser-dashboard"
+        "salescloser-dashboard",
+        "salescloser-appmixer"
       ],
       "monthly": [
         {
@@ -1975,13 +1987,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 1845,
           "active_days": 5,
           "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 7,
+          "cycle_time_days": 25.710062830687832,
+          "reviews_given": 3,
+          "review_turnaround_hours": 69.12907407407407,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 1.971830985915493
+          "composite": 20.188244213251586
         },
         {
           "month": "2025-08",
@@ -1991,13 +2003,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 1641,
           "active_days": 6,
           "test_touch_rate": 0.25,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 8,
+          "cycle_time_days": 22.095950520833334,
+          "reviews_given": 1,
+          "review_turnaround_hours": 19.97388888888889,
           "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 16.16788321167883
+          "ci_pass_rate": 0.0,
+          "composite": 31.664387324773745
         },
         {
           "month": "2025-09",
@@ -2007,13 +2019,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 889,
           "active_days": 6,
           "test_touch_rate": 0.09090909090909091,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 11,
+          "cycle_time_days": 16.513836279461284,
+          "reviews_given": 6,
+          "review_turnaround_hours": 197.01916666666668,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 18.548387096774192
+          "composite": 38.66230743689488
         },
         {
           "month": "2025-10",
@@ -2023,13 +2035,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 2266,
           "active_days": 8,
           "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
+          "prs_merged": 11,
+          "cycle_time_days": 25.374888468013467,
+          "reviews_given": 1,
+          "review_turnaround_hours": 23.816944444444445,
+          "change_request_rate": 0.00909090909090909,
           "ci_pass_rate": null,
-          "composite": 6.666666666666667
+          "composite": 25.328955343834668
         },
         {
           "month": "2025-11",
@@ -2039,13 +2051,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 1795,
           "active_days": 5,
           "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
+          "prs_merged": 6,
+          "cycle_time_days": 36.0703800154321,
           "reviews_given": 0,
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 6.315789473684211
+          "composite": 18.31578947368421
         },
         {
           "month": "2025-12",
@@ -2055,13 +2067,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 2161,
           "active_days": 9,
           "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
+          "prs_merged": 15,
+          "cycle_time_days": 16.950997685185182,
+          "reviews_given": 3,
+          "review_turnaround_hours": 38.15888888888889,
+          "change_request_rate": 0.02564102564102564,
           "ci_pass_rate": null,
-          "composite": 13.636363636363635
+          "composite": 36.49342790436078
         },
         {
           "month": "2026-01",
@@ -2071,13 +2083,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 1462,
           "active_days": 8,
           "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 10,
+          "cycle_time_days": 29.76265856481482,
+          "reviews_given": 1,
+          "review_turnaround_hours": 41.11972222222222,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 8.333333333333334
+          "composite": 39.23055666584905
         },
         {
           "month": "2026-02",
@@ -2087,13 +2099,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 7103,
           "active_days": 9,
           "test_touch_rate": 0.14285714285714285,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 14,
+          "cycle_time_days": 25.541351686507937,
+          "reviews_given": 2,
+          "review_turnaround_hours": 0.24555555555555555,
           "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 13.746081504702195
+          "ci_pass_rate": 1.0,
+          "composite": 47.32955287720778
         },
         {
           "month": "2026-03",
@@ -2103,13 +2115,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 993,
           "active_days": 5,
           "test_touch_rate": 0.0,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
+          "prs_merged": 9,
+          "cycle_time_days": 16.467903806584363,
           "reviews_given": 4,
           "review_turnaround_hours": 45.77527777777778,
           "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 11.725973790610638
+          "ci_pass_rate": 0.6666666666666666,
+          "composite": 21.885044468077652
         },
         {
           "month": "2026-04",
@@ -2119,13 +2131,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 3265,
           "active_days": 4,
           "test_touch_rate": 0.2,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 13.781512605042018
+          "prs_merged": 5,
+          "cycle_time_days": 49.552115740740746,
+          "reviews_given": 2,
+          "review_turnaround_hours": 320.2236111111111,
+          "change_request_rate": 0.05405405405405406,
+          "ci_pass_rate": 0.6666666666666666,
+          "composite": 28.55837234756765
         },
         {
           "month": "2026-05",
@@ -2135,13 +2147,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 4001,
           "active_days": 3,
           "test_touch_rate": 0.7777777777777778,
-          "prs_merged": 0,
-          "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 9,
+          "cycle_time_days": 38.768397633744854,
+          "reviews_given": 2,
+          "review_turnaround_hours": 262.1143055555556,
           "change_request_rate": 0.0,
-          "ci_pass_rate": null,
-          "composite": 18.75
+          "ci_pass_rate": 0.75,
+          "composite": 39.49588919183184
         },
         {
           "month": "2026-06",
@@ -2151,22 +2163,22 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 4711,
           "active_days": 6,
           "test_touch_rate": 0.75,
-          "prs_merged": 1,
-          "cycle_time_days": 119.38920138888889,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
-          "change_request_rate": 0.034482758620689655,
+          "prs_merged": 8,
+          "cycle_time_days": 36.29463975694445,
+          "reviews_given": 2,
+          "review_turnaround_hours": 67.29138888888889,
+          "change_request_rate": 0.014925373134328358,
           "ci_pass_rate": 0.75,
-          "composite": 53.6847158218126
+          "composite": 29.542864551161685
         }
       ],
       "h1": {
         "commits": 58,
-        "composite": 10.55115351184717
+        "composite": 28.44218528279998
       },
       "h2": {
         "commits": 55,
-        "composite": 20.003602842583465
+        "composite": 34.340380016949275
       }
     },
     {
@@ -2174,16 +2186,16 @@ body.sidebar-expanded { --sidebar-width: 240px; }
       "handle": "davidmoradi",
       "initials": "DM",
       "composite": {
-        "score": 4.619815668202764,
+        "score": 5.244922696639049,
         "signals": {
           "commits": 0.01075268817204301,
-          "prs": 0.08333333333333333,
-          "reviews": 0.0,
+          "prs": 0.014102564102564103,
+          "reviews": 0.10982291150813223,
           "tests": 0.07142857142857142,
-          "ci": 0.08333333333333333
+          "ci": 0.07897906509893893
         }
       },
-      "review_share": 0.0,
+      "review_share": 0.019750100765820233,
       "active_repos": [
         "salescloser-dashboard",
         "salescloser-coltrane",
@@ -2360,11 +2372,11 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "test_touch_rate": 0.0,
           "prs_merged": 0,
           "cycle_time_days": 0.0,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "reviews_given": 12,
+          "review_turnaround_hours": 6.5090509259259255,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 21.874011326708604
         },
         {
           "month": "2026-06",
@@ -2374,13 +2386,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           "net": 43543,
           "active_days": 7,
           "test_touch_rate": 0.6666666666666666,
-          "prs_merged": 1,
-          "cycle_time_days": 0.07673611111111112,
-          "reviews_given": 0,
-          "review_turnaround_hours": 0.0,
+          "prs_merged": 11,
+          "cycle_time_days": 18.997347432659936,
+          "reviews_given": 37,
+          "review_turnaround_hours": 125.19160660660661,
           "change_request_rate": 0.0,
-          "ci_pass_rate": 1.0,
-          "composite": 55.437788018433174
+          "ci_pass_rate": 0.8181818181818182,
+          "composite": 41.06506103295999
         }
       ],
       "h1": {
@@ -2389,7 +2401,7 @@ body.sidebar-expanded { --sidebar-width: 240px; }
       },
       "h2": {
         "commits": 12,
-        "composite": 9.239631336405528
+        "composite": 10.489845393278099
       }
     },
     {
@@ -2619,48 +2631,48 @@ body.sidebar-expanded { --sidebar-width: 240px; }
     {
       "repo": "salescloser-dashboard",
       "commits": 900,
-      "prs": 1,
-      "reviews": 28,
-      "ci_pass_rate": 0.75,
+      "prs": 510,
+      "reviews": 2196,
+      "ci_pass_rate": 0.6911922252831345,
       "active_devs": 8
     },
     {
       "repo": "salescloser-bot",
       "commits": 226,
-      "prs": 1,
-      "reviews": 10,
-      "ci_pass_rate": 1.0,
+      "prs": 131,
+      "reviews": 227,
+      "ci_pass_rate": 0.9487843137254902,
       "active_devs": 6
     },
     {
       "repo": "salescloser-coltrane",
       "commits": 62,
-      "prs": 2,
+      "prs": 50,
       "reviews": 0,
-      "ci_pass_rate": 1.0,
+      "ci_pass_rate": 0.4,
       "active_devs": 2
     },
     {
       "repo": "salescloser-killer-calls",
       "commits": 8,
-      "prs": 0,
-      "reviews": 3,
-      "ci_pass_rate": null,
+      "prs": 6,
+      "reviews": 4,
+      "ci_pass_rate": 0.9583333333333334,
       "active_devs": 2
     },
     {
       "repo": "salescloser-appmixer",
       "commits": 58,
-      "prs": 4,
-      "reviews": 21,
+      "prs": 10,
+      "reviews": 43,
       "ci_pass_rate": null,
-      "active_devs": 3
+      "active_devs": 4
     },
     {
       "repo": "salescloser-helm-charts",
       "commits": 126,
-      "prs": 0,
-      "reviews": 0,
+      "prs": 34,
+      "reviews": 11,
       "ci_pass_rate": null,
       "active_devs": 4
     },
@@ -3168,9 +3180,27 @@ body.sidebar-expanded { --sidebar-width: 240px; }
         for (var j = 0; j < monthly.length; j++) { if (monthly[j].month === m) { row = monthly[j]; break; } }
         return row && typeof row.composite === 'number' ? row.composite : 0;
       });
+      // Per-month breakdown for the monthly bar chart (commits + PRs)
+      var monthlyBreakdown = months.map(function (m) {
+        var row = null;
+        for (var j = 0; j < monthly.length; j++) { if (monthly[j].month === m) { row = monthly[j]; break; } }
+        return {
+          month: m,
+          commits: row && typeof row.commits === 'number' ? row.commits : 0,
+          prs: row && typeof row.prs_merged === 'number' ? row.prs_merged : 0,
+          reviews: row && typeof row.reviews_given === 'number' ? row.reviews_given : 0
+        };
+      });
+      // Raw totals for signal bars
+      var rawTotals = {
+        commits: monthly.reduce(function (s, r) { return s + (typeof r.commits === 'number' ? r.commits : 0); }, 0),
+        prs: monthly.reduce(function (s, r) { return s + (typeof r.prs_merged === 'number' ? r.prs_merged : 0); }, 0),
+        reviews: monthly.reduce(function (s, r) { return s + (typeof r.reviews_given === 'number' ? r.reviews_given : 0); }, 0)
+      };
       return {
         name: person.name, handle: person.handle, initials: person.initials,
-        score: composite.score || 0, signals: composite.signals || {}, sparkline: sparkline
+        score: composite.score || 0, signals: composite.signals || {}, sparkline: sparkline,
+        monthlyBreakdown: monthlyBreakdown, rawTotals: rawTotals
       };
     });
   }
@@ -3472,6 +3502,31 @@ body.sidebar-expanded { --sidebar-width: 240px; }
     });
   }
 
+  // Chart.js plugin: renders the numeric value on top of each bar in the
+  // team activity chart, so the raw numbers are always visible (not just
+  // the visual bar height).  Only draws for non-zero values.
+  var barDataLabelsPlugin = {
+    id: 'barDataLabels',
+    afterDatasetsDraw: function (chart) {
+      var ctx = chart.ctx;
+      ctx.save();
+      ctx.font = '10px JetBrains Mono';
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#94a3b8';
+      chart.data.datasets.forEach(function (ds, di) {
+        var meta = chart.getDatasetMeta(di);
+        if (meta.hidden) return;
+        meta.data.forEach(function (bar, bi) {
+          var val = ds.data[bi];
+          if (typeof val !== 'number' || val === 0) return;
+          // Only label bars that are tall enough to not overlap the legend
+          ctx.fillText(String(val), bar.x, bar.y - 4);
+        });
+      });
+      ctx.restore();
+    }
+  };
+
   function activityChartOptions() {
     var axisTicks = { color: '#64748b', font: { family: 'JetBrains Mono', size: 11 } };
     return {
@@ -3497,7 +3552,7 @@ body.sidebar-expanded { --sidebar-width: 240px; }
     activityChart.data = data;
     var config = buildTeamActivityChartConfig(data);
     activityChart.instance = new Chart(canvas.getContext('2d'), {
-      type: 'bar', data: config, options: activityChartOptions(), plugins: [h1h2DividerPlugin]
+      type: 'bar', data: config, options: activityChartOptions(), plugins: [h1h2DividerPlugin, barDataLabelsPlugin]
     });
 
     var toggle = document.getElementById('activityToggle');
@@ -3699,6 +3754,9 @@ body.sidebar-expanded { --sidebar-width: 240px; }
     });
   }
 
+  // monthShortLabel already defined above (line ~95); the duplicate below
+  // in renderScorecardCard has been removed to avoid shadowing.
+
   function renderScorecardCard(vm) {
     var card = document.createElement('div');
     card.className = 'card scorecard';
@@ -3732,16 +3790,84 @@ body.sidebar-expanded { --sidebar-width: 240px; }
     head.appendChild(nameWrap);
     head.appendChild(compositeWrap);
 
-    var sparkWrap = document.createElement('div');
-    sparkWrap.className = 'scorecard-sparkline';
-    sparkWrap.innerHTML = '<svg viewBox="0 0 100 24" preserveAspectRatio="none" width="100%" height="24">' +
-      '<polyline points="' + buildSparklinePoints(vm.sparkline, 100, 24, 100) +
-      '" fill="none" stroke="#a78bfa" stroke-width="1.5"/></svg>';
+    // Monthly bar chart: commits (emerald) + PRs (sky) per month
+    var monthlyWrap = document.createElement('div');
+    monthlyWrap.className = 'scorecard-monthly';
+    var monthlyLabel = document.createElement('div');
+    monthlyLabel.className = 'scorecard-monthly-label';
+    monthlyLabel.textContent = 'Monthly Output';
+    monthlyWrap.appendChild(monthlyLabel);
 
+    var monthlyChart = document.createElement('div');
+    monthlyChart.className = 'scorecard-monthly-chart';
+    var mb = vm.monthlyBreakdown || [];
+    var maxCommits = Math.max.apply(null, mb.map(function (r) { return r.commits; }).concat([1]));
+    var maxPrs = Math.max.apply(null, mb.map(function (r) { return r.prs; }).concat([1]));
+    var maxVal = Math.max(maxCommits, maxPrs);
+    var barWidth = 100 / mb.length;
+
+    mb.forEach(function (r) {
+      var monthCol = document.createElement('div');
+      monthCol.className = 'scorecard-month-col';
+
+      var barsContainer = document.createElement('div');
+      barsContainer.className = 'scorecard-month-bars';
+
+      // Commits bar
+      var commitBar = document.createElement('div');
+      commitBar.className = 'scorecard-month-bar-commits';
+      var commitH = maxVal > 0 ? (r.commits / maxVal) * 100 : 0;
+      commitBar.style.height = commitH + '%';
+      commitBar.style.background = '#34d399';
+      commitBar.style.width = '40%';
+      commitBar.style.borderRadius = '2px 2px 0 0';
+      commitBar.style.position = 'absolute';
+      commitBar.style.bottom = '0';
+      commitBar.style.left = '10%';
+
+      // PRs bar
+      var prBar = document.createElement('div');
+      prBar.className = 'scorecard-month-bar-prs';
+      var prH = maxVal > 0 ? (r.prs / maxVal) * 100 : 0;
+      prBar.style.height = prH + '%';
+      prBar.style.background = '#38bdf8';
+      prBar.style.width = '40%';
+      prBar.style.borderRadius = '2px 2px 0 0';
+      prBar.style.position = 'absolute';
+      prBar.style.bottom = '0';
+      prBar.style.left = '50%';
+
+      barsContainer.appendChild(commitBar);
+      barsContainer.appendChild(prBar);
+
+      // Tooltip on hover
+      var tipText = monthShortLabel(r.month) + ': ' + r.commits + ' commits, ' + r.prs + ' PRs, ' + r.reviews + ' reviews';
+      barsContainer.addEventListener('mouseenter', function (evt) { showBarTooltip(evt, tipText); });
+      barsContainer.addEventListener('mousemove', function (evt) { showBarTooltip(evt, tipText); });
+      barsContainer.addEventListener('mouseleave', hideBarTooltip);
+
+      var monthLabel = document.createElement('div');
+      monthLabel.className = 'scorecard-month-label';
+      monthLabel.textContent = monthShortLabel(r.month);
+
+      monthCol.appendChild(barsContainer);
+      monthCol.appendChild(monthLabel);
+      monthlyChart.appendChild(monthCol);
+    });
+    monthlyWrap.appendChild(monthlyChart);
+
+    // Legend for the monthly chart
+    var legend = document.createElement('div');
+    legend.className = 'scorecard-monthly-legend';
+    legend.innerHTML = '<span style="color:#34d399">●</span> Commits <span style="color:#38bdf8;margin-left:8px">●</span> PRs';
+    monthlyWrap.appendChild(legend);
+
+    // Signal bars with raw numbers
     var bars = document.createElement('div');
     bars.className = 'signal-bars';
     SIGNAL_ORDER.forEach(function (sig) {
       var value = vm.signals[sig.key];
+      var rawValue = vm.rawTotals ? vm.rawTotals[sig.key] : null;
       var col = document.createElement('div');
       col.className = 'signal-bar-col';
       var track = document.createElement('div');
@@ -3750,24 +3876,28 @@ body.sidebar-expanded { --sidebar-width: 240px; }
       fill.className = 'signal-bar-fill';
       fill.style.height = formatSignalBarHeight(value) + '%';
       fill.style.background = sig.color;
-      var tipText = sig.label + ': ' + formatSignalValue(value);
-      // Hover is bound to the track, not the fill: a 0-height fill (a
-      // developer at the roster's relative floor on that signal, per
-      // DEVPANEL-E2E-004) would otherwise be unhoverable.
+      // Tooltip shows both percentage and raw number
+      var tipText = sig.label + ': ' + formatSignalValue(value) +
+        (rawValue !== null && rawValue !== undefined ? ' (' + rawValue + ' total)' : '');
       track.addEventListener('mouseenter', function (evt) { showBarTooltip(evt, tipText); });
       track.addEventListener('mousemove', function (evt) { showBarTooltip(evt, tipText); });
       track.addEventListener('mouseleave', hideBarTooltip);
       track.appendChild(fill);
       var label = document.createElement('div');
       label.className = 'signal-bar-label';
-      label.textContent = sig.label;
+      // Show raw number below the label for commits, PRs, reviews
+      if (rawValue !== null && rawValue !== undefined && sig.key !== 'tests' && sig.key !== 'ci') {
+        label.innerHTML = sig.label + '<br><span class="signal-bar-raw">' + rawValue + '</span>';
+      } else {
+        label.textContent = sig.label;
+      }
       col.appendChild(track);
       col.appendChild(label);
       bars.appendChild(col);
     });
 
     card.appendChild(head);
-    card.appendChild(sparkWrap);
+    card.appendChild(monthlyWrap);
     card.appendChild(bars);
     card.addEventListener('click', function () { toggleDeveloperFilter(vm.handle); });
     return card;

@@ -58,7 +58,7 @@ def _identity_map(roster=None) -> IdentityMap:
 
 
 _MERGED_ROW_KEYS = {
-    "month", "commits", "lines_added", "lines_removed", "net", "active_days",
+    "month", "commits", "pr_commits", "lines_added", "lines_removed", "net", "active_days",
     "test_touch_rate", "prs_merged", "cycle_time_days", "reviews_given",
     "review_turnaround_hours", "change_request_rate", "ci_pass_rate", "composite",
 }
@@ -66,7 +66,7 @@ _MERGED_ROW_KEYS = {
 
 def _zero_merged_row(month: str) -> dict:
     return {
-        "month": month, "commits": 0, "lines_added": 0, "lines_removed": 0, "net": 0,
+        "month": month, "commits": 0, "pr_commits": 0, "lines_added": 0, "lines_removed": 0, "net": 0,
         "active_days": 0, "test_touch_rate": 0.0, "prs_merged": 0, "cycle_time_days": 0.0,
         "reviews_given": 0, "review_turnaround_hours": 0.0, "change_request_rate": 0.0,
         "ci_pass_rate": None, "composite": None,

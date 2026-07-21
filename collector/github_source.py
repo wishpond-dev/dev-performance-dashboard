@@ -34,9 +34,9 @@ from typing import Optional
 
 import requests
 
-from collector.branch import detect_default_branch
+from collector.branch import detect_default_branch, is_squash_commit
 from collector.git_source import default_window_months
-from collector.identity import IdentityMap, resolve_author
+from collector.identity import IdentityMap, RawAuthor, resolve_author, resolve_authors
 
 logger = logging.getLogger(__name__)
 
@@ -284,6 +284,15 @@ def fetch_pr_reviews(client: GitHubClient, full_name: str, pr_number: int, store
     return _cached_get_paginated(client, store, f"reviews_pr{pr_number}", url)
 
 
+def fetch_pr_commits(client: GitHubClient, full_name: str, pr_number: int, store) -> list:
+    """Fetch the list of commits on a PR's feature branch (the commits that
+    were squashed into the single merge commit). Cached per PR number so
+    re-runs are free. Used to count real feature-branch commits for
+    squash-merged PRs, restoring the commit metric's meaning."""
+    url = f"{GITHUB_API_BASE}/repos/{full_name}/pulls/{pr_number}/commits"
+    return _cached_get_paginated(client, store, f"prcommits_{pr_number}", url)
+
+
 def fetch_check_runs(client: GitHubClient, full_name: str, sha: str, store) -> list:
     url = f"{GITHUB_API_BASE}/repos/{full_name}/commits/{sha}/check-runs"
     data = _cached_get_json(client, store, f"checkruns_{sha}", url)
@@ -300,6 +309,12 @@ class MonthlyGitHubMetrics:
     for this developer/month -- never `0.0` and never a fabricated default
     (spec.md S6 / implementation-plan.md S3's explicit rule for
     `salescloser-helm-charts`-style repos with no CI at all).
+
+    `pr_commits` is the count of feature-branch commits inside squash-merged
+    PRs attributed to this developer this month. These replace the single
+    squash commit that git_source.py now excludes from its commit count,
+    so the total `commits` in the merged row reflects real development
+    effort rather than "number of merged PRs."
     """
 
     month: str
@@ -309,6 +324,7 @@ class MonthlyGitHubMetrics:
     review_turnaround_hours: float = 0.0
     change_request_rate: float = 0.0
     ci_pass_rate: Optional[float] = None
+    pr_commits: int = 0
 
     def to_dict(self) -> dict:
         return {
@@ -319,6 +335,7 @@ class MonthlyGitHubMetrics:
             "review_turnaround_hours": self.review_turnaround_hours,
             "change_request_rate": self.change_request_rate,
             "ci_pass_rate": self.ci_pass_rate,
+            "pr_commits": self.pr_commits,
         }
 
 
@@ -338,6 +355,7 @@ class _MonthGithubAccumulator:
     total_reviews_on_authored_prs: int = 0
     ci_checks_total: int = 0
     ci_checks_passed: int = 0
+    pr_commits: int = 0
 
     def finalize(self, month: str) -> MonthlyGitHubMetrics:
         cycle_time = (self.cycle_time_total_days / self.prs_merged) if self.prs_merged else 0.0
@@ -358,6 +376,7 @@ class _MonthGithubAccumulator:
             review_turnaround_hours=turnaround,
             change_request_rate=cr_rate,
             ci_pass_rate=ci_rate,
+            pr_commits=self.pr_commits,
         )
 
 
@@ -430,6 +449,37 @@ def _populate_from_api(
                 acc.ci_checks_total += 1
                 if run.get("conclusion") == "success":
                     acc.ci_checks_passed += 1
+
+        # Fetch the PR's feature-branch commits to count real development
+        # effort for squash-merged PRs. Each commit is attributed to its own
+        # author (by GitHub login or commit email), not to the PR opener --
+        # so a PR opened by amedwishpond but with commits authored by both
+        # amedwishpond and a coding tool correctly credits only the human.
+        # This replaces the single squash commit that git_source.py now
+        # excludes, restoring the commit metric's meaning.
+        if number is not None:
+            pr_commits = fetch_pr_commits(client, full_name, number, store)
+            for c in pr_commits:
+                commit_author_name = (c.get("commit", {}).get("author", {}) or {}).get("name", "")
+                commit_author_email = (c.get("commit", {}).get("author", {}) or {}).get("email", "")
+                github_login = (c.get("author") or {}).get("login", "")
+                commit_result = resolve_author(
+                    identity_map,
+                    name=commit_author_name,
+                    email=commit_author_email,
+                    login=github_login,
+                )
+                if commit_result.category != "roster":
+                    continue
+                commit_date = _parse_iso(
+                    (c.get("commit", {}).get("author", {}) or {}).get("date", "")
+                )
+                if commit_date is None:
+                    continue
+                commit_month = f"{commit_date.year:04d}-{commit_date.month:02d}"
+                if commit_month not in month_set:
+                    continue
+                accumulators[commit_result.person.handle][commit_month].pr_commits += 1
 
 
 def collect_repo_github_metrics(

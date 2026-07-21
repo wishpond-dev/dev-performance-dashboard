@@ -206,6 +206,14 @@ def extract_pr_number(subject: str) -> Optional[int]:
     return None
 
 
+def is_squash_commit(subject: str) -> bool:
+    """True if this commit subject looks like a GitHub squash-merge commit
+    (ends with '(#NNN)'). Used by git_source.py to identify squash commits
+    whose original feature-branch commits should be fetched from the GitHub
+    API instead of counting the single squash commit."""
+    return bool(_SQUASH_SUFFIX_PR_RE.search(subject))
+
+
 def pr_dedupe_key(sha: str, subject: str) -> str:
     """Stable key identifying the logical PR (or direct-push commit) a git
     commit represents. `git_source.py` and `github_source.py` should dedupe

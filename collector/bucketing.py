@@ -48,11 +48,13 @@ from collector.github_source import MonthlyGitHubMetrics
 from collector.identity import IdentityMap
 
 # The git-sourced fields, merged verbatim from MonthlyGitMetrics.to_dict()
-# (excluding "month", which is handled separately).
-_GIT_FIELDS = ("commits", "lines_added", "lines_removed", "net", "active_days", "test_touch_rate")
+# (excluding "month", which is handled separately, and "commits", which is
+# the sum of git-sourced non-squash commits + pr_commits — see _merge_row).
+_GIT_FIELDS = ("lines_added", "lines_removed", "net", "active_days", "test_touch_rate")
 
 # The GitHub-sourced fields, merged verbatim from MonthlyGitHubMetrics.to_dict()
-# (excluding "month").
+# (excluding "month").  `pr_commits` is a GitHub-sourced field but is handled
+# separately (added to `commits` in _merge_row) so it is NOT in this tuple.
 _GITHUB_FIELDS = (
     "prs_merged", "cycle_time_days", "reviews_given",
     "review_turnaround_hours", "change_request_rate", "ci_pass_rate",
@@ -69,10 +71,18 @@ class MergedMonthlyMetrics:
     """One complete repo/developer/month row: the union of git_source.py's
     and github_source.py's fields, plus a reserved (always None here)
     composite slot scoring.py fills in later. Every field always present,
-    per implementation-plan.md S3's "no missing keys, ever" rule."""
+    per implementation-plan.md S3's "no missing keys, ever" rule.
+
+    `pr_commits` is the count of feature-branch commits inside
+    squash-merged PRs (fetched from the GitHub /pulls/{n}/commits API).
+    These replace the squash commits that git_source.py now excludes from
+    its `commits` count. The `commits` field in the merged row is already
+    the sum of git-sourced non-squash commits + pr_commits (see _merge_row).
+    """
 
     month: str
     commits: int = 0
+    pr_commits: int = 0
     lines_added: int = 0
     lines_removed: int = 0
     net: int = 0
@@ -90,6 +100,7 @@ class MergedMonthlyMetrics:
         return {
             "month": self.month,
             "commits": self.commits,
+            "pr_commits": self.pr_commits,
             "lines_added": self.lines_added,
             "lines_removed": self.lines_removed,
             "net": self.net,
@@ -115,9 +126,22 @@ def _zero_github_row(month: str) -> dict:
 
 def _merge_row(git_row: dict, github_row: dict, month: str) -> dict:
     """Combine one git_source.py row and one github_source.py row (same
-    developer, same month) into one MergedMonthlyMetrics dict."""
+    developer, same month) into one MergedMonthlyMetrics dict.
+
+    `commits` = git-sourced non-squash commits + GitHub-sourced pr_commits.
+    git_source.py already excludes squash-merge commits (subjects ending in
+    '(#NNN)') from its `commits` count; github_source.py fetches the real
+    feature-branch commits via /pulls/{n}/commits and stores them as
+    `pr_commits`. The sum is the true commit count: real development effort
+    for squash-merge repos (not 1-per-PR), and unchanged for merge/direct-push
+    repos where pr_commits is always 0.
+    """
+    pr_commits = github_row.get("pr_commits", 0)
+    git_commits = git_row["commits"]
     merged = MergedMonthlyMetrics(
         month=month,
+        commits=git_commits + pr_commits,
+        pr_commits=pr_commits,
         **{field: git_row[field] for field in _GIT_FIELDS},
         **{field: github_row[field] for field in _GITHUB_FIELDS},
     )
@@ -235,9 +259,11 @@ def roll_up_developer_month(rows: list) -> dict:
     month = rows[0]["month"]
     lines_added = sum(r["lines_added"] for r in rows)
     lines_removed = sum(r["lines_removed"] for r in rows)
+    pr_commits = sum(r.get("pr_commits", 0) for r in rows)
     merged = MergedMonthlyMetrics(
         month=month,
         commits=sum(r["commits"] for r in rows),
+        pr_commits=pr_commits,
         lines_added=lines_added,
         lines_removed=lines_removed,
         net=lines_added - lines_removed,

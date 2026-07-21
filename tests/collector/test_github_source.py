@@ -114,6 +114,7 @@ def test_ident_gh_001_only_default_branch_prs_counted(tmp_path):
         ),
     )
     session.queue(f"{PULLS_URL}/1/reviews", FakeResponse(200, []))
+    session.queue(f"{PULLS_URL}/1/commits", FakeResponse(200, []))
     session.queue("https://api.github.com/repos/org/repo/commits/sha0/check-runs", FakeResponse(200, {"check_runs": []}))
 
     result = collect_repo_github_metrics(
@@ -134,6 +135,7 @@ def test_ident_gh_002_cycle_time_computed_correctly(tmp_path):
         FakeResponse(200, [_pr(5, "alicehub", "main", "2025-07-01T00:00:00Z", "2025-07-03T12:00:00Z")]),
     )
     session.queue(f"{PULLS_URL}/5/reviews", FakeResponse(200, []))
+    session.queue(f"{PULLS_URL}/5/commits", FakeResponse(200, []))
     session.queue(
         "https://api.github.com/repos/org/repo/commits/sha0/check-runs", FakeResponse(200, {"check_runs": []})
     )
@@ -166,6 +168,7 @@ def test_ident_gh_003_reviews_and_turnaround_computed_correctly(tmp_path):
             ],
         ),
     )
+    session.queue(f"{PULLS_URL}/7/commits", FakeResponse(200, []))
     session.queue(
         "https://api.github.com/repos/org/repo/commits/sha0/check-runs", FakeResponse(200, {"check_runs": []})
     )
@@ -206,6 +209,7 @@ def test_ident_gh_004_change_request_rate_mixed_reviews():
     session.queue(
         "https://api.github.com/repos/org/repo/commits/sha0/check-runs", FakeResponse(200, {"check_runs": []})
     )
+    session.queue(f"{PULLS_URL}/9/commits", FakeResponse(200, []))
 
     result = collect_repo_github_metrics(
         _repo_config(), _identity_map(), window_months=WINDOW,
@@ -234,6 +238,8 @@ def test_ident_gh_005_ci_pass_rate_and_null_when_zero_check_runs():
     )
     session.queue(f"{PULLS_URL}/11/reviews", FakeResponse(200, []))
     session.queue(f"{PULLS_URL}/12/reviews", FakeResponse(200, []))
+    session.queue(f"{PULLS_URL}/11/commits", FakeResponse(200, []))
+    session.queue(f"{PULLS_URL}/12/commits", FakeResponse(200, []))
     session.queue(
         "https://api.github.com/repos/org/repo/commits/shaA/check-runs",
         FakeResponse(200, {"check_runs": [{"conclusion": "success"}, {"conclusion": "failure"}]}),
@@ -266,6 +272,7 @@ def test_ident_gh_006_second_run_is_fully_cached(tmp_path):
         FakeResponse(200, [_pr(21, "alicehub", "main", "2025-07-01T00:00:00Z", "2025-07-02T00:00:00Z")]),
     )
     session.queue(f"{PULLS_URL}/21/reviews", FakeResponse(200, []))
+    session.queue(f"{PULLS_URL}/21/commits", FakeResponse(200, []))
     session.queue(
         "https://api.github.com/repos/org/repo/commits/sha0/check-runs", FakeResponse(200, {"check_runs": []})
     )
@@ -276,7 +283,7 @@ def test_ident_gh_006_second_run_is_fully_cached(tmp_path):
         client=_client(session), cache_root=cache_root,
     )
     calls_after_first_run = len(session.calls)
-    assert calls_after_first_run == 3  # pulls + reviews + check-runs, exactly once each
+    assert calls_after_first_run == 4  # pulls + reviews + prcommits + check-runs, exactly once each
 
     # Second run: nothing left queued in `session`, so any live call would
     # raise inside FakeSession.get -- a cache hit must avoid touching it.
@@ -301,6 +308,7 @@ def test_ident_gh_007_rate_limit_backs_off_and_retries():
         FakeResponse(200, [_pr(31, "alicehub", "main", "2025-07-01T00:00:00Z", "2025-07-02T00:00:00Z")]),
     )
     session.queue(f"{PULLS_URL}/31/reviews", FakeResponse(200, []))
+    session.queue(f"{PULLS_URL}/31/commits", FakeResponse(200, []))
     session.queue(
         "https://api.github.com/repos/org/repo/commits/sha0/check-runs", FakeResponse(200, {"check_runs": []})
     )
@@ -333,6 +341,9 @@ def test_ident_gh_008_auth_failure_isolated_per_repo(caplog):
     )
     ok_session.queue(
         "https://api.github.com/repos/org/good-repo/pulls/41/reviews", FakeResponse(200, [])
+    )
+    ok_session.queue(
+        "https://api.github.com/repos/org/good-repo/pulls/41/commits", FakeResponse(200, [])
     )
     ok_session.queue(
         "https://api.github.com/repos/org/good-repo/commits/sha0/check-runs", FakeResponse(200, {"check_runs": []})
@@ -399,6 +410,7 @@ def test_ident_gh_009_attribution_converges_email_and_login():
         f"{PULLS_URL}/51/reviews",
         FakeResponse(200, [{"user": {"login": "bobhub"}, "state": "APPROVED", "submitted_at": "2025-07-01T12:00:00Z"}]),
     )
+    session.queue(f"{PULLS_URL}/51/commits", FakeResponse(200, []))
     session.queue(
         "https://api.github.com/repos/org/repo/commits/sha0/check-runs", FakeResponse(200, {"check_runs": []})
     )
@@ -432,6 +444,7 @@ def test_ident_gh_010_full_fetch_cycle_no_missing_keys():
             [{"user": {"login": "bobhub"}, "state": "CHANGES_REQUESTED", "submitted_at": "2025-07-02T00:00:00Z"}],
         ),
     )
+    session.queue(f"{PULLS_URL}/61/commits", FakeResponse(200, []))
     session.queue(
         "https://api.github.com/repos/org/repo/commits/sha0/check-runs",
         FakeResponse(200, {"check_runs": [{"conclusion": "success"}]}),
@@ -444,6 +457,7 @@ def test_ident_gh_010_full_fetch_cycle_no_missing_keys():
     expected_keys = {
         "month", "prs_merged", "cycle_time_days", "reviews_given",
         "review_turnaround_hours", "change_request_rate", "ci_pass_rate",
+        "pr_commits",
     }
     for handle in ("alicehub", "bobhub"):
         for month in WINDOW:
@@ -463,6 +477,7 @@ def test_collect_all_github_metrics_batches_multiple_repos():
         FakeResponse(200, [_pr(71, "alicehub", "main", "2025-07-01T00:00:00Z", "2025-07-02T00:00:00Z")]),
     )
     session.queue(f"{PULLS_URL}/71/reviews", FakeResponse(200, []))
+    session.queue(f"{PULLS_URL}/71/commits", FakeResponse(200, []))
     session.queue(
         "https://api.github.com/repos/org/repo/commits/sha0/check-runs", FakeResponse(200, {"check_runs": []})
     )

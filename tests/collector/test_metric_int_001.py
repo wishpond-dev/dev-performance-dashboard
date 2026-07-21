@@ -63,7 +63,7 @@ REPOS = [REPO_A, REPO_B]
 # Every field the documented MergedMonthlyMetrics row (implementation-plan.md
 # S3 / METRIC-BUCKET-006) must carry.
 _MONTHLY_ROW_FIELDS = {
-    "month", "commits", "lines_added", "lines_removed", "net", "active_days",
+    "month", "commits", "pr_commits", "lines_added", "lines_removed", "net", "active_days",
     "test_touch_rate", "prs_merged", "cycle_time_days", "reviews_given",
     "review_turnaround_hours", "change_request_rate", "ci_pass_rate", "composite",
 }

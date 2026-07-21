@@ -153,7 +153,7 @@ def test_metric_persist_006_raw_json_written_per_repo_per_month(tmp_path):
             assert set(payload["developers"].keys()) == set(HANDLES)
             row = payload["developers"]["amedwishpond"]
             assert set(row.keys()) == {
-                "month", "commits", "lines_added", "lines_removed", "net", "active_days",
+                "month", "commits", "pr_commits", "lines_added", "lines_removed", "net", "active_days",
                 "test_touch_rate", "prs_merged", "cycle_time_days", "reviews_given",
                 "review_turnaround_hours", "change_request_rate", "ci_pass_rate", "composite",
             }

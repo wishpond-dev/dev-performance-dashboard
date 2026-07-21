@@ -25,6 +25,16 @@ silently drop nearly all real content for merge-strategy repos here: a
 merge commit's default diff (without `-m`) is empty, so if merge commits
 were the only rows visited, lines/active-days/test-touch would collapse to
 near-zero for every repo that merges instead of squashes.
+
+Squash-merge handling: commits whose subject ends with '(#NNN)' (GitHub's
+squash-merge convention) are tracked separately as `squash_commits` and
+excluded from the final `commits` count. Their original feature-branch
+commits — the actual development work — are fetched from the GitHub
+/pulls/{n}/commits API by github_source.py and counted as `pr_commits`.
+This restores the commit metric's meaning for squash-merge repos: a PR
+with 15 feature-branch commits contributes 15, not 1. For merge-strategy
+repos (no squash suffix), feature-branch commits are already on the default
+branch and counted normally — no PR-commit fetching needed.
 """
 
 from __future__ import annotations
@@ -36,7 +46,7 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Iterable, Optional
 
-from collector.branch import detect_default_branch
+from collector.branch import detect_default_branch, is_squash_commit
 from collector.identity import IdentityMap, RawAuthor, resolve_authors
 
 logger = logging.getLogger(__name__)
@@ -113,19 +123,29 @@ class MonthlyGitMetrics:
 @dataclass
 class _MonthAccumulator:
     """Mutable per-(developer, month) accumulator; finalized into an
-    immutable MonthlyGitMetrics once the commit walk is done."""
+    immutable MonthlyGitMetrics once the commit walk is done.
+
+    `squash_commits` tracks commits that are squash-merge artifacts (subject
+    ends with '(#NNN)'). These are excluded from the final `commits` count
+    because their original feature-branch commits — the real work — are
+    fetched from the GitHub /pulls/{n}/commits API by github_source.py and
+    counted there as `pr_commits`. Without this split, squash-merge repos
+    would show 1 commit per PR regardless of how many commits the developer
+    actually authored on the feature branch."""
 
     commits: int = 0
+    squash_commits: int = 0
     lines_added: int = 0
     lines_removed: int = 0
     active_days: set = field(default_factory=set)
     test_touch_commits: int = 0
 
     def finalize(self, month: str) -> MonthlyGitMetrics:
+        real_commits = self.commits - self.squash_commits
         rate = (self.test_touch_commits / self.commits) if self.commits else 0.0
         return MonthlyGitMetrics(
             month=month,
-            commits=self.commits,
+            commits=real_commits,
             lines_added=self.lines_added,
             lines_removed=self.lines_removed,
             net=self.lines_added - self.lines_removed,
@@ -274,6 +294,8 @@ def collect_repo_git_metrics(
             continue
         acc = accumulators[result.person.handle][month]
         acc.commits += 1
+        if is_squash_commit(commit.subject):
+            acc.squash_commits += 1
         acc.lines_added += commit.lines_added
         acc.lines_removed += commit.lines_removed
         acc.active_days.add(commit.author_date.date())

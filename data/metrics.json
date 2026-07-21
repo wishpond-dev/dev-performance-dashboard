@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T19:56:23Z",
+  "generated_at": "2026-07-21T20:23:39Z",
   "window": {
     "start": "2025-07",
     "end": "2026-06",
@@ -127,6 +127,8 @@
         "active_devs": 5,
         "cycle_time_days": 13.789109347442682,
         "ci_pass_rate": null,
+        "lines_added": 50638,
+        "lines_removed": 8462,
         "story_points": 127,
         "stories_completed": 103
       },
@@ -138,6 +140,8 @@
         "active_devs": 5,
         "cycle_time_days": 9.147807953042328,
         "ci_pass_rate": 0.0,
+        "lines_added": 45256,
+        "lines_removed": 14358,
         "story_points": 87,
         "stories_completed": 83
       },
@@ -149,6 +153,8 @@
         "active_devs": 5,
         "cycle_time_days": 9.952956123737374,
         "ci_pass_rate": null,
+        "lines_added": 15213,
+        "lines_removed": 3815,
         "story_points": 107,
         "stories_completed": 95
       },
@@ -160,6 +166,8 @@
         "active_devs": 5,
         "cycle_time_days": 16.10019000771605,
         "ci_pass_rate": null,
+        "lines_added": 12449,
+        "lines_removed": 4570,
         "story_points": 129,
         "stories_completed": 109
       },
@@ -171,6 +179,8 @@
         "active_devs": 5,
         "cycle_time_days": 20.989246720679013,
         "ci_pass_rate": null,
+        "lines_added": 10887,
+        "lines_removed": 2180,
         "story_points": 90,
         "stories_completed": 68
       },
@@ -182,6 +192,8 @@
         "active_devs": 5,
         "cycle_time_days": 10.131393518518518,
         "ci_pass_rate": null,
+        "lines_added": 8097,
+        "lines_removed": 1386,
         "story_points": 75,
         "stories_completed": 68
       },
@@ -193,6 +205,8 @@
         "active_devs": 5,
         "cycle_time_days": 13.36573510208927,
         "ci_pass_rate": null,
+        "lines_added": 21074,
+        "lines_removed": 3977,
         "story_points": 101,
         "stories_completed": 75
       },
@@ -204,6 +218,8 @@
         "active_devs": 5,
         "cycle_time_days": 12.922128870673953,
         "ci_pass_rate": 1.0,
+        "lines_added": 40536,
+        "lines_removed": 7919,
         "story_points": 146,
         "stories_completed": 105
       },
@@ -215,6 +231,8 @@
         "active_devs": 6,
         "cycle_time_days": 8.75189995659722,
         "ci_pass_rate": 0.7138480392156862,
+        "lines_added": 47034,
+        "lines_removed": 3789,
         "story_points": 120,
         "stories_completed": 109
       },
@@ -226,6 +244,8 @@
         "active_devs": 6,
         "cycle_time_days": 13.973966139104222,
         "ci_pass_rate": 0.7054263565891472,
+        "lines_added": 27373,
+        "lines_removed": 4469,
         "story_points": 117,
         "stories_completed": 143
       },
@@ -237,6 +257,8 @@
         "active_devs": 7,
         "cycle_time_days": 14.146752917300864,
         "ci_pass_rate": 0.8033929477422628,
+        "lines_added": 115861,
+        "lines_removed": 10799,
         "story_points": 145,
         "stories_completed": 146
       },
@@ -248,6 +270,8 @@
         "active_devs": 8,
         "cycle_time_days": 6.852300473027375,
         "ci_pass_rate": 0.693556708082763,
+        "lines_added": 162026,
+        "lines_removed": 20654,
         "story_points": 259,
         "stories_completed": 209
       }

@@ -2525,15 +2525,22 @@
   </section>
 
   <section class="sec" id="storypoints">
-    <h2>Story Points Delivered &middot; from Shortcut</h2>
+    <h2>Story Points &amp; Code Lines &middot; Shortcut + Git</h2>
     <div class="card">
       <div class="chart-toolbar">
         <button type="button" class="chart-toggle" id="storyPointsToggle" aria-pressed="false">
           <span class="mode-team active">Team</span> / <span class="mode-dev">Per-developer</span>
         </button>
       </div>
-      <div class="chart-wrap">
-        <canvas id="storyPointsChart" height="280" role="img" aria-label="Story points delivered by month"></canvas>
+      <div class="chart-wrap chart-wrap-dual">
+        <div class="chart-wrap-half">
+          <div class="chart-wrap-label"><span style="color:#fbbf24">●</span> Story Points (Shortcut)</div>
+          <canvas id="storyPointsChart" height="240" role="img" aria-label="Story points delivered by month"></canvas>
+        </div>
+        <div class="chart-wrap-half">
+          <div class="chart-wrap-label"><span style="color:#34d399">●</span> Lines Added <span style="color:#fb7185;margin-left:6px">●</span> Lines Deleted</div>
+          <canvas id="codeLinesChart" height="240" role="img" aria-label="Code lines added and deleted by month"></canvas>
+        </div>
       </div>
     </div>
   </section>

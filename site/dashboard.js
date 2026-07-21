@@ -853,6 +853,81 @@
     });
   }
 
+  // ---- Code Lines chart (git lines added/deleted) -------------------------
+  function buildTeamCodeLinesConfig(data) {
+    var months = (data.window && data.window.months) || [];
+    var monthly = (data.team && data.team.monthly) || [];
+    var added = months.map(function (m) {
+      var row = findMonthRow(monthly, m);
+      return row && typeof row.lines_added === 'number' ? row.lines_added : 0;
+    });
+    var removed = months.map(function (m) {
+      var row = findMonthRow(monthly, m);
+      return row && typeof row.lines_removed === 'number' ? row.lines_removed : 0;
+    });
+    return {
+      labels: months.map(monthShortLabel),
+      datasets: [
+        { label: 'Lines Added', data: added, backgroundColor: '#34d399', borderRadius: 3, maxBarThickness: 18 },
+        { label: 'Lines Deleted', data: removed, backgroundColor: '#fb7185', borderRadius: 3, maxBarThickness: 18 }
+      ]
+    };
+  }
+
+  function buildPerDeveloperCodeLinesConfig(data) {
+    var months = (data.window && data.window.months) || [];
+    var roster = data.roster || [];
+    var developers = data.developers || [];
+    var datasets = roster.map(function (person, idx) {
+      var dev = null;
+      for (var i = 0; i < developers.length; i++) {
+        if (developers[i].handle === person.handle) { dev = developers[i]; break; }
+      }
+      var monthly = (dev && dev.monthly) || [];
+      var series = months.map(function (m) {
+        var row = findMonthRow(monthly, m);
+        return row && typeof row.lines_added === 'number' ? row.lines_added : 0;
+      });
+      var color = CHART_PALETTE_9[idx % CHART_PALETTE_9.length];
+      return {
+        label: person.name, handle: person.handle, data: series,
+        backgroundColor: color, borderColor: color, maxBarThickness: 9, borderRadius: 2
+      };
+    });
+    return { labels: months.map(monthShortLabel), datasets: datasets };
+  }
+
+  var codeLinesChart = { instance: null, mode: 'team', data: null };
+
+  function initCodeLinesChart(data) {
+    var canvas = document.getElementById('codeLinesChart');
+    if (!canvas || typeof Chart === 'undefined') return;
+    codeLinesChart.data = data;
+    var config = buildTeamCodeLinesConfig(data);
+    codeLinesChart.instance = new Chart(canvas.getContext('2d'), {
+      type: 'bar', data: config, options: activityChartOptions(), plugins: [h1h2DividerPlugin, barDataLabelsPlugin]
+    });
+
+    var toggle = document.getElementById('storyPointsToggle');
+    if (!toggle) return;
+    toggle.addEventListener('click', function () {
+      codeLinesChart.mode = codeLinesChart.mode === 'team' ? 'developer' : 'team';
+      var next = codeLinesChart.mode === 'team'
+        ? buildTeamCodeLinesConfig(codeLinesChart.data)
+        : buildPerDeveloperCodeLinesConfig(codeLinesChart.data);
+      codeLinesChart.instance.data.labels = next.labels;
+      codeLinesChart.instance.data.datasets = next.datasets;
+      codeLinesChart.instance.update();
+    });
+
+    window.addEventListener('dashboard:developer-filter', function (evt) {
+      if (codeLinesChart.mode !== 'developer' || !codeLinesChart.instance) return;
+      var handle = evt && evt.detail ? evt.detail.handle : null;
+      codeLinesChart.instance.data.datasets = applyDeveloperHighlight(codeLinesChart.instance.data.datasets, handle);
+      codeLinesChart.instance.update();
+    });
+  }
+
   function initScrollSpy() {
     var links = Array.prototype.slice.call(document.querySelectorAll('.sidebar-link'));
     var sections = [];
@@ -1352,6 +1427,7 @@
     renderKpiRow(data);
     initActivityChart(data);
     initStoryPointsChart(data);
+    initCodeLinesChart(data);
     renderScorecards(data);
     renderReviews(data);
     renderDora(data);
@@ -1389,6 +1465,8 @@
     buildPerDeveloperActivityChartConfig: buildPerDeveloperActivityChartConfig,
     buildTeamStoryPointsConfig: buildTeamStoryPointsConfig,
     buildPerDeveloperStoryPointsConfig: buildPerDeveloperStoryPointsConfig,
+    buildTeamCodeLinesConfig: buildTeamCodeLinesConfig,
+    buildPerDeveloperCodeLinesConfig: buildPerDeveloperCodeLinesConfig,
     applyDeveloperHighlight: applyDeveloperHighlight,
     hexToRgba: hexToRgba,
     buildScorecardFormulaLabel: buildScorecardFormulaLabel,

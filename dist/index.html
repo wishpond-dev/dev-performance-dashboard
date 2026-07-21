@@ -373,7 +373,7 @@ body.sidebar-expanded { --sidebar-width: 240px; }
 
 <script id="metrics-data" type="application/json">
 {
-  "generated_at": "2026-07-21T19:56:23Z",
+  "generated_at": "2026-07-21T20:23:39Z",
   "window": {
     "start": "2025-07",
     "end": "2026-06",
@@ -501,6 +501,8 @@ body.sidebar-expanded { --sidebar-width: 240px; }
         "active_devs": 5,
         "cycle_time_days": 13.789109347442682,
         "ci_pass_rate": null,
+        "lines_added": 50638,
+        "lines_removed": 8462,
         "story_points": 127,
         "stories_completed": 103
       },
@@ -512,6 +514,8 @@ body.sidebar-expanded { --sidebar-width: 240px; }
         "active_devs": 5,
         "cycle_time_days": 9.147807953042328,
         "ci_pass_rate": 0.0,
+        "lines_added": 45256,
+        "lines_removed": 14358,
         "story_points": 87,
         "stories_completed": 83
       },
@@ -523,6 +527,8 @@ body.sidebar-expanded { --sidebar-width: 240px; }
         "active_devs": 5,
         "cycle_time_days": 9.952956123737374,
         "ci_pass_rate": null,
+        "lines_added": 15213,
+        "lines_removed": 3815,
         "story_points": 107,
         "stories_completed": 95
       },
@@ -534,6 +540,8 @@ body.sidebar-expanded { --sidebar-width: 240px; }
         "active_devs": 5,
         "cycle_time_days": 16.10019000771605,
         "ci_pass_rate": null,
+        "lines_added": 12449,
+        "lines_removed": 4570,
         "story_points": 129,
         "stories_completed": 109
       },
@@ -545,6 +553,8 @@ body.sidebar-expanded { --sidebar-width: 240px; }
         "active_devs": 5,
         "cycle_time_days": 20.989246720679013,
         "ci_pass_rate": null,
+        "lines_added": 10887,
+        "lines_removed": 2180,
         "story_points": 90,
         "stories_completed": 68
       },
@@ -556,6 +566,8 @@ body.sidebar-expanded { --sidebar-width: 240px; }
         "active_devs": 5,
         "cycle_time_days": 10.131393518518518,
         "ci_pass_rate": null,
+        "lines_added": 8097,
+        "lines_removed": 1386,
         "story_points": 75,
         "stories_completed": 68
       },
@@ -567,6 +579,8 @@ body.sidebar-expanded { --sidebar-width: 240px; }
         "active_devs": 5,
         "cycle_time_days": 13.36573510208927,
         "ci_pass_rate": null,
+        "lines_added": 21074,
+        "lines_removed": 3977,
         "story_points": 101,
         "stories_completed": 75
       },
@@ -578,6 +592,8 @@ body.sidebar-expanded { --sidebar-width: 240px; }
         "active_devs": 5,
         "cycle_time_days": 12.922128870673953,
         "ci_pass_rate": 1.0,
+        "lines_added": 40536,
+        "lines_removed": 7919,
         "story_points": 146,
         "stories_completed": 105
       },
@@ -589,6 +605,8 @@ body.sidebar-expanded { --sidebar-width: 240px; }
         "active_devs": 6,
         "cycle_time_days": 8.75189995659722,
         "ci_pass_rate": 0.7138480392156862,
+        "lines_added": 47034,
+        "lines_removed": 3789,
         "story_points": 120,
         "stories_completed": 109
       },
@@ -600,6 +618,8 @@ body.sidebar-expanded { --sidebar-width: 240px; }
         "active_devs": 6,
         "cycle_time_days": 13.973966139104222,
         "ci_pass_rate": 0.7054263565891472,
+        "lines_added": 27373,
+        "lines_removed": 4469,
         "story_points": 117,
         "stories_completed": 143
       },
@@ -611,6 +631,8 @@ body.sidebar-expanded { --sidebar-width: 240px; }
         "active_devs": 7,
         "cycle_time_days": 14.146752917300864,
         "ci_pass_rate": 0.8033929477422628,
+        "lines_added": 115861,
+        "lines_removed": 10799,
         "story_points": 145,
         "stories_completed": 146
       },
@@ -622,6 +644,8 @@ body.sidebar-expanded { --sidebar-width: 240px; }
         "active_devs": 8,
         "cycle_time_days": 6.852300473027375,
         "ci_pass_rate": 0.693556708082763,
+        "lines_added": 162026,
+        "lines_removed": 20654,
         "story_points": 259,
         "stories_completed": 209
       }
@@ -2891,15 +2915,22 @@ body.sidebar-expanded { --sidebar-width: 240px; }
   </section>
 
   <section class="sec" id="storypoints">
-    <h2>Story Points Delivered &middot; from Shortcut</h2>
+    <h2>Story Points &amp; Code Lines &middot; Shortcut + Git</h2>
     <div class="card">
       <div class="chart-toolbar">
         <button type="button" class="chart-toggle" id="storyPointsToggle" aria-pressed="false">
           <span class="mode-team active">Team</span> / <span class="mode-dev">Per-developer</span>
         </button>
       </div>
-      <div class="chart-wrap">
-        <canvas id="storyPointsChart" height="280" role="img" aria-label="Story points delivered by month"></canvas>
+      <div class="chart-wrap chart-wrap-dual">
+        <div class="chart-wrap-half">
+          <div class="chart-wrap-label"><span style="color:#fbbf24">●</span> Story Points (Shortcut)</div>
+          <canvas id="storyPointsChart" height="240" role="img" aria-label="Story points delivered by month"></canvas>
+        </div>
+        <div class="chart-wrap-half">
+          <div class="chart-wrap-label"><span style="color:#34d399">●</span> Lines Added <span style="color:#fb7185;margin-left:6px">●</span> Lines Deleted</div>
+          <canvas id="codeLinesChart" height="240" role="img" aria-label="Code lines added and deleted by month"></canvas>
+        </div>
       </div>
     </div>
   </section>
@@ -3802,6 +3833,81 @@ body.sidebar-expanded { --sidebar-width: 240px; }
     });
   }
 
+  // ---- Code Lines chart (git lines added/deleted) -------------------------
+  function buildTeamCodeLinesConfig(data) {
+    var months = (data.window && data.window.months) || [];
+    var monthly = (data.team && data.team.monthly) || [];
+    var added = months.map(function (m) {
+      var row = findMonthRow(monthly, m);
+      return row && typeof row.lines_added === 'number' ? row.lines_added : 0;
+    });
+    var removed = months.map(function (m) {
+      var row = findMonthRow(monthly, m);
+      return row && typeof row.lines_removed === 'number' ? row.lines_removed : 0;
+    });
+    return {
+      labels: months.map(monthShortLabel),
+      datasets: [
+        { label: 'Lines Added', data: added, backgroundColor: '#34d399', borderRadius: 3, maxBarThickness: 18 },
+        { label: 'Lines Deleted', data: removed, backgroundColor: '#fb7185', borderRadius: 3, maxBarThickness: 18 }
+      ]
+    };
+  }
+
+  function buildPerDeveloperCodeLinesConfig(data) {
+    var months = (data.window && data.window.months) || [];
+    var roster = data.roster || [];
+    var developers = data.developers || [];
+    var datasets = roster.map(function (person, idx) {
+      var dev = null;
+      for (var i = 0; i < developers.length; i++) {
+        if (developers[i].handle === person.handle) { dev = developers[i]; break; }
+      }
+      var monthly = (dev && dev.monthly) || [];
+      var series = months.map(function (m) {
+        var row = findMonthRow(monthly, m);
+        return row && typeof row.lines_added === 'number' ? row.lines_added : 0;
+      });
+      var color = CHART_PALETTE_9[idx % CHART_PALETTE_9.length];
+      return {
+        label: person.name, handle: person.handle, data: series,
+        backgroundColor: color, borderColor: color, maxBarThickness: 9, borderRadius: 2
+      };
+    });
+    return { labels: months.map(monthShortLabel), datasets: datasets };
+  }
+
+  var codeLinesChart = { instance: null, mode: 'team', data: null };
+
+  function initCodeLinesChart(data) {
+    var canvas = document.getElementById('codeLinesChart');
+    if (!canvas || typeof Chart === 'undefined') return;
+    codeLinesChart.data = data;
+    var config = buildTeamCodeLinesConfig(data);
+    codeLinesChart.instance = new Chart(canvas.getContext('2d'), {
+      type: 'bar', data: config, options: activityChartOptions(), plugins: [h1h2DividerPlugin, barDataLabelsPlugin]
+    });
+
+    var toggle = document.getElementById('storyPointsToggle');
+    if (!toggle) return;
+    toggle.addEventListener('click', function () {
+      codeLinesChart.mode = codeLinesChart.mode === 'team' ? 'developer' : 'team';
+      var next = codeLinesChart.mode === 'team'
+        ? buildTeamCodeLinesConfig(codeLinesChart.data)
+        : buildPerDeveloperCodeLinesConfig(codeLinesChart.data);
+      codeLinesChart.instance.data.labels = next.labels;
+      codeLinesChart.instance.data.datasets = next.datasets;
+      codeLinesChart.instance.update();
+    });
+
+    window.addEventListener('dashboard:developer-filter', function (evt) {
+      if (codeLinesChart.mode !== 'developer' || !codeLinesChart.instance) return;
+      var handle = evt && evt.detail ? evt.detail.handle : null;
+      codeLinesChart.instance.data.datasets = applyDeveloperHighlight(codeLinesChart.instance.data.datasets, handle);
+      codeLinesChart.instance.update();
+    });
+  }
+
   function initScrollSpy() {
     var links = Array.prototype.slice.call(document.querySelectorAll('.sidebar-link'));
     var sections = [];
@@ -4301,6 +4407,7 @@ body.sidebar-expanded { --sidebar-width: 240px; }
     renderKpiRow(data);
     initActivityChart(data);
     initStoryPointsChart(data);
+    initCodeLinesChart(data);
     renderScorecards(data);
     renderReviews(data);
     renderDora(data);
@@ -4338,6 +4445,8 @@ body.sidebar-expanded { --sidebar-width: 240px; }
     buildPerDeveloperActivityChartConfig: buildPerDeveloperActivityChartConfig,
     buildTeamStoryPointsConfig: buildTeamStoryPointsConfig,
     buildPerDeveloperStoryPointsConfig: buildPerDeveloperStoryPointsConfig,
+    buildTeamCodeLinesConfig: buildTeamCodeLinesConfig,
+    buildPerDeveloperCodeLinesConfig: buildPerDeveloperCodeLinesConfig,
     applyDeveloperHighlight: applyDeveloperHighlight,
     hexToRgba: hexToRgba,
     buildScorecardFormulaLabel: buildScorecardFormulaLabel,

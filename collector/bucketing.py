@@ -311,7 +311,8 @@ def build_developer_month_totals(
 class TeamMonthlyMetrics:
     """One team-per-month total row, matching implementation-plan.md S3's
     data contract team.monthly[] shape exactly: month, commits,
-    prs_merged, reviews, active_devs, cycle_time_days, ci_pass_rate."""
+    prs_merged, reviews, active_devs, cycle_time_days, ci_pass_rate,
+    lines_added, lines_removed."""
 
     month: str
     commits: int = 0
@@ -320,6 +321,8 @@ class TeamMonthlyMetrics:
     active_devs: int = 0
     cycle_time_days: float = 0.0
     ci_pass_rate: Optional[float] = None
+    lines_added: int = 0
+    lines_removed: int = 0
 
     def to_dict(self) -> dict:
         return {
@@ -330,6 +333,8 @@ class TeamMonthlyMetrics:
             "active_devs": self.active_devs,
             "cycle_time_days": self.cycle_time_days,
             "ci_pass_rate": self.ci_pass_rate,
+            "lines_added": self.lines_added,
+            "lines_removed": self.lines_removed,
         }
 
 
@@ -361,6 +366,8 @@ def roll_up_team_month(developer_rows: list) -> dict:
         ci_pass_rate=_average_skip_none(
             (r["ci_pass_rate"], r["prs_merged"]) for r in developer_rows
         ),
+        lines_added=sum(r.get("lines_added", 0) for r in developer_rows),
+        lines_removed=sum(r.get("lines_removed", 0) for r in developer_rows),
     )
     return team.to_dict()
 

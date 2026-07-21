@@ -256,9 +256,13 @@ body.sidebar-expanded { --sidebar-width: 240px; }
 .scorecard-composite-lab { font-size: 10px; color: var(--text-muted); }
 .scorecard-sparkline { height: 24px; margin-bottom: 8px; }
 
-/* Monthly bar chart in scorecards */
+/* Monthly bar charts in scorecards (separate commits/PRs charts) */
 .scorecard-monthly { margin-bottom: 18px; }
 .scorecard-monthly-label { font-size: 10px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .04em; }
+.scorecard-monthly-charts-row { display: flex; gap: 24px; }
+@media (max-width: 700px) { .scorecard-monthly-charts-row { flex-direction: column; gap: 12px; } }
+.scorecard-monthly-mini { flex: 1; min-width: 0; }
+.scorecard-monthly-mini-title { font-size: 11px; color: var(--text-muted); margin-bottom: 6px; }
 .scorecard-monthly-chart { display: flex; align-items: stretch; height: 200px; gap: 0; }
 .scorecard-monthly-yaxis { display: flex; flex-direction: column; justify-content: space-between; width: 28px; flex-shrink: 0; padding-right: 4px; }
 .scorecard-monthly-ylabel { font-size: 9px; color: var(--text-muted); text-align: right; line-height: 1; font-family: 'JetBrains Mono', monospace; }
@@ -269,7 +273,6 @@ body.sidebar-expanded { --sidebar-width: 240px; }
 .scorecard-month-bars { width: 100%; height: 180px; position: relative; display: flex; }
 .scorecard-month-value { position: absolute; font-size: 8px; font-family: 'JetBrains Mono', monospace; text-align: center; color: #34d399; line-height: 1; z-index: 2; }
 .scorecard-month-label { font-size: 10px; color: var(--text-muted); margin-top: 4px; text-align: center; }
-.scorecard-monthly-legend { font-size: 11px; color: var(--text-muted); margin-top: 6px; text-align: center; }
 .signal-bar-raw { font-size: 11px; color: #fff; font-weight: 600; }
 
 .signal-bars { display: flex; gap: 10px; align-items: flex-end; }

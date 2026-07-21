@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import math
 
 import pytest
 
@@ -192,14 +193,16 @@ def test_repofilter_highlight_logic_against_fixture_with_active_repos(site_dir, 
 # the real built dashboard for both the unfiltered and filtered states.
 
 def _fmt_h1h2(value, kind):
-    """Mirrors dashboard.js's formatH1H2Value for building expected strings."""
+    """Mirrors dashboard.js's formatH1H2Value for building expected strings.
+    Uses math.floor(x + 0.5) to match JavaScript's Math.round() behavior
+    (rounds .5 up), unlike Python's built-in round() (banker's rounding)."""
     if value is None:
         return "—"
     if kind == "days":
         return f"{value:.1f}d"
     if kind == "point":
-        return f"{round(value * 100)}%"
-    return f"{round(value):,}"
+        return f"{math.floor(value * 100 + 0.5)}%"
+    return f"{math.floor(value + 0.5):,}"
 
 
 def test_repofilter_buildh1h2cards_team_view_reads_h1h2key_not_devkey(loaded_page):

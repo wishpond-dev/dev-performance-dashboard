@@ -1,0 +1,16 @@
+data/raw/*
+!data/raw/.gitkeep
+data/summaries/*
+!data/summaries/.gitkeep
+
+dist/*
+!dist/.gitkeep
+!dist/index.html
+
+__pycache__/
+*.pyc
+.pytest_cache/
+qa-screens/
+qa-scripts/
+qa_*.py
+qa_*.js

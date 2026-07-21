@@ -1,0 +1,8 @@
+requests>=2.31
+python-dateutil>=2.8
+
+# collector unit tests
+pytest>=7.4
+
+# dashboard E2E tests
+playwright>=1.58

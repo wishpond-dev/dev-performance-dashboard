@@ -1,0 +1,2563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Development Performance Dashboard</title>
+<link rel="icon" href="data:,">
+
+<link rel="stylesheet" href="dashboard.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+
+<script id="metrics-data" type="application/json">
+{
+  "generated_at": "2026-07-19T09:14:00Z",
+  "window": {
+    "start": "2025-07",
+    "end": "2026-06",
+    "months": [
+      "2025-07",
+      "2025-08",
+      "2025-09",
+      "2025-10",
+      "2025-11",
+      "2025-12",
+      "2026-01",
+      "2026-02",
+      "2026-03",
+      "2026-04",
+      "2026-05",
+      "2026-06"
+    ]
+  },
+  "roster": [
+    {
+      "name": "Alejandro Medina",
+      "handle": "amedwishpond",
+      "initials": "AM"
+    },
+    {
+      "name": "Amir Pourjabbari",
+      "handle": "mc4future",
+      "initials": "AP"
+    },
+    {
+      "name": "Gabriel Laporte",
+      "handle": "gabriellaporte-wp",
+      "initials": "GL"
+    },
+    {
+      "name": "Igor Negrizoli",
+      "handle": "igorFNegrizoli",
+      "initials": "IN"
+    },
+    {
+      "name": "Jose Almada",
+      "handle": "PepeAlmada",
+      "initials": "JA"
+    },
+    {
+      "name": "Paulo Mellin",
+      "handle": "pmellingimenes",
+      "initials": "PM"
+    },
+    {
+      "name": "Umer Boostani",
+      "handle": "umerbhattiboostani",
+      "initials": "UB"
+    },
+    {
+      "name": "David Moradi",
+      "handle": "davidmoradi",
+      "initials": "DM"
+    },
+    {
+      "name": "Marcelo Negrini",
+      "handle": "marcelon-salescloser",
+      "initials": "MN"
+    }
+  ],
+  "repos": [
+    {
+      "name": "salescloser-dashboard",
+      "org": "wishpond-dev",
+      "default_branch": "master",
+      "merge_strategy": "squash"
+    },
+    {
+      "name": "salescloser-bot",
+      "org": "wishpond-dev",
+      "default_branch": "master",
+      "merge_strategy": "squash"
+    },
+    {
+      "name": "salescloser-appmixer",
+      "org": "wishpond-dev",
+      "default_branch": "main",
+      "merge_strategy": "merge"
+    },
+    {
+      "name": "salescloser-coltrane",
+      "org": "wishpond-dev",
+      "default_branch": "main",
+      "merge_strategy": "merge"
+    },
+    {
+      "name": "salescloser-killer-calls",
+      "org": "wishpond-dev",
+      "default_branch": "main",
+      "merge_strategy": "merge"
+    },
+    {
+      "name": "jackhamr-doc-site",
+      "org": "wishpond-dev",
+      "default_branch": "main",
+      "merge_strategy": "squash"
+    },
+    {
+      "name": "salescloser-new-website",
+      "org": "marcelon-salescloser",
+      "default_branch": "main",
+      "merge_strategy": "squash"
+    },
+    {
+      "name": "salescloser-helm-charts",
+      "org": "wishpond-dev",
+      "default_branch": "main",
+      "merge_strategy": "merge"
+    }
+  ],
+  "score_weights": {
+    "commits": 0.2,
+    "prs": 0.3,
+    "reviews": 0.25,
+    "tests": 0.15,
+    "ci": 0.1
+  },
+  "team": {
+    "monthly": [
+      {
+        "month": "2025-07",
+        "commits": 300,
+        "prs_merged": 65,
+        "reviews": 124,
+        "active_devs": 9,
+        "cycle_time_days": 2.05,
+        "ci_pass_rate": null
+      },
+      {
+        "month": "2025-08",
+        "commits": 318,
+        "prs_merged": 69,
+        "reviews": 131,
+        "active_devs": 9,
+        "cycle_time_days": 1.99,
+        "ci_pass_rate": 0.909
+      },
+      {
+        "month": "2025-09",
+        "commits": 335,
+        "prs_merged": 73,
+        "reviews": 139,
+        "active_devs": 9,
+        "cycle_time_days": 1.94,
+        "ci_pass_rate": 0.913
+      },
+      {
+        "month": "2025-10",
+        "commits": 352,
+        "prs_merged": 77,
+        "reviews": 146,
+        "active_devs": 9,
+        "cycle_time_days": 1.88,
+        "ci_pass_rate": 0.917
+      },
+      {
+        "month": "2025-11",
+        "commits": 370,
+        "prs_merged": 80,
+        "reviews": 152,
+        "active_devs": 9,
+        "cycle_time_days": 1.83,
+        "ci_pass_rate": 0.921
+      },
+      {
+        "month": "2025-12",
+        "commits": 388,
+        "prs_merged": 84,
+        "reviews": 160,
+        "active_devs": 9,
+        "cycle_time_days": 1.77,
+        "ci_pass_rate": 0.925
+      },
+      {
+        "month": "2026-01",
+        "commits": 405,
+        "prs_merged": 88,
+        "reviews": 167,
+        "active_devs": 9,
+        "cycle_time_days": 1.71,
+        "ci_pass_rate": 0.929
+      },
+      {
+        "month": "2026-02",
+        "commits": 422,
+        "prs_merged": 92,
+        "reviews": 175,
+        "active_devs": 9,
+        "cycle_time_days": 1.66,
+        "ci_pass_rate": 0.933
+      },
+      {
+        "month": "2026-03",
+        "commits": 440,
+        "prs_merged": 96,
+        "reviews": 182,
+        "active_devs": 9,
+        "cycle_time_days": 1.6,
+        "ci_pass_rate": 0.937
+      },
+      {
+        "month": "2026-04",
+        "commits": 458,
+        "prs_merged": 100,
+        "reviews": 190,
+        "active_devs": 9,
+        "cycle_time_days": 1.55,
+        "ci_pass_rate": 0.941
+      },
+      {
+        "month": "2026-05",
+        "commits": 475,
+        "prs_merged": 103,
+        "reviews": 196,
+        "active_devs": 9,
+        "cycle_time_days": 1.49,
+        "ci_pass_rate": 0.945
+      },
+      {
+        "month": "2026-06",
+        "commits": 492,
+        "prs_merged": 107,
+        "reviews": 203,
+        "active_devs": 9,
+        "cycle_time_days": 1.43,
+        "ci_pass_rate": 0.949
+      }
+    ],
+    "h1": {
+      "commits_per_mo": 343.8,
+      "prs_per_mo": 74.7,
+      "reviews_per_mo": 142.0,
+      "active_devs": 9,
+      "cycle_time_days": 1.91,
+      "ci_pass_rate": 0.917
+    },
+    "h2": {
+      "commits_per_mo": 448.7,
+      "prs_per_mo": 97.7,
+      "reviews_per_mo": 185.5,
+      "active_devs": 9,
+      "cycle_time_days": 1.573,
+      "ci_pass_rate": 0.939
+    },
+    "dora": {
+      "deploy_frequency_per_month": 97.7,
+      "lead_time_days": 1.573,
+      "change_failure_rate": 0.058,
+      "mttr": null
+    }
+  },
+  "developers": [
+    {
+      "name": "Alejandro Medina",
+      "handle": "amedwishpond",
+      "initials": "AM",
+      "monthly": [
+        {
+          "month": "2025-07",
+          "commits": 25,
+          "lines_added": 700,
+          "lines_removed": 225,
+          "net": 475,
+          "active_days": 12,
+          "test_touch_rate": 0.22,
+          "prs_merged": 5,
+          "cycle_time_days": 2.05,
+          "reviews_given": 10,
+          "review_turnaround_hours": 4.0,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": null,
+          "composite": 0.0
+        },
+        {
+          "month": "2025-08",
+          "commits": 26,
+          "lines_added": 728,
+          "lines_removed": 234,
+          "net": 494,
+          "active_days": 12,
+          "test_touch_rate": 0.22,
+          "prs_merged": 6,
+          "cycle_time_days": 1.99,
+          "reviews_given": 11,
+          "review_turnaround_hours": 4.0,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.909,
+          "composite": 0.0
+        },
+        {
+          "month": "2025-09",
+          "commits": 28,
+          "lines_added": 784,
+          "lines_removed": 252,
+          "net": 532,
+          "active_days": 13,
+          "test_touch_rate": 0.22,
+          "prs_merged": 6,
+          "cycle_time_days": 1.94,
+          "reviews_given": 11,
+          "review_turnaround_hours": 4.0,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.913,
+          "composite": 0.0
+        },
+        {
+          "month": "2025-10",
+          "commits": 30,
+          "lines_added": 840,
+          "lines_removed": 270,
+          "net": 570,
+          "active_days": 14,
+          "test_touch_rate": 0.22,
+          "prs_merged": 6,
+          "cycle_time_days": 1.88,
+          "reviews_given": 12,
+          "review_turnaround_hours": 4.0,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.917,
+          "composite": 0.0
+        },
+        {
+          "month": "2025-11",
+          "commits": 31,
+          "lines_added": 868,
+          "lines_removed": 279,
+          "net": 589,
+          "active_days": 15,
+          "test_touch_rate": 0.22,
+          "prs_merged": 7,
+          "cycle_time_days": 1.83,
+          "reviews_given": 13,
+          "review_turnaround_hours": 4.0,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.921,
+          "composite": 0.0
+        },
+        {
+          "month": "2025-12",
+          "commits": 32,
+          "lines_added": 896,
+          "lines_removed": 288,
+          "net": 608,
+          "active_days": 15,
+          "test_touch_rate": 0.22,
+          "prs_merged": 7,
+          "cycle_time_days": 1.77,
+          "reviews_given": 13,
+          "review_turnaround_hours": 4.0,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.925,
+          "composite": 0.0
+        },
+        {
+          "month": "2026-01",
+          "commits": 34,
+          "lines_added": 952,
+          "lines_removed": 306,
+          "net": 646,
+          "active_days": 16,
+          "test_touch_rate": 0.22,
+          "prs_merged": 8,
+          "cycle_time_days": 1.71,
+          "reviews_given": 14,
+          "review_turnaround_hours": 4.0,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.929,
+          "composite": 0.0
+        },
+        {
+          "month": "2026-02",
+          "commits": 35,
+          "lines_added": 980,
+          "lines_removed": 315,
+          "net": 665,
+          "active_days": 17,
+          "test_touch_rate": 0.22,
+          "prs_merged": 7,
+          "cycle_time_days": 1.66,
+          "reviews_given": 15,
+          "review_turnaround_hours": 4.0,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.933,
+          "composite": 0.0
+        },
+        {
+          "month": "2026-03",
+          "commits": 37,
+          "lines_added": 1036,
+          "lines_removed": 333,
+          "net": 703,
+          "active_days": 18,
+          "test_touch_rate": 0.22,
+          "prs_merged": 8,
+          "cycle_time_days": 1.6,
+          "reviews_given": 15,
+          "review_turnaround_hours": 4.0,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.937,
+          "composite": 0.0
+        },
+        {
+          "month": "2026-04",
+          "commits": 38,
+          "lines_added": 1064,
+          "lines_removed": 342,
+          "net": 722,
+          "active_days": 18,
+          "test_touch_rate": 0.22,
+          "prs_merged": 8,
+          "cycle_time_days": 1.55,
+          "reviews_given": 16,
+          "review_turnaround_hours": 4.0,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.941,
+          "composite": 0.0
+        },
+        {
+          "month": "2026-05",
+          "commits": 40,
+          "lines_added": 1120,
+          "lines_removed": 360,
+          "net": 760,
+          "active_days": 19,
+          "test_touch_rate": 0.22,
+          "prs_merged": 9,
+          "cycle_time_days": 1.49,
+          "reviews_given": 16,
+          "review_turnaround_hours": 4.0,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.945,
+          "composite": 0.0
+        },
+        {
+          "month": "2026-06",
+          "commits": 41,
+          "lines_added": 1148,
+          "lines_removed": 369,
+          "net": 779,
+          "active_days": 20,
+          "test_touch_rate": 0.22,
+          "prs_merged": 9,
+          "cycle_time_days": 1.43,
+          "reviews_given": 17,
+          "review_turnaround_hours": 4.0,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.949,
+          "composite": 0.0
+        }
+      ],
+      "composite": {
+        "score": 0.0,
+        "signals": {
+          "commits": 0.0,
+          "prs": 0.0,
+          "reviews": 0.0,
+          "tests": 0.0,
+          "ci": 0.0
+        }
+      },
+      "review_share": 0.083,
+      "h1": {
+        "commits": 172,
+        "composite": 0.0,
+        "commits_per_mo": 28.7,
+        "prs_per_mo": 6.2,
+        "cycle_time_days": 1.91,
+        "ci_pass_rate": 0.917
+      },
+      "h2": {
+        "commits": 225,
+        "composite": 0.0,
+        "commits_per_mo": 37.5,
+        "prs_per_mo": 8.2,
+        "cycle_time_days": 1.57,
+        "ci_pass_rate": 0.939
+      },
+      "active_repos": [
+        "salescloser-appmixer"
+      ]
+    },
+    {
+      "name": "Amir Pourjabbari",
+      "handle": "mc4future",
+      "initials": "AP",
+      "monthly": [
+        {
+          "month": "2025-07",
+          "commits": 45,
+          "lines_added": 1260,
+          "lines_removed": 405,
+          "net": 855,
+          "active_days": 21,
+          "test_touch_rate": 0.23,
+          "prs_merged": 10,
+          "cycle_time_days": 2.05,
+          "reviews_given": 19,
+          "review_turnaround_hours": 4.4,
+          "change_request_rate": 0.15,
+          "ci_pass_rate": null,
+          "composite": 78.75
+        },
+        {
+          "month": "2025-08",
+          "commits": 48,
+          "lines_added": 1344,
+          "lines_removed": 432,
+          "net": 912,
+          "active_days": 22,
+          "test_touch_rate": 0.23,
+          "prs_merged": 10,
+          "cycle_time_days": 1.99,
+          "reviews_given": 20,
+          "review_turnaround_hours": 4.4,
+          "change_request_rate": 0.15,
+          "ci_pass_rate": 0.909,
+          "composite": 78.75
+        },
+        {
+          "month": "2025-09",
+          "commits": 50,
+          "lines_added": 1400,
+          "lines_removed": 450,
+          "net": 950,
+          "active_days": 22,
+          "test_touch_rate": 0.23,
+          "prs_merged": 11,
+          "cycle_time_days": 1.94,
+          "reviews_given": 21,
+          "review_turnaround_hours": 4.4,
+          "change_request_rate": 0.15,
+          "ci_pass_rate": 0.913,
+          "composite": 78.75
+        },
+        {
+          "month": "2025-10",
+          "commits": 53,
+          "lines_added": 1484,
+          "lines_removed": 477,
+          "net": 1007,
+          "active_days": 22,
+          "test_touch_rate": 0.23,
+          "prs_merged": 12,
+          "cycle_time_days": 1.88,
+          "reviews_given": 22,
+          "review_turnaround_hours": 4.4,
+          "change_request_rate": 0.15,
+          "ci_pass_rate": 0.917,
+          "composite": 78.75
+        },
+        {
+          "month": "2025-11",
+          "commits": 56,
+          "lines_added": 1568,
+          "lines_removed": 504,
+          "net": 1064,
+          "active_days": 22,
+          "test_touch_rate": 0.23,
+          "prs_merged": 12,
+          "cycle_time_days": 1.83,
+          "reviews_given": 23,
+          "review_turnaround_hours": 4.4,
+          "change_request_rate": 0.15,
+          "ci_pass_rate": 0.921,
+          "composite": 78.75
+        },
+        {
+          "month": "2025-12",
+          "commits": 58,
+          "lines_added": 1624,
+          "lines_removed": 522,
+          "net": 1102,
+          "active_days": 22,
+          "test_touch_rate": 0.23,
+          "prs_merged": 13,
+          "cycle_time_days": 1.77,
+          "reviews_given": 24,
+          "review_turnaround_hours": 4.4,
+          "change_request_rate": 0.15,
+          "ci_pass_rate": 0.925,
+          "composite": 78.75
+        },
+        {
+          "month": "2026-01",
+          "commits": 61,
+          "lines_added": 1708,
+          "lines_removed": 549,
+          "net": 1159,
+          "active_days": 22,
+          "test_touch_rate": 0.23,
+          "prs_merged": 13,
+          "cycle_time_days": 1.71,
+          "reviews_given": 25,
+          "review_turnaround_hours": 4.4,
+          "change_request_rate": 0.15,
+          "ci_pass_rate": 0.929,
+          "composite": 78.75
+        },
+        {
+          "month": "2026-02",
+          "commits": 63,
+          "lines_added": 1764,
+          "lines_removed": 567,
+          "net": 1197,
+          "active_days": 22,
+          "test_touch_rate": 0.23,
+          "prs_merged": 14,
+          "cycle_time_days": 1.66,
+          "reviews_given": 26,
+          "review_turnaround_hours": 4.4,
+          "change_request_rate": 0.15,
+          "ci_pass_rate": 0.933,
+          "composite": 78.75
+        },
+        {
+          "month": "2026-03",
+          "commits": 66,
+          "lines_added": 1848,
+          "lines_removed": 594,
+          "net": 1254,
+          "active_days": 22,
+          "test_touch_rate": 0.23,
+          "prs_merged": 14,
+          "cycle_time_days": 1.6,
+          "reviews_given": 28,
+          "review_turnaround_hours": 4.4,
+          "change_request_rate": 0.15,
+          "ci_pass_rate": 0.937,
+          "composite": 78.75
+        },
+        {
+          "month": "2026-04",
+          "commits": 69,
+          "lines_added": 1932,
+          "lines_removed": 621,
+          "net": 1311,
+          "active_days": 22,
+          "test_touch_rate": 0.23,
+          "prs_merged": 15,
+          "cycle_time_days": 1.55,
+          "reviews_given": 29,
+          "review_turnaround_hours": 4.4,
+          "change_request_rate": 0.15,
+          "ci_pass_rate": 0.941,
+          "composite": 78.75
+        },
+        {
+          "month": "2026-05",
+          "commits": 71,
+          "lines_added": 1988,
+          "lines_removed": 639,
+          "net": 1349,
+          "active_days": 22,
+          "test_touch_rate": 0.23,
+          "prs_merged": 15,
+          "cycle_time_days": 1.49,
+          "reviews_given": 29,
+          "review_turnaround_hours": 4.4,
+          "change_request_rate": 0.15,
+          "ci_pass_rate": 0.945,
+          "composite": 78.75
+        },
+        {
+          "month": "2026-06",
+          "commits": 74,
+          "lines_added": 2072,
+          "lines_removed": 666,
+          "net": 1406,
+          "active_days": 22,
+          "test_touch_rate": 0.23,
+          "prs_merged": 16,
+          "cycle_time_days": 1.43,
+          "reviews_given": 31,
+          "review_turnaround_hours": 4.4,
+          "change_request_rate": 0.15,
+          "ci_pass_rate": 0.949,
+          "composite": 78.75
+        }
+      ],
+      "composite": {
+        "score": 78.75,
+        "signals": {
+          "commits": 1.0,
+          "prs": 1.0,
+          "reviews": 1.0,
+          "tests": 0.25,
+          "ci": 0.0
+        }
+      },
+      "review_share": 0.151,
+      "h1": {
+        "commits": 310,
+        "composite": 78.75,
+        "commits_per_mo": 51.7,
+        "prs_per_mo": 11.3,
+        "cycle_time_days": 1.91,
+        "ci_pass_rate": 0.917
+      },
+      "h2": {
+        "commits": 404,
+        "composite": 78.75,
+        "commits_per_mo": 67.3,
+        "prs_per_mo": 14.5,
+        "cycle_time_days": 1.57,
+        "ci_pass_rate": 0.939
+      },
+      "active_repos": [
+        "salescloser-dashboard",
+        "salescloser-bot",
+        "salescloser-appmixer",
+        "salescloser-coltrane",
+        "salescloser-killer-calls"
+      ]
+    },
+    {
+      "name": "Gabriel Laporte",
+      "handle": "gabriellaporte-wp",
+      "initials": "GL",
+      "monthly": [
+        {
+          "month": "2025-07",
+          "commits": 28,
+          "lines_added": 784,
+          "lines_removed": 252,
+          "net": 532,
+          "active_days": 13,
+          "test_touch_rate": 0.24,
+          "prs_merged": 6,
+          "cycle_time_days": 2.05,
+          "reviews_given": 12,
+          "review_turnaround_hours": 4.8,
+          "change_request_rate": 0.16,
+          "ci_pass_rate": null,
+          "composite": 21.27
+        },
+        {
+          "month": "2025-08",
+          "commits": 30,
+          "lines_added": 840,
+          "lines_removed": 270,
+          "net": 570,
+          "active_days": 14,
+          "test_touch_rate": 0.24,
+          "prs_merged": 7,
+          "cycle_time_days": 1.99,
+          "reviews_given": 12,
+          "review_turnaround_hours": 4.8,
+          "change_request_rate": 0.16,
+          "ci_pass_rate": 0.909,
+          "composite": 20.55
+        },
+        {
+          "month": "2025-09",
+          "commits": 32,
+          "lines_added": 896,
+          "lines_removed": 288,
+          "net": 608,
+          "active_days": 15,
+          "test_touch_rate": 0.24,
+          "prs_merged": 7,
+          "cycle_time_days": 1.94,
+          "reviews_given": 13,
+          "review_turnaround_hours": 4.8,
+          "change_request_rate": 0.16,
+          "ci_pass_rate": 0.913,
+          "composite": 21.36
+        },
+        {
+          "month": "2025-10",
+          "commits": 33,
+          "lines_added": 924,
+          "lines_removed": 297,
+          "net": 627,
+          "active_days": 16,
+          "test_touch_rate": 0.24,
+          "prs_merged": 7,
+          "cycle_time_days": 1.88,
+          "reviews_given": 14,
+          "review_turnaround_hours": 4.8,
+          "change_request_rate": 0.16,
+          "ci_pass_rate": 0.917,
+          "composite": 19.27
+        },
+        {
+          "month": "2025-11",
+          "commits": 35,
+          "lines_added": 980,
+          "lines_removed": 315,
+          "net": 665,
+          "active_days": 17,
+          "test_touch_rate": 0.24,
+          "prs_merged": 8,
+          "cycle_time_days": 1.83,
+          "reviews_given": 14,
+          "review_turnaround_hours": 4.8,
+          "change_request_rate": 0.16,
+          "ci_pass_rate": 0.921,
+          "composite": 18.28
+        },
+        {
+          "month": "2025-12",
+          "commits": 37,
+          "lines_added": 1036,
+          "lines_removed": 333,
+          "net": 703,
+          "active_days": 18,
+          "test_touch_rate": 0.24,
+          "prs_merged": 8,
+          "cycle_time_days": 1.77,
+          "reviews_given": 15,
+          "review_turnaround_hours": 4.8,
+          "change_request_rate": 0.16,
+          "ci_pass_rate": 0.925,
+          "composite": 20.06
+        },
+        {
+          "month": "2026-01",
+          "commits": 38,
+          "lines_added": 1064,
+          "lines_removed": 342,
+          "net": 722,
+          "active_days": 18,
+          "test_touch_rate": 0.24,
+          "prs_merged": 8,
+          "cycle_time_days": 1.71,
+          "reviews_given": 16,
+          "review_turnaround_hours": 4.8,
+          "change_request_rate": 0.16,
+          "ci_pass_rate": 0.929,
+          "composite": 14.12
+        },
+        {
+          "month": "2026-02",
+          "commits": 40,
+          "lines_added": 1120,
+          "lines_removed": 360,
+          "net": 760,
+          "active_days": 19,
+          "test_touch_rate": 0.24,
+          "prs_merged": 9,
+          "cycle_time_days": 1.66,
+          "reviews_given": 17,
+          "review_turnaround_hours": 4.8,
+          "change_request_rate": 0.16,
+          "ci_pass_rate": 0.933,
+          "composite": 23.23
+        },
+        {
+          "month": "2026-03",
+          "commits": 42,
+          "lines_added": 1176,
+          "lines_removed": 378,
+          "net": 798,
+          "active_days": 20,
+          "test_touch_rate": 0.24,
+          "prs_merged": 9,
+          "cycle_time_days": 1.6,
+          "reviews_given": 17,
+          "review_turnaround_hours": 4.8,
+          "change_request_rate": 0.16,
+          "ci_pass_rate": 0.937,
+          "composite": 18.98
+        },
+        {
+          "month": "2026-04",
+          "commits": 43,
+          "lines_added": 1204,
+          "lines_removed": 387,
+          "net": 817,
+          "active_days": 20,
+          "test_touch_rate": 0.24,
+          "prs_merged": 9,
+          "cycle_time_days": 1.55,
+          "reviews_given": 18,
+          "review_turnaround_hours": 4.8,
+          "change_request_rate": 0.16,
+          "ci_pass_rate": 0.941,
+          "composite": 17.99
+        },
+        {
+          "month": "2026-05",
+          "commits": 45,
+          "lines_added": 1260,
+          "lines_removed": 405,
+          "net": 855,
+          "active_days": 21,
+          "test_touch_rate": 0.24,
+          "prs_merged": 10,
+          "cycle_time_days": 1.49,
+          "reviews_given": 18,
+          "review_turnaround_hours": 4.8,
+          "change_request_rate": 0.16,
+          "ci_pass_rate": 0.945,
+          "composite": 18.7
+        },
+        {
+          "month": "2026-06",
+          "commits": 47,
+          "lines_added": 1316,
+          "lines_removed": 423,
+          "net": 893,
+          "active_days": 22,
+          "test_touch_rate": 0.24,
+          "prs_merged": 10,
+          "cycle_time_days": 1.43,
+          "reviews_given": 19,
+          "review_turnaround_hours": 4.8,
+          "change_request_rate": 0.16,
+          "ci_pass_rate": 0.949,
+          "composite": 18.14
+        }
+      ],
+      "composite": {
+        "score": 19.33,
+        "signals": {
+          "commits": 0.1667,
+          "prs": 0.174,
+          "reviews": 0.131,
+          "tests": 0.5,
+          "ci": 0.0
+        }
+      },
+      "review_share": 0.094,
+      "h1": {
+        "commits": 195,
+        "composite": 20.13,
+        "commits_per_mo": 32.5,
+        "prs_per_mo": 7.2,
+        "cycle_time_days": 1.91,
+        "ci_pass_rate": 0.917
+      },
+      "h2": {
+        "commits": 255,
+        "composite": 18.53,
+        "commits_per_mo": 42.5,
+        "prs_per_mo": 9.2,
+        "cycle_time_days": 1.57,
+        "ci_pass_rate": 0.939
+      },
+      "active_repos": [
+        "salescloser-dashboard",
+        "salescloser-bot",
+        "salescloser-appmixer",
+        "salescloser-coltrane",
+        "salescloser-killer-calls"
+      ]
+    },
+    {
+      "name": "Igor Negrizoli",
+      "handle": "igorFNegrizoli",
+      "initials": "IN",
+      "monthly": [
+        {
+          "month": "2025-07",
+          "commits": 38,
+          "lines_added": 1064,
+          "lines_removed": 342,
+          "net": 722,
+          "active_days": 18,
+          "test_touch_rate": 0.25,
+          "prs_merged": 8,
+          "cycle_time_days": 2.05,
+          "reviews_given": 16,
+          "review_turnaround_hours": 5.2,
+          "change_request_rate": 0.17,
+          "ci_pass_rate": null,
+          "composite": 57.54
+        },
+        {
+          "month": "2025-08",
+          "commits": 41,
+          "lines_added": 1148,
+          "lines_removed": 369,
+          "net": 779,
+          "active_days": 20,
+          "test_touch_rate": 0.25,
+          "prs_merged": 9,
+          "cycle_time_days": 1.99,
+          "reviews_given": 17,
+          "review_turnaround_hours": 5.2,
+          "change_request_rate": 0.17,
+          "ci_pass_rate": 0.909,
+          "composite": 62.59
+        },
+        {
+          "month": "2025-09",
+          "commits": 43,
+          "lines_added": 1204,
+          "lines_removed": 387,
+          "net": 817,
+          "active_days": 20,
+          "test_touch_rate": 0.25,
+          "prs_merged": 9,
+          "cycle_time_days": 1.94,
+          "reviews_given": 18,
+          "review_turnaround_hours": 5.2,
+          "change_request_rate": 0.17,
+          "ci_pass_rate": 0.913,
+          "composite": 59.01
+        },
+        {
+          "month": "2025-10",
+          "commits": 45,
+          "lines_added": 1260,
+          "lines_removed": 405,
+          "net": 855,
+          "active_days": 21,
+          "test_touch_rate": 0.25,
+          "prs_merged": 10,
+          "cycle_time_days": 1.88,
+          "reviews_given": 19,
+          "review_turnaround_hours": 5.2,
+          "change_request_rate": 0.17,
+          "ci_pass_rate": 0.917,
+          "composite": 60.34
+        },
+        {
+          "month": "2025-11",
+          "commits": 47,
+          "lines_added": 1316,
+          "lines_removed": 423,
+          "net": 893,
+          "active_days": 22,
+          "test_touch_rate": 0.25,
+          "prs_merged": 10,
+          "cycle_time_days": 1.83,
+          "reviews_given": 19,
+          "review_turnaround_hours": 5.2,
+          "change_request_rate": 0.17,
+          "ci_pass_rate": 0.921,
+          "composite": 55.53
+        },
+        {
+          "month": "2025-12",
+          "commits": 50,
+          "lines_added": 1400,
+          "lines_removed": 450,
+          "net": 950,
+          "active_days": 22,
+          "test_touch_rate": 0.25,
+          "prs_merged": 11,
+          "cycle_time_days": 1.77,
+          "reviews_given": 20,
+          "review_turnaround_hours": 5.2,
+          "change_request_rate": 0.17,
+          "ci_pass_rate": 0.925,
+          "composite": 59.58
+        },
+        {
+          "month": "2026-01",
+          "commits": 52,
+          "lines_added": 1456,
+          "lines_removed": 468,
+          "net": 988,
+          "active_days": 22,
+          "test_touch_rate": 0.25,
+          "prs_merged": 11,
+          "cycle_time_days": 1.71,
+          "reviews_given": 21,
+          "review_turnaround_hours": 5.2,
+          "change_request_rate": 0.17,
+          "ci_pass_rate": 0.929,
+          "composite": 56.99
+        },
+        {
+          "month": "2026-02",
+          "commits": 54,
+          "lines_added": 1512,
+          "lines_removed": 486,
+          "net": 1026,
+          "active_days": 22,
+          "test_touch_rate": 0.25,
+          "prs_merged": 12,
+          "cycle_time_days": 1.66,
+          "reviews_given": 22,
+          "review_turnaround_hours": 5.2,
+          "change_request_rate": 0.17,
+          "ci_pass_rate": 0.933,
+          "composite": 60.58
+        },
+        {
+          "month": "2026-03",
+          "commits": 56,
+          "lines_added": 1568,
+          "lines_removed": 504,
+          "net": 1064,
+          "active_days": 22,
+          "test_touch_rate": 0.25,
+          "prs_merged": 12,
+          "cycle_time_days": 1.6,
+          "reviews_given": 24,
+          "review_turnaround_hours": 5.2,
+          "change_request_rate": 0.17,
+          "ci_pass_rate": 0.937,
+          "composite": 60.25
+        },
+        {
+          "month": "2026-04",
+          "commits": 59,
+          "lines_added": 1652,
+          "lines_removed": 531,
+          "net": 1121,
+          "active_days": 22,
+          "test_touch_rate": 0.25,
+          "prs_merged": 13,
+          "cycle_time_days": 1.55,
+          "reviews_given": 24,
+          "review_turnaround_hours": 5.2,
+          "change_request_rate": 0.17,
+          "ci_pass_rate": 0.941,
+          "composite": 60.15
+        },
+        {
+          "month": "2026-05",
+          "commits": 61,
+          "lines_added": 1708,
+          "lines_removed": 549,
+          "net": 1159,
+          "active_days": 22,
+          "test_touch_rate": 0.25,
+          "prs_merged": 13,
+          "cycle_time_days": 1.49,
+          "reviews_given": 25,
+          "review_turnaround_hours": 5.2,
+          "change_request_rate": 0.17,
+          "ci_pass_rate": 0.945,
+          "composite": 60.63
+        },
+        {
+          "month": "2026-06",
+          "commits": 63,
+          "lines_added": 1764,
+          "lines_removed": 567,
+          "net": 1197,
+          "active_days": 22,
+          "test_touch_rate": 0.25,
+          "prs_merged": 14,
+          "cycle_time_days": 1.43,
+          "reviews_given": 26,
+          "review_turnaround_hours": 5.2,
+          "change_request_rate": 0.17,
+          "ci_pass_rate": 0.949,
+          "composite": 60.63
+        }
+      ],
+      "composite": {
+        "score": 59.49,
+        "signals": {
+          "commits": 0.6683,
+          "prs": 0.6633,
+          "reviews": 0.5988,
+          "tests": 0.75,
+          "ci": 0.0
+        }
+      },
+      "review_share": 0.128,
+      "h1": {
+        "commits": 264,
+        "composite": 59.1,
+        "commits_per_mo": 44.0,
+        "prs_per_mo": 9.5,
+        "cycle_time_days": 1.91,
+        "ci_pass_rate": 0.917
+      },
+      "h2": {
+        "commits": 345,
+        "composite": 59.87,
+        "commits_per_mo": 57.5,
+        "prs_per_mo": 12.5,
+        "cycle_time_days": 1.57,
+        "ci_pass_rate": 0.939
+      },
+      "active_repos": [
+        "salescloser-dashboard",
+        "salescloser-bot",
+        "salescloser-appmixer",
+        "salescloser-coltrane",
+        "salescloser-killer-calls"
+      ]
+    },
+    {
+      "name": "Jose Almada",
+      "handle": "PepeAlmada",
+      "initials": "JA",
+      "monthly": [
+        {
+          "month": "2025-07",
+          "commits": 32,
+          "lines_added": 896,
+          "lines_removed": 288,
+          "net": 608,
+          "active_days": 15,
+          "test_touch_rate": 0.26,
+          "prs_merged": 7,
+          "cycle_time_days": 2.05,
+          "reviews_given": 13,
+          "review_turnaround_hours": 5.6,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": null,
+          "composite": 40.58
+        },
+        {
+          "month": "2025-08",
+          "commits": 33,
+          "lines_added": 924,
+          "lines_removed": 297,
+          "net": 627,
+          "active_days": 16,
+          "test_touch_rate": 0.26,
+          "prs_merged": 7,
+          "cycle_time_days": 1.99,
+          "reviews_given": 14,
+          "review_turnaround_hours": 5.6,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.909,
+          "composite": 35.3
+        },
+        {
+          "month": "2025-09",
+          "commits": 35,
+          "lines_added": 980,
+          "lines_removed": 315,
+          "net": 665,
+          "active_days": 17,
+          "test_touch_rate": 0.26,
+          "prs_merged": 8,
+          "cycle_time_days": 1.94,
+          "reviews_given": 15,
+          "review_turnaround_hours": 5.6,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.913,
+          "composite": 41.58
+        },
+        {
+          "month": "2025-10",
+          "commits": 37,
+          "lines_added": 1036,
+          "lines_removed": 333,
+          "net": 703,
+          "active_days": 18,
+          "test_touch_rate": 0.26,
+          "prs_merged": 8,
+          "cycle_time_days": 1.88,
+          "reviews_given": 15,
+          "review_turnaround_hours": 5.6,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.917,
+          "composite": 36.73
+        },
+        {
+          "month": "2025-11",
+          "commits": 39,
+          "lines_added": 1092,
+          "lines_removed": 351,
+          "net": 741,
+          "active_days": 19,
+          "test_touch_rate": 0.26,
+          "prs_merged": 8,
+          "cycle_time_days": 1.83,
+          "reviews_given": 16,
+          "review_turnaround_hours": 5.6,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.921,
+          "composite": 32.92
+        },
+        {
+          "month": "2025-12",
+          "commits": 41,
+          "lines_added": 1148,
+          "lines_removed": 369,
+          "net": 779,
+          "active_days": 20,
+          "test_touch_rate": 0.26,
+          "prs_merged": 9,
+          "cycle_time_days": 1.77,
+          "reviews_given": 17,
+          "review_turnaround_hours": 5.6,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.925,
+          "composite": 39.15
+        },
+        {
+          "month": "2026-01",
+          "commits": 43,
+          "lines_added": 1204,
+          "lines_removed": 387,
+          "net": 817,
+          "active_days": 20,
+          "test_touch_rate": 0.26,
+          "prs_merged": 9,
+          "cycle_time_days": 1.71,
+          "reviews_given": 18,
+          "review_turnaround_hours": 5.6,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.929,
+          "composite": 34.77
+        },
+        {
+          "month": "2026-02",
+          "commits": 45,
+          "lines_added": 1260,
+          "lines_removed": 405,
+          "net": 855,
+          "active_days": 21,
+          "test_touch_rate": 0.26,
+          "prs_merged": 10,
+          "cycle_time_days": 1.66,
+          "reviews_given": 18,
+          "review_turnaround_hours": 5.6,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.933,
+          "composite": 39.77
+        },
+        {
+          "month": "2026-03",
+          "commits": 46,
+          "lines_added": 1288,
+          "lines_removed": 414,
+          "net": 874,
+          "active_days": 22,
+          "test_touch_rate": 0.26,
+          "prs_merged": 10,
+          "cycle_time_days": 1.6,
+          "reviews_given": 19,
+          "review_turnaround_hours": 5.6,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.937,
+          "composite": 37.1
+        },
+        {
+          "month": "2026-04",
+          "commits": 48,
+          "lines_added": 1344,
+          "lines_removed": 432,
+          "net": 912,
+          "active_days": 22,
+          "test_touch_rate": 0.26,
+          "prs_merged": 11,
+          "cycle_time_days": 1.55,
+          "reviews_given": 20,
+          "review_turnaround_hours": 5.6,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.941,
+          "composite": 40.1
+        },
+        {
+          "month": "2026-05",
+          "commits": 50,
+          "lines_added": 1400,
+          "lines_removed": 450,
+          "net": 950,
+          "active_days": 22,
+          "test_touch_rate": 0.26,
+          "prs_merged": 11,
+          "cycle_time_days": 1.49,
+          "reviews_given": 21,
+          "review_turnaround_hours": 5.6,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.945,
+          "composite": 39.13
+        },
+        {
+          "month": "2026-06",
+          "commits": 52,
+          "lines_added": 1456,
+          "lines_removed": 468,
+          "net": 988,
+          "active_days": 22,
+          "test_touch_rate": 0.26,
+          "prs_merged": 11,
+          "cycle_time_days": 1.43,
+          "reviews_given": 21,
+          "review_turnaround_hours": 5.6,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.949,
+          "composite": 35.52
+        }
+      ],
+      "composite": {
+        "score": 37.72,
+        "signals": {
+          "commits": 0.328,
+          "prs": 0.3272,
+          "reviews": 0.2538,
+          "tests": 1.0,
+          "ci": 0.0
+        }
+      },
+      "review_share": 0.105,
+      "h1": {
+        "commits": 217,
+        "composite": 37.71,
+        "commits_per_mo": 36.2,
+        "prs_per_mo": 7.8,
+        "cycle_time_days": 1.91,
+        "ci_pass_rate": 0.917
+      },
+      "h2": {
+        "commits": 284,
+        "composite": 37.73,
+        "commits_per_mo": 47.3,
+        "prs_per_mo": 10.3,
+        "cycle_time_days": 1.57,
+        "ci_pass_rate": 0.939
+      },
+      "active_repos": [
+        "salescloser-dashboard",
+        "salescloser-bot",
+        "salescloser-appmixer",
+        "jackhamr-doc-site"
+      ]
+    },
+    {
+      "name": "Paulo Mellin",
+      "handle": "pmellingimenes",
+      "initials": "PM",
+      "monthly": [
+        {
+          "month": "2025-07",
+          "commits": 35,
+          "lines_added": 980,
+          "lines_removed": 315,
+          "net": 665,
+          "active_days": 17,
+          "test_touch_rate": 0.22,
+          "prs_merged": 8,
+          "cycle_time_days": 2.05,
+          "reviews_given": 15,
+          "review_turnaround_hours": 6.0,
+          "change_request_rate": 0.15,
+          "ci_pass_rate": null,
+          "composite": 39.45
+        },
+        {
+          "month": "2025-08",
+          "commits": 37,
+          "lines_added": 1036,
+          "lines_removed": 333,
+          "net": 703,
+          "active_days": 18,
+          "test_touch_rate": 0.22,
+          "prs_merged": 8,
+          "cycle_time_days": 1.99,
+          "reviews_given": 15,
+          "review_turnaround_hours": 6.0,
+          "change_request_rate": 0.15,
+          "ci_pass_rate": 0.909,
+          "composite": 33.6
+        },
+        {
+          "month": "2025-09",
+          "commits": 39,
+          "lines_added": 1092,
+          "lines_removed": 351,
+          "net": 741,
+          "active_days": 19,
+          "test_touch_rate": 0.22,
+          "prs_merged": 9,
+          "cycle_time_days": 1.94,
+          "reviews_given": 16,
+          "review_turnaround_hours": 6.0,
+          "change_request_rate": 0.15,
+          "ci_pass_rate": 0.913,
+          "composite": 38.13
+        },
+        {
+          "month": "2025-10",
+          "commits": 41,
+          "lines_added": 1148,
+          "lines_removed": 369,
+          "net": 779,
+          "active_days": 20,
+          "test_touch_rate": 0.22,
+          "prs_merged": 9,
+          "cycle_time_days": 1.88,
+          "reviews_given": 17,
+          "review_turnaround_hours": 6.0,
+          "change_request_rate": 0.15,
+          "ci_pass_rate": 0.917,
+          "composite": 34.54
+        },
+        {
+          "month": "2025-11",
+          "commits": 43,
+          "lines_added": 1204,
+          "lines_removed": 387,
+          "net": 817,
+          "active_days": 20,
+          "test_touch_rate": 0.22,
+          "prs_merged": 9,
+          "cycle_time_days": 1.83,
+          "reviews_given": 18,
+          "review_turnaround_hours": 6.0,
+          "change_request_rate": 0.15,
+          "ci_pass_rate": 0.921,
+          "composite": 31.42
+        },
+        {
+          "month": "2025-12",
+          "commits": 45,
+          "lines_added": 1260,
+          "lines_removed": 405,
+          "net": 855,
+          "active_days": 21,
+          "test_touch_rate": 0.22,
+          "prs_merged": 10,
+          "cycle_time_days": 1.77,
+          "reviews_given": 19,
+          "review_turnaround_hours": 6.0,
+          "change_request_rate": 0.15,
+          "ci_pass_rate": 0.925,
+          "composite": 36.1
+        },
+        {
+          "month": "2026-01",
+          "commits": 47,
+          "lines_added": 1316,
+          "lines_removed": 423,
+          "net": 893,
+          "active_days": 22,
+          "test_touch_rate": 0.22,
+          "prs_merged": 10,
+          "cycle_time_days": 1.71,
+          "reviews_given": 19,
+          "review_turnaround_hours": 6.0,
+          "change_request_rate": 0.15,
+          "ci_pass_rate": 0.929,
+          "composite": 30.4
+        },
+        {
+          "month": "2026-02",
+          "commits": 49,
+          "lines_added": 1372,
+          "lines_removed": 441,
+          "net": 931,
+          "active_days": 22,
+          "test_touch_rate": 0.22,
+          "prs_merged": 11,
+          "cycle_time_days": 1.66,
+          "reviews_given": 20,
+          "review_turnaround_hours": 6.0,
+          "change_request_rate": 0.15,
+          "ci_pass_rate": 0.933,
+          "composite": 35.76
+        },
+        {
+          "month": "2026-03",
+          "commits": 51,
+          "lines_added": 1428,
+          "lines_removed": 459,
+          "net": 969,
+          "active_days": 22,
+          "test_touch_rate": 0.22,
+          "prs_merged": 11,
+          "cycle_time_days": 1.6,
+          "reviews_given": 21,
+          "review_turnaround_hours": 6.0,
+          "change_request_rate": 0.15,
+          "ci_pass_rate": 0.937,
+          "composite": 33.78
+        },
+        {
+          "month": "2026-04",
+          "commits": 53,
+          "lines_added": 1484,
+          "lines_removed": 477,
+          "net": 1007,
+          "active_days": 22,
+          "test_touch_rate": 0.22,
+          "prs_merged": 12,
+          "cycle_time_days": 1.55,
+          "reviews_given": 22,
+          "review_turnaround_hours": 6.0,
+          "change_request_rate": 0.15,
+          "ci_pass_rate": 0.941,
+          "composite": 35.82
+        },
+        {
+          "month": "2026-05",
+          "commits": 55,
+          "lines_added": 1540,
+          "lines_removed": 495,
+          "net": 1045,
+          "active_days": 22,
+          "test_touch_rate": 0.22,
+          "prs_merged": 12,
+          "cycle_time_days": 1.49,
+          "reviews_given": 23,
+          "review_turnaround_hours": 6.0,
+          "change_request_rate": 0.15,
+          "ci_pass_rate": 0.945,
+          "composite": 35.53
+        },
+        {
+          "month": "2026-06",
+          "commits": 57,
+          "lines_added": 1596,
+          "lines_removed": 513,
+          "net": 1083,
+          "active_days": 22,
+          "test_touch_rate": 0.22,
+          "prs_merged": 12,
+          "cycle_time_days": 1.43,
+          "reviews_given": 24,
+          "review_turnaround_hours": 6.0,
+          "change_request_rate": 0.15,
+          "ci_pass_rate": 0.949,
+          "composite": 32.51
+        }
+      ],
+      "composite": {
+        "score": 34.75,
+        "signals": {
+          "commits": 0.4896,
+          "prs": 0.506,
+          "reviews": 0.3913,
+          "tests": 0.0,
+          "ci": 0.0
+        }
+      },
+      "review_share": 0.117,
+      "h1": {
+        "commits": 240,
+        "composite": 35.54,
+        "commits_per_mo": 40.0,
+        "prs_per_mo": 8.8,
+        "cycle_time_days": 1.91,
+        "ci_pass_rate": 0.917
+      },
+      "h2": {
+        "commits": 312,
+        "composite": 33.97,
+        "commits_per_mo": 52.0,
+        "prs_per_mo": 11.3,
+        "cycle_time_days": 1.57,
+        "ci_pass_rate": 0.939
+      },
+      "active_repos": [
+        "salescloser-dashboard",
+        "salescloser-bot",
+        "salescloser-appmixer",
+        "jackhamr-doc-site"
+      ]
+    },
+    {
+      "name": "Umer Boostani",
+      "handle": "umerbhattiboostani",
+      "initials": "UB",
+      "monthly": [
+        {
+          "month": "2025-07",
+          "commits": 30,
+          "lines_added": 840,
+          "lines_removed": 270,
+          "net": 570,
+          "active_days": 14,
+          "test_touch_rate": 0.23,
+          "prs_merged": 7,
+          "cycle_time_days": 2.05,
+          "reviews_given": 12,
+          "review_turnaround_hours": 6.4,
+          "change_request_rate": 0.16,
+          "ci_pass_rate": null,
+          "composite": 23.76
+        },
+        {
+          "month": "2025-08",
+          "commits": 32,
+          "lines_added": 896,
+          "lines_removed": 288,
+          "net": 608,
+          "active_days": 15,
+          "test_touch_rate": 0.23,
+          "prs_merged": 7,
+          "cycle_time_days": 1.99,
+          "reviews_given": 13,
+          "review_turnaround_hours": 6.4,
+          "change_request_rate": 0.16,
+          "ci_pass_rate": 0.909,
+          "composite": 19.5
+        },
+        {
+          "month": "2025-09",
+          "commits": 34,
+          "lines_added": 952,
+          "lines_removed": 306,
+          "net": 646,
+          "active_days": 16,
+          "test_touch_rate": 0.23,
+          "prs_merged": 7,
+          "cycle_time_days": 1.94,
+          "reviews_given": 14,
+          "review_turnaround_hours": 6.4,
+          "change_request_rate": 0.16,
+          "ci_pass_rate": 0.913,
+          "composite": 20.09
+        },
+        {
+          "month": "2025-10",
+          "commits": 35,
+          "lines_added": 980,
+          "lines_removed": 315,
+          "net": 665,
+          "active_days": 17,
+          "test_touch_rate": 0.23,
+          "prs_merged": 8,
+          "cycle_time_days": 1.88,
+          "reviews_given": 15,
+          "review_turnaround_hours": 6.4,
+          "change_request_rate": 0.16,
+          "ci_pass_rate": 0.917,
+          "composite": 22.78
+        },
+        {
+          "month": "2025-11",
+          "commits": 37,
+          "lines_added": 1036,
+          "lines_removed": 333,
+          "net": 703,
+          "active_days": 18,
+          "test_touch_rate": 0.23,
+          "prs_merged": 8,
+          "cycle_time_days": 1.83,
+          "reviews_given": 15,
+          "review_turnaround_hours": 6.4,
+          "change_request_rate": 0.16,
+          "ci_pass_rate": 0.921,
+          "composite": 16.66
+        },
+        {
+          "month": "2025-12",
+          "commits": 39,
+          "lines_added": 1092,
+          "lines_removed": 351,
+          "net": 741,
+          "active_days": 19,
+          "test_touch_rate": 0.23,
+          "prs_merged": 8,
+          "cycle_time_days": 1.77,
+          "reviews_given": 16,
+          "review_turnaround_hours": 6.4,
+          "change_request_rate": 0.16,
+          "ci_pass_rate": 0.925,
+          "composite": 18.21
+        },
+        {
+          "month": "2026-01",
+          "commits": 40,
+          "lines_added": 1120,
+          "lines_removed": 360,
+          "net": 760,
+          "active_days": 19,
+          "test_touch_rate": 0.23,
+          "prs_merged": 9,
+          "cycle_time_days": 1.71,
+          "reviews_given": 17,
+          "review_turnaround_hours": 6.4,
+          "change_request_rate": 0.16,
+          "ci_pass_rate": 0.929,
+          "composite": 18.09
+        },
+        {
+          "month": "2026-02",
+          "commits": 42,
+          "lines_added": 1176,
+          "lines_removed": 378,
+          "net": 798,
+          "active_days": 20,
+          "test_touch_rate": 0.23,
+          "prs_merged": 9,
+          "cycle_time_days": 1.66,
+          "reviews_given": 18,
+          "review_turnaround_hours": 6.4,
+          "change_request_rate": 0.16,
+          "ci_pass_rate": 0.933,
+          "composite": 21.03
+        },
+        {
+          "month": "2026-03",
+          "commits": 44,
+          "lines_added": 1232,
+          "lines_removed": 396,
+          "net": 836,
+          "active_days": 21,
+          "test_touch_rate": 0.23,
+          "prs_merged": 10,
+          "cycle_time_days": 1.6,
+          "reviews_given": 18,
+          "review_turnaround_hours": 6.4,
+          "change_request_rate": 0.16,
+          "ci_pass_rate": 0.937,
+          "composite": 21.71
+        },
+        {
+          "month": "2026-04",
+          "commits": 46,
+          "lines_added": 1288,
+          "lines_removed": 414,
+          "net": 874,
+          "active_days": 22,
+          "test_touch_rate": 0.23,
+          "prs_merged": 10,
+          "cycle_time_days": 1.55,
+          "reviews_given": 19,
+          "review_turnaround_hours": 6.4,
+          "change_request_rate": 0.16,
+          "ci_pass_rate": 0.941,
+          "composite": 20.46
+        },
+        {
+          "month": "2026-05",
+          "commits": 48,
+          "lines_added": 1344,
+          "lines_removed": 432,
+          "net": 912,
+          "active_days": 22,
+          "test_touch_rate": 0.23,
+          "prs_merged": 10,
+          "cycle_time_days": 1.49,
+          "reviews_given": 20,
+          "review_turnaround_hours": 6.4,
+          "change_request_rate": 0.16,
+          "ci_pass_rate": 0.945,
+          "composite": 18.72
+        },
+        {
+          "month": "2026-06",
+          "commits": 49,
+          "lines_added": 1372,
+          "lines_removed": 441,
+          "net": 931,
+          "active_days": 22,
+          "test_touch_rate": 0.23,
+          "prs_merged": 11,
+          "cycle_time_days": 1.43,
+          "reviews_given": 20,
+          "review_turnaround_hours": 6.4,
+          "change_request_rate": 0.16,
+          "ci_pass_rate": 0.949,
+          "composite": 19.79
+        }
+      ],
+      "composite": {
+        "score": 20.07,
+        "signals": {
+          "commits": 0.2495,
+          "prs": 0.2589,
+          "reviews": 0.1423,
+          "tests": 0.25,
+          "ci": 0.0
+        }
+      },
+      "review_share": 0.1,
+      "h1": {
+        "commits": 207,
+        "composite": 20.17,
+        "commits_per_mo": 34.5,
+        "prs_per_mo": 7.5,
+        "cycle_time_days": 1.91,
+        "ci_pass_rate": 0.917
+      },
+      "h2": {
+        "commits": 269,
+        "composite": 19.97,
+        "commits_per_mo": 44.8,
+        "prs_per_mo": 9.8,
+        "cycle_time_days": 1.57,
+        "ci_pass_rate": 0.939
+      },
+      "active_repos": [
+        "salescloser-dashboard",
+        "salescloser-bot",
+        "salescloser-appmixer",
+        "salescloser-new-website"
+      ]
+    },
+    {
+      "name": "David Moradi",
+      "handle": "davidmoradi",
+      "initials": "DM",
+      "monthly": [
+        {
+          "month": "2025-07",
+          "commits": 37,
+          "lines_added": 1036,
+          "lines_removed": 333,
+          "net": 703,
+          "active_days": 18,
+          "test_touch_rate": 0.24,
+          "prs_merged": 8,
+          "cycle_time_days": 2.05,
+          "reviews_given": 15,
+          "review_turnaround_hours": 6.8,
+          "change_request_rate": 0.17,
+          "ci_pass_rate": null,
+          "composite": 47.91
+        },
+        {
+          "month": "2025-08",
+          "commits": 39,
+          "lines_added": 1092,
+          "lines_removed": 351,
+          "net": 741,
+          "active_days": 19,
+          "test_touch_rate": 0.24,
+          "prs_merged": 8,
+          "cycle_time_days": 1.99,
+          "reviews_given": 16,
+          "review_turnaround_hours": 6.8,
+          "change_request_rate": 0.17,
+          "ci_pass_rate": 0.909,
+          "composite": 44.48
+        },
+        {
+          "month": "2025-09",
+          "commits": 41,
+          "lines_added": 1148,
+          "lines_removed": 369,
+          "net": 779,
+          "active_days": 20,
+          "test_touch_rate": 0.24,
+          "prs_merged": 9,
+          "cycle_time_days": 1.94,
+          "reviews_given": 17,
+          "review_turnaround_hours": 6.8,
+          "change_request_rate": 0.17,
+          "ci_pass_rate": 0.913,
+          "composite": 48.79
+        },
+        {
+          "month": "2025-10",
+          "commits": 43,
+          "lines_added": 1204,
+          "lines_removed": 387,
+          "net": 817,
+          "active_days": 20,
+          "test_touch_rate": 0.24,
+          "prs_merged": 9,
+          "cycle_time_days": 1.88,
+          "reviews_given": 18,
+          "review_turnaround_hours": 6.8,
+          "change_request_rate": 0.17,
+          "ci_pass_rate": 0.917,
+          "composite": 45.06
+        },
+        {
+          "month": "2025-11",
+          "commits": 45,
+          "lines_added": 1260,
+          "lines_removed": 405,
+          "net": 855,
+          "active_days": 21,
+          "test_touch_rate": 0.24,
+          "prs_merged": 10,
+          "cycle_time_days": 1.83,
+          "reviews_given": 19,
+          "review_turnaround_hours": 6.8,
+          "change_request_rate": 0.17,
+          "ci_pass_rate": 0.921,
+          "composite": 47.74
+        },
+        {
+          "month": "2025-12",
+          "commits": 47,
+          "lines_added": 1316,
+          "lines_removed": 423,
+          "net": 893,
+          "active_days": 22,
+          "test_touch_rate": 0.24,
+          "prs_merged": 10,
+          "cycle_time_days": 1.77,
+          "reviews_given": 20,
+          "review_turnaround_hours": 6.8,
+          "change_request_rate": 0.17,
+          "ci_pass_rate": 0.925,
+          "composite": 46.19
+        },
+        {
+          "month": "2026-01",
+          "commits": 50,
+          "lines_added": 1400,
+          "lines_removed": 450,
+          "net": 950,
+          "active_days": 22,
+          "test_touch_rate": 0.24,
+          "prs_merged": 11,
+          "cycle_time_days": 1.71,
+          "reviews_given": 20,
+          "review_turnaround_hours": 6.8,
+          "change_request_rate": 0.17,
+          "ci_pass_rate": 0.929,
+          "composite": 47.17
+        },
+        {
+          "month": "2026-02",
+          "commits": 52,
+          "lines_added": 1456,
+          "lines_removed": 468,
+          "net": 988,
+          "active_days": 22,
+          "test_touch_rate": 0.24,
+          "prs_merged": 11,
+          "cycle_time_days": 1.66,
+          "reviews_given": 21,
+          "review_turnaround_hours": 6.8,
+          "change_request_rate": 0.17,
+          "ci_pass_rate": 0.933,
+          "composite": 46.4
+        },
+        {
+          "month": "2026-03",
+          "commits": 54,
+          "lines_added": 1512,
+          "lines_removed": 486,
+          "net": 1026,
+          "active_days": 22,
+          "test_touch_rate": 0.24,
+          "prs_merged": 12,
+          "cycle_time_days": 1.6,
+          "reviews_given": 22,
+          "review_turnaround_hours": 6.8,
+          "change_request_rate": 0.17,
+          "ci_pass_rate": 0.937,
+          "composite": 49.14
+        },
+        {
+          "month": "2026-04",
+          "commits": 56,
+          "lines_added": 1568,
+          "lines_removed": 504,
+          "net": 1064,
+          "active_days": 22,
+          "test_touch_rate": 0.24,
+          "prs_merged": 12,
+          "cycle_time_days": 1.55,
+          "reviews_given": 23,
+          "review_turnaround_hours": 6.8,
+          "change_request_rate": 0.17,
+          "ci_pass_rate": 0.941,
+          "composite": 46.0
+        },
+        {
+          "month": "2026-05",
+          "commits": 58,
+          "lines_added": 1624,
+          "lines_removed": 522,
+          "net": 1102,
+          "active_days": 22,
+          "test_touch_rate": 0.24,
+          "prs_merged": 13,
+          "cycle_time_days": 1.49,
+          "reviews_given": 24,
+          "review_turnaround_hours": 6.8,
+          "change_request_rate": 0.17,
+          "ci_pass_rate": 0.945,
+          "composite": 50.66
+        },
+        {
+          "month": "2026-06",
+          "commits": 60,
+          "lines_added": 1680,
+          "lines_removed": 540,
+          "net": 1140,
+          "active_days": 22,
+          "test_touch_rate": 0.24,
+          "prs_merged": 13,
+          "cycle_time_days": 1.43,
+          "reviews_given": 25,
+          "review_turnaround_hours": 6.8,
+          "change_request_rate": 0.17,
+          "ci_pass_rate": 0.949,
+          "composite": 46.71
+        }
+      ],
+      "composite": {
+        "score": 47.19,
+        "signals": {
+          "commits": 0.5839,
+          "prs": 0.579,
+          "reviews": 0.4257,
+          "tests": 0.5,
+          "ci": 0.0
+        }
+      },
+      "review_share": 0.122,
+      "h1": {
+        "commits": 252,
+        "composite": 46.7,
+        "commits_per_mo": 42.0,
+        "prs_per_mo": 9.0,
+        "cycle_time_days": 1.91,
+        "ci_pass_rate": 0.917
+      },
+      "h2": {
+        "commits": 330,
+        "composite": 47.68,
+        "commits_per_mo": 55.0,
+        "prs_per_mo": 12.0,
+        "cycle_time_days": 1.57,
+        "ci_pass_rate": 0.939
+      },
+      "active_repos": [
+        "salescloser-dashboard",
+        "salescloser-bot",
+        "salescloser-appmixer",
+        "salescloser-new-website"
+      ]
+    },
+    {
+      "name": "Marcelo Negrini",
+      "handle": "marcelon-salescloser",
+      "initials": "MN",
+      "monthly": [
+        {
+          "month": "2025-07",
+          "commits": 30,
+          "lines_added": 840,
+          "lines_removed": 270,
+          "net": 570,
+          "active_days": 14,
+          "test_touch_rate": 0.25,
+          "prs_merged": 6,
+          "cycle_time_days": 2.05,
+          "reviews_given": 12,
+          "review_turnaround_hours": 7.2,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": null,
+          "composite": 24.45
+        },
+        {
+          "month": "2025-08",
+          "commits": 32,
+          "lines_added": 896,
+          "lines_removed": 288,
+          "net": 608,
+          "active_days": 15,
+          "test_touch_rate": 0.25,
+          "prs_merged": 7,
+          "cycle_time_days": 1.99,
+          "reviews_given": 13,
+          "review_turnaround_hours": 7.2,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.909,
+          "composite": 26.12
+        },
+        {
+          "month": "2025-09",
+          "commits": 33,
+          "lines_added": 924,
+          "lines_removed": 297,
+          "net": 627,
+          "active_days": 16,
+          "test_touch_rate": 0.25,
+          "prs_merged": 7,
+          "cycle_time_days": 1.94,
+          "reviews_given": 14,
+          "review_turnaround_hours": 7.2,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.913,
+          "composite": 25.82
+        },
+        {
+          "month": "2025-10",
+          "commits": 35,
+          "lines_added": 980,
+          "lines_removed": 315,
+          "net": 665,
+          "active_days": 17,
+          "test_touch_rate": 0.25,
+          "prs_merged": 8,
+          "cycle_time_days": 1.88,
+          "reviews_given": 14,
+          "review_turnaround_hours": 7.2,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.917,
+          "composite": 27.05
+        },
+        {
+          "month": "2025-11",
+          "commits": 37,
+          "lines_added": 1036,
+          "lines_removed": 333,
+          "net": 703,
+          "active_days": 18,
+          "test_touch_rate": 0.25,
+          "prs_merged": 8,
+          "cycle_time_days": 1.83,
+          "reviews_given": 15,
+          "review_turnaround_hours": 7.2,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.921,
+          "composite": 23.24
+        },
+        {
+          "month": "2025-12",
+          "commits": 39,
+          "lines_added": 1092,
+          "lines_removed": 351,
+          "net": 741,
+          "active_days": 19,
+          "test_touch_rate": 0.25,
+          "prs_merged": 8,
+          "cycle_time_days": 1.77,
+          "reviews_given": 16,
+          "review_turnaround_hours": 7.2,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.925,
+          "composite": 24.82
+        },
+        {
+          "month": "2026-01",
+          "commits": 40,
+          "lines_added": 1120,
+          "lines_removed": 360,
+          "net": 760,
+          "active_days": 19,
+          "test_touch_rate": 0.25,
+          "prs_merged": 9,
+          "cycle_time_days": 1.71,
+          "reviews_given": 17,
+          "review_turnaround_hours": 7.2,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.929,
+          "composite": 24.64
+        },
+        {
+          "month": "2026-02",
+          "commits": 42,
+          "lines_added": 1176,
+          "lines_removed": 378,
+          "net": 798,
+          "active_days": 20,
+          "test_touch_rate": 0.25,
+          "prs_merged": 9,
+          "cycle_time_days": 1.66,
+          "reviews_given": 18,
+          "review_turnaround_hours": 7.2,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.933,
+          "composite": 27.53
+        },
+        {
+          "month": "2026-03",
+          "commits": 44,
+          "lines_added": 1232,
+          "lines_removed": 396,
+          "net": 836,
+          "active_days": 21,
+          "test_touch_rate": 0.25,
+          "prs_merged": 10,
+          "cycle_time_days": 1.6,
+          "reviews_given": 18,
+          "review_turnaround_hours": 7.2,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.937,
+          "composite": 28.37
+        },
+        {
+          "month": "2026-04",
+          "commits": 46,
+          "lines_added": 1288,
+          "lines_removed": 414,
+          "net": 874,
+          "active_days": 22,
+          "test_touch_rate": 0.25,
+          "prs_merged": 10,
+          "cycle_time_days": 1.55,
+          "reviews_given": 19,
+          "review_turnaround_hours": 7.2,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.941,
+          "composite": 27.07
+        },
+        {
+          "month": "2026-05",
+          "commits": 47,
+          "lines_added": 1316,
+          "lines_removed": 423,
+          "net": 893,
+          "active_days": 22,
+          "test_touch_rate": 0.25,
+          "prs_merged": 10,
+          "cycle_time_days": 1.49,
+          "reviews_given": 20,
+          "review_turnaround_hours": 7.2,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.945,
+          "composite": 24.64
+        },
+        {
+          "month": "2026-06",
+          "commits": 49,
+          "lines_added": 1372,
+          "lines_removed": 441,
+          "net": 931,
+          "active_days": 22,
+          "test_touch_rate": 0.25,
+          "prs_merged": 11,
+          "cycle_time_days": 1.43,
+          "reviews_given": 20,
+          "review_turnaround_hours": 7.2,
+          "change_request_rate": 0.14,
+          "ci_pass_rate": 0.949,
+          "composite": 26.42
+        }
+      ],
+      "composite": {
+        "score": 25.85,
+        "signals": {
+          "commits": 0.243,
+          "prs": 0.2423,
+          "reviews": 0.0988,
+          "tests": 0.75,
+          "ci": 0.0
+        }
+      },
+      "review_share": 0.1,
+      "h1": {
+        "commits": 206,
+        "composite": 25.25,
+        "commits_per_mo": 34.3,
+        "prs_per_mo": 7.3,
+        "cycle_time_days": 1.91,
+        "ci_pass_rate": 0.917
+      },
+      "h2": {
+        "commits": 268,
+        "composite": 26.44,
+        "commits_per_mo": 44.7,
+        "prs_per_mo": 9.8,
+        "cycle_time_days": 1.57,
+        "ci_pass_rate": 0.939
+      },
+      "active_repos": [
+        "salescloser-dashboard",
+        "salescloser-bot",
+        "salescloser-appmixer",
+        "jackhamr-doc-site",
+        "salescloser-new-website"
+      ]
+    }
+  ],
+  "repo_breakdown": [
+    {
+      "repo": "salescloser-dashboard",
+      "commits": 2187,
+      "prs": 476,
+      "reviews": 904,
+      "ci_pass_rate": 0.92,
+      "active_devs": 8
+    },
+    {
+      "repo": "salescloser-bot",
+      "commits": 1902,
+      "prs": 414,
+      "reviews": 786,
+      "ci_pass_rate": 0.92,
+      "active_devs": 8
+    },
+    {
+      "repo": "salescloser-appmixer",
+      "commits": 333,
+      "prs": 72,
+      "reviews": 138,
+      "ci_pass_rate": 0.9,
+      "active_devs": 9
+    },
+    {
+      "repo": "salescloser-coltrane",
+      "commits": 143,
+      "prs": 31,
+      "reviews": 59,
+      "ci_pass_rate": 0.9,
+      "active_devs": 3
+    },
+    {
+      "repo": "salescloser-killer-calls",
+      "commits": 95,
+      "prs": 21,
+      "reviews": 39,
+      "ci_pass_rate": 0.9,
+      "active_devs": 3
+    },
+    {
+      "repo": "jackhamr-doc-site",
+      "commits": 48,
+      "prs": 10,
+      "reviews": 20,
+      "ci_pass_rate": 0.9,
+      "active_devs": 3
+    },
+    {
+      "repo": "salescloser-new-website",
+      "commits": 48,
+      "prs": 10,
+      "reviews": 20,
+      "ci_pass_rate": 0.9,
+      "active_devs": 3
+    },
+    {
+      "repo": "salescloser-helm-charts",
+      "commits": 0,
+      "prs": 0,
+      "reviews": 0,
+      "ci_pass_rate": null,
+      "active_devs": 0
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<aside class="sidebar expanded" id="sidebar" role="navigation" aria-label="Dashboard sections">
+  <div class="sidebar-header">
+    <div class="dot"></div>
+    <span class="label">Dev Performance</span>
+  </div>
+  <ul role="list">
+    <li role="listitem"><a class="sidebar-link active" href="#overview" aria-current="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg><span class="label">Team Overview</span></a></li>
+    <li role="listitem"><a class="sidebar-link" href="#activity" aria-current="false"><svg viewBox="0 0 24 24"><path d="M4 20V10M12 20V4M20 20v-7"/></svg><span class="label">Activity Over Time</span></a></li>
+    <li role="listitem"><a class="sidebar-link" href="#scorecards" aria-current="false"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 18c0-2.5 2-4 5-4s5 1.5 5 4"/></svg><span class="label">Developer Scorecards</span></a></li>
+    <li role="listitem"><a class="sidebar-link" href="#reviews" aria-current="false"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-8.4 8.4 8.3 8.3 0 0 1-3.8-.9L3 21l1.9-5.8a8.3 8.3 0 0 1-.9-3.7 8.4 8.4 0 0 1 8.4-8.4h.1a8.4 8.4 0 0 1 8.4 8.4z"/><path d="M8.5 11.5l2 2 4-4"/></svg><span class="label">Reviews</span></a></li>
+    <li role="listitem"><a class="sidebar-link" href="#dora" aria-current="false"><svg viewBox="0 0 24 24"><path d="M12 2a9 9 0 0 0-9 9c0 3 1.3 5.4 3 7h12c1.7-1.6 3-4 3-7a9 9 0 0 0-9-9z"/><path d="M12 11l3-3"/></svg><span class="label">DORA Metrics</span></a></li>
+    <li role="listitem"><a class="sidebar-link" href="#repos" aria-current="false"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10"/></svg><span class="label">Per-Repo Breakdown</span></a></li>
+    <li role="listitem"><a class="sidebar-link" href="#h1h2" aria-current="false"><svg viewBox="0 0 24 24"><path d="M8 3H3v5M16 3h5v5M3 21v-5h5M21 21v-5h-5"/></svg><span class="label">H1 vs H2</span></a></li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="sidebar-footer-label">Window</div>
+    <div class="mono sidebar-footer-value" id="sidebarWindow">&mdash;</div>
+    <div class="sidebar-footer-label" style="margin-top:10px">Collected</div>
+    <div class="mono sidebar-footer-value" id="sidebarCollected">&mdash;</div>
+  </div>
+</aside>
+
+<main class="content" id="content">
+  <header class="header-band">
+    <div class="eyebrow">Engineering &middot; 9 developers &middot; 8 repositories</div>
+    <h1>Development Performance</h1>
+    <div class="sub">Team &amp; per-developer output, Jul 2025 &rarr; Jun 2026 &middot; git history + GitHub API</div>
+    <div class="meta">
+      <div>Roster <b class="mono" id="statRoster">&mdash;</b></div>
+      <div>Repos <b class="mono" id="statRepos">&mdash;</b></div>
+      <div>Months <b class="mono" id="statMonths">&mdash;</b></div>
+      <div>Data source <b class="mono">git + GitHub</b></div>
+      <div>Shortcut <b class="mono muted">retired</b></div>
+    </div>
+  </header>
+
+  <section class="sec" id="overview">
+    <h2>Team Overview</h2>
+    <div class="kpis">
+      <div class="card kpi" data-kpi="commits">
+        <div class="kpi-lab">Commits</div>
+        <div class="kpi-val mono" id="kpiCommitsValue">&mdash;</div>
+        <div class="kpi-delta" id="kpiCommitsDelta">&mdash;</div>
+      </div>
+      <div class="card kpi" data-kpi="prs">
+        <div class="kpi-lab">PRs Merged</div>
+        <div class="kpi-val mono" id="kpiPrsValue">&mdash;</div>
+        <div class="kpi-delta" id="kpiPrsDelta">&mdash;</div>
+      </div>
+      <div class="card kpi" data-kpi="reviews">
+        <div class="kpi-lab">Reviews</div>
+        <div class="kpi-val mono" id="kpiReviewsValue">&mdash;</div>
+        <div class="kpi-delta" id="kpiReviewsDelta">&mdash;</div>
+      </div>
+      <div class="card kpi" data-kpi="active-devs">
+        <div class="kpi-lab">Active Devs</div>
+        <div class="kpi-val mono" id="kpiActiveDevsValue">&mdash;</div>
+        <div class="kpi-delta" id="kpiActiveDevsDelta">&mdash;</div>
+      </div>
+      <div class="card kpi" data-kpi="cycle">
+        <div class="kpi-lab">Avg Cycle</div>
+        <div class="kpi-val mono" id="kpiCycleValue">&mdash;</div>
+        <div class="kpi-delta" id="kpiCycleDelta">&mdash;</div>
+      </div>
+      <div class="card kpi" data-kpi="ci">
+        <div class="kpi-lab">CI Pass</div>
+        <div class="kpi-val mono" id="kpiCiValue">&mdash;</div>
+        <div class="kpi-delta" id="kpiCiDelta">&mdash;</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="activity">
+    <h2>Activity Over Time &middot; commits &amp; PRs by month</h2>
+    <div class="card">
+      <div class="chart-toolbar">
+        <button type="button" class="chart-toggle" id="activityToggle" aria-pressed="false">
+          <span class="mode-team active">Team</span> / <span class="mode-dev">Per-developer</span>
+        </button>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="activityChart" height="240" role="img" aria-label="Team activity by month"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="scorecards">
+    <h2 id="scorecardsHeading">Developer Scorecards</h2>
+    <div class="scorecard-grid" id="scorecardGrid"></div>
+  </section>
+
+  <section class="sec" id="reviews">
+    <h2>Reviews &amp; DORA</h2>
+    <div class="reviews-dora-grid">
+      <div class="card">
+        <div class="review-title">Review share among the 9</div>
+        <div class="review-list" id="reviewList"></div>
+        <div class="review-aggregate" id="reviewAggregate">&mdash;</div>
+      </div>
+      <div class="card" id="dora">
+        <div class="dora-title">DORA metrics</div>
+        <div class="dora-grid" id="doraGrid"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="repos">
+    <h2>Per-Repo Breakdown</h2>
+    <div class="card repo-table-card">
+      <table class="repo-table">
+        <thead>
+          <tr><th>Repository</th><th>Commits</th><th>PRs</th><th>Reviews</th><th>CI pass</th><th>Active devs</th></tr>
+        </thead>
+        <tbody id="repoTableBody"></tbody>
+      </table>
+    </div>
+    <div class="repo-table-note">Inactive repos shown with real (low/zero) counts &mdash; never dropped.</div>
+  </section>
+
+  <section class="sec" id="h1h2">
+    <h2>H1 vs H2 &middot; Jul&ndash;Dec 2025 vs Jan&ndash;Jun 2026</h2>
+    <div class="h1h2-scope" id="h1h2Scope">Team totals</div>
+    <div class="h1h2-grid" id="h1h2Grid"></div>
+  </section>
+
+  <div class="bottom-spacer"></div>
+</main>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

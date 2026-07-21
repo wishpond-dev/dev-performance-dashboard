@@ -1,0 +1,60 @@
+{
+  "repos": [
+    {
+      "name": "salescloser-dashboard",
+      "org": "wishpond-dev",
+      "full_name": "wishpond-dev/salescloser-dashboard",
+      "local_path": "/root/projects/salescloser-dashboard",
+      "default_branch": null
+    },
+    {
+      "name": "salescloser-bot",
+      "org": "wishpond-dev",
+      "full_name": "wishpond-dev/salescloser-bot",
+      "local_path": "/root/projects/salescloser-bot",
+      "default_branch": null
+    },
+    {
+      "name": "salescloser-coltrane",
+      "org": "wishpond-dev",
+      "full_name": "wishpond-dev/salescloser-coltrane",
+      "local_path": "/root/projects/salescloser-coltrane",
+      "default_branch": null
+    },
+    {
+      "name": "salescloser-killer-calls",
+      "org": "wishpond-dev",
+      "full_name": "wishpond-dev/salescloser-killer-calls",
+      "local_path": "/root/projects/salescloser-killer-calls",
+      "default_branch": null
+    },
+    {
+      "name": "salescloser-appmixer",
+      "org": "wishpond-dev",
+      "full_name": "wishpond-dev/salescloser-appmixer",
+      "local_path": "/root/projects/salescloser-appmixer",
+      "default_branch": null
+    },
+    {
+      "name": "salescloser-helm-charts",
+      "org": "wishpond-dev",
+      "full_name": "wishpond-dev/salescloser-helm-charts",
+      "local_path": "/root/projects/salescloser-helm-charts",
+      "default_branch": null
+    },
+    {
+      "name": "jackhamr-doc-site",
+      "org": "wishpond-dev",
+      "full_name": "wishpond-dev/jackhamr-doc-site",
+      "local_path": "/root/projects/jackhamr-doc-site",
+      "default_branch": null
+    },
+    {
+      "name": "salescloser-new-website",
+      "org": "marcelon-salescloser",
+      "full_name": "marcelon-salescloser/salescloser-new-website",
+      "local_path": "/root/projects/salescloser-new-website",
+      "default_branch": null
+    }
+  ]
+}

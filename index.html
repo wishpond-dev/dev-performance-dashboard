@@ -233,6 +233,11 @@ body.sidebar-expanded { --sidebar-width: 240px; }
 .chart-toggle span { padding: 4px 10px; border-radius: 14px; }
 .chart-toggle span.active { background: rgba(124, 58, 237, 0.22); color: #fff; }
 .chart-wrap { position: relative; height: 280px; }
+.chart-wrap-dual { display: flex; gap: 24px; height: 280px; }
+.chart-wrap-half { flex: 1; min-width: 0; position: relative; height: 100%; }
+.chart-wrap-half canvas { position: relative; height: 100% !important; }
+.chart-wrap-label { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; }
+@media (max-width: 700px) { .chart-wrap-dual { flex-direction: column; height: auto; gap: 12px; } .chart-wrap-half { height: 240px; } }
 
 .bottom-spacer { height: 40px; }
 
@@ -2655,8 +2660,15 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           <span class="mode-team active">Team</span> / <span class="mode-dev">Per-developer</span>
         </button>
       </div>
-      <div class="chart-wrap">
-        <canvas id="activityChart" height="240" role="img" aria-label="Team activity by month"></canvas>
+      <div class="chart-wrap chart-wrap-dual">
+        <div class="chart-wrap-half">
+          <div class="chart-wrap-label"><span style="color:#34d399">●</span> Commits</div>
+          <canvas id="activityChart" height="240" role="img" aria-label="Team commits by month"></canvas>
+        </div>
+        <div class="chart-wrap-half">
+          <div class="chart-wrap-label"><span style="color:#38bdf8">●</span> PRs Merged</div>
+          <canvas id="activityChartPrs" height="240" role="img" aria-label="Team PRs merged by month"></canvas>
+        </div>
       </div>
     </div>
   </section>
@@ -2913,6 +2925,8 @@ body.sidebar-expanded { --sidebar-width: 240px; }
 
   // Team mode: 2 series (Commits, PRs Merged), colors matching mock.html's
   // literal SVG fills (OVERVIEW-UNIT-005/OVERVIEW-UX-002).
+  // Now returns a single-series commits-only config — PRs get their own
+  // chart (buildTeamPrsChartConfig) so each has an independent y-axis.
   function buildTeamActivityChartConfig(data) {
     var months = (data.window && data.window.months) || [];
     var monthly = (data.team && data.team.monthly) || [];
@@ -2920,6 +2934,18 @@ body.sidebar-expanded { --sidebar-width: 240px; }
       var row = findMonthRow(monthly, m);
       return row && typeof row.commits === 'number' ? row.commits : 0;
     });
+    return {
+      labels: months.map(monthShortLabel),
+      datasets: [
+        { label: 'Commits', data: commits, backgroundColor: '#34d399', borderRadius: 3, maxBarThickness: 20 }
+      ]
+    };
+  }
+
+  // PRs chart: separate y-axis so PR bars aren't dwarfed by commit scale.
+  function buildTeamPrsChartConfig(data) {
+    var months = (data.window && data.window.months) || [];
+    var monthly = (data.team && data.team.monthly) || [];
     var prs = months.map(function (m) {
       var row = findMonthRow(monthly, m);
       return row && typeof row.prs_merged === 'number' ? row.prs_merged : 0;
@@ -2927,7 +2953,6 @@ body.sidebar-expanded { --sidebar-width: 240px; }
     return {
       labels: months.map(monthShortLabel),
       datasets: [
-        { label: 'Commits', data: commits, backgroundColor: '#34d399', borderRadius: 3, maxBarThickness: 20 },
         { label: 'PRs Merged', data: prs, backgroundColor: '#38bdf8', borderRadius: 3, maxBarThickness: 20 }
       ]
     };
@@ -3421,7 +3446,7 @@ body.sidebar-expanded { --sidebar-width: 240px; }
     };
   }
 
-  var activityChart = { instance: null, mode: 'team', data: null };
+  var activityChart = { instance: null, prsInstance: null, mode: 'team', data: null };
 
   function initActivityChart(data) {
     var canvas = document.getElementById('activityChart');
@@ -3431,6 +3456,15 @@ body.sidebar-expanded { --sidebar-width: 240px; }
     activityChart.instance = new Chart(canvas.getContext('2d'), {
       type: 'bar', data: config, options: activityChartOptions(), plugins: [h1h2DividerPlugin, barDataLabelsPlugin]
     });
+
+    // PRs chart (team mode only — independent y-axis)
+    var prsCanvas = document.getElementById('activityChartPrs');
+    if (prsCanvas) {
+      var prsConfig = buildTeamPrsChartConfig(data);
+      activityChart.prsInstance = new Chart(prsCanvas.getContext('2d'), {
+        type: 'bar', data: prsConfig, options: activityChartOptions(), plugins: [h1h2DividerPlugin, barDataLabelsPlugin]
+      });
+    }
 
     var toggle = document.getElementById('activityToggle');
     if (!toggle) return;
@@ -3445,6 +3479,11 @@ body.sidebar-expanded { --sidebar-width: 240px; }
       activityChart.instance.data.labels = next.labels;
       activityChart.instance.data.datasets = next.datasets;
       activityChart.instance.update();
+
+      // Show PRs chart only in team mode; hide in per-developer mode
+      var prsWrap = prsCanvas ? prsCanvas.closest('.chart-wrap-half') : null;
+      if (prsWrap) prsWrap.style.display = activityChart.mode === 'team' ? '' : 'none';
+      if (activityChart.prsInstance) activityChart.prsInstance.update();
     });
 
     // Cross-panel developer-filter contract for a future panel (per spec

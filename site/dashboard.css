@@ -224,6 +224,11 @@ body.sidebar-expanded { --sidebar-width: 240px; }
 .chart-toggle span { padding: 4px 10px; border-radius: 14px; }
 .chart-toggle span.active { background: rgba(124, 58, 237, 0.22); color: #fff; }
 .chart-wrap { position: relative; height: 280px; }
+.chart-wrap-dual { display: flex; gap: 24px; height: 280px; }
+.chart-wrap-half { flex: 1; min-width: 0; position: relative; height: 100%; }
+.chart-wrap-half canvas { position: relative; height: 100% !important; }
+.chart-wrap-label { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; }
+@media (max-width: 700px) { .chart-wrap-dual { flex-direction: column; height: auto; gap: 12px; } .chart-wrap-half { height: 240px; } }
 
 .bottom-spacer { height: 40px; }
 

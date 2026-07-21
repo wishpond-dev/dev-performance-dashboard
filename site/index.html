@@ -2510,8 +2510,15 @@
           <span class="mode-team active">Team</span> / <span class="mode-dev">Per-developer</span>
         </button>
       </div>
-      <div class="chart-wrap">
-        <canvas id="activityChart" height="240" role="img" aria-label="Team activity by month"></canvas>
+      <div class="chart-wrap chart-wrap-dual">
+        <div class="chart-wrap-half">
+          <div class="chart-wrap-label"><span style="color:#34d399">●</span> Commits</div>
+          <canvas id="activityChart" height="240" role="img" aria-label="Team commits by month"></canvas>
+        </div>
+        <div class="chart-wrap-half">
+          <div class="chart-wrap-label"><span style="color:#38bdf8">●</span> PRs Merged</div>
+          <canvas id="activityChartPrs" height="240" role="img" aria-label="Team PRs merged by month"></canvas>
+        </div>
       </div>
     </div>
   </section>

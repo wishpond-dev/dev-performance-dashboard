@@ -207,6 +207,8 @@
 
   // Team mode: 2 series (Commits, PRs Merged), colors matching mock.html's
   // literal SVG fills (OVERVIEW-UNIT-005/OVERVIEW-UX-002).
+  // Now returns a single-series commits-only config — PRs get their own
+  // chart (buildTeamPrsChartConfig) so each has an independent y-axis.
   function buildTeamActivityChartConfig(data) {
     var months = (data.window && data.window.months) || [];
     var monthly = (data.team && data.team.monthly) || [];
@@ -214,6 +216,18 @@
       var row = findMonthRow(monthly, m);
       return row && typeof row.commits === 'number' ? row.commits : 0;
     });
+    return {
+      labels: months.map(monthShortLabel),
+      datasets: [
+        { label: 'Commits', data: commits, backgroundColor: '#34d399', borderRadius: 3, maxBarThickness: 20 }
+      ]
+    };
+  }
+
+  // PRs chart: separate y-axis so PR bars aren't dwarfed by commit scale.
+  function buildTeamPrsChartConfig(data) {
+    var months = (data.window && data.window.months) || [];
+    var monthly = (data.team && data.team.monthly) || [];
     var prs = months.map(function (m) {
       var row = findMonthRow(monthly, m);
       return row && typeof row.prs_merged === 'number' ? row.prs_merged : 0;
@@ -221,7 +235,6 @@
     return {
       labels: months.map(monthShortLabel),
       datasets: [
-        { label: 'Commits', data: commits, backgroundColor: '#34d399', borderRadius: 3, maxBarThickness: 20 },
         { label: 'PRs Merged', data: prs, backgroundColor: '#38bdf8', borderRadius: 3, maxBarThickness: 20 }
       ]
     };
@@ -715,7 +728,7 @@
     };
   }
 
-  var activityChart = { instance: null, mode: 'team', data: null };
+  var activityChart = { instance: null, prsInstance: null, mode: 'team', data: null };
 
   function initActivityChart(data) {
     var canvas = document.getElementById('activityChart');
@@ -725,6 +738,15 @@
     activityChart.instance = new Chart(canvas.getContext('2d'), {
       type: 'bar', data: config, options: activityChartOptions(), plugins: [h1h2DividerPlugin, barDataLabelsPlugin]
     });
+
+    // PRs chart (team mode only — independent y-axis)
+    var prsCanvas = document.getElementById('activityChartPrs');
+    if (prsCanvas) {
+      var prsConfig = buildTeamPrsChartConfig(data);
+      activityChart.prsInstance = new Chart(prsCanvas.getContext('2d'), {
+        type: 'bar', data: prsConfig, options: activityChartOptions(), plugins: [h1h2DividerPlugin, barDataLabelsPlugin]
+      });
+    }
 
     var toggle = document.getElementById('activityToggle');
     if (!toggle) return;
@@ -739,6 +761,11 @@
       activityChart.instance.data.labels = next.labels;
       activityChart.instance.data.datasets = next.datasets;
       activityChart.instance.update();
+
+      // Show PRs chart only in team mode; hide in per-developer mode
+      var prsWrap = prsCanvas ? prsCanvas.closest('.chart-wrap-half') : null;
+      if (prsWrap) prsWrap.style.display = activityChart.mode === 'team' ? '' : 'none';
+      if (activityChart.prsInstance) activityChart.prsInstance.update();
     });
 
     // Cross-panel developer-filter contract for a future panel (per spec

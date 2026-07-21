@@ -297,6 +297,51 @@ def build_repo_breakdown_section(
     return breakdown
 
 
+def _merge_shortcut_story_points(
+    document: dict,
+    shortcut_metrics: dict,
+    identity_map: IdentityMap,
+    window_months: list,
+) -> None:
+    """Merge Shortcut story points into the already-built metrics document,
+    adding ``story_points`` and ``stories_completed`` fields to each
+    ``team.monthly[]`` and ``developers[].monthly[]`` row.
+
+    ``shortcut_metrics`` is the dict returned by
+    ``shortcut_source.collect_shortcut_metrics``: keyed by roster handle,
+    each value a dict keyed by month (YYYY-MM) with a
+    ``MonthlyShortcutMetrics`` dataclass (``story_points``, ``stories_completed``).
+
+    Months with no Shortcut data get zeros. Developers with no Shortcut
+    data get all-zero rows.
+    """
+    handles = [person.handle for person in identity_map.roster]
+
+    # Team monthly: sum story_points across all roster developers per month
+    for i, month in enumerate(window_months):
+        total_points = 0
+        total_stories = 0
+        for handle in handles:
+            sm = shortcut_metrics.get(handle, {}).get(month)
+            if sm is not None:
+                total_points += sm.story_points
+                total_stories += sm.stories_completed
+        document["team"]["monthly"][i]["story_points"] = total_points
+        document["team"]["monthly"][i]["stories_completed"] = total_stories
+
+    # Developer monthly: each developer's own story_points per month
+    for dev in document["developers"]:
+        handle = dev["handle"]
+        for i, month in enumerate(window_months):
+            sm = shortcut_metrics.get(handle, {}).get(month)
+            if sm is not None:
+                dev["monthly"][i]["story_points"] = sm.story_points
+                dev["monthly"][i]["stories_completed"] = sm.stories_completed
+            else:
+                dev["monthly"][i]["story_points"] = 0
+                dev["monthly"][i]["stories_completed"] = 0
+
+
 def collect_and_assemble(
     repos: Iterable[dict],
     identity_map: IdentityMap,
@@ -306,6 +351,7 @@ def collect_and_assemble(
     window_months: Optional[list] = None,
     generated_at: Optional[str] = None,
     dora_cache_root: Optional[str] = None,
+    shortcut_metrics: Optional[dict] = None,
 ) -> tuple:
     """Top-level assembly: runs bucketing.build_consolidated_metrics ->
     scoring.score_all -> dora.build_team_dora_metrics, in that order (the
@@ -344,6 +390,9 @@ def collect_and_assemble(
             consolidated["by_repo"], identity_map, [repo["name"] for repo in repos], months
         ),
     }
+    # Merge Shortcut story points into team and developer monthly rows
+    if shortcut_metrics is not None:
+        _merge_shortcut_story_points(document, shortcut_metrics, identity_map, months)
     return document, consolidated
 
 
@@ -465,6 +514,7 @@ def persist_all(
     window_months: Optional[list] = None,
     generated_at: Optional[str] = None,
     dora_cache_root: Optional[str] = None,
+    shortcut_metrics: Optional[dict] = None,
 ) -> dict:
     """The single entrypoint collect.py calls: assembles the metrics
     document (collect_and_assemble) and writes every persisted artifact --
@@ -481,6 +531,7 @@ def persist_all(
         window_months=months,
         generated_at=generated_at,
         dora_cache_root=dora_cache_root if dora_cache_root is not None else f"{data_dir}/raw",
+        shortcut_metrics=shortcut_metrics,
     )
     data_root = Path(data_dir)
     write_metrics_json(document, data_root / "metrics.json")

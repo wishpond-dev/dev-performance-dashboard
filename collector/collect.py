@@ -24,6 +24,7 @@ from collector import branch, persist
 from collector.git_source import collect_all_git_metrics, default_window_months
 from collector.github_source import collect_all_github_metrics
 from collector.identity import load_identity_map, validate_identity_map
+from collector.shortcut_source import collect_shortcut_metrics
 
 logger = logging.getLogger(__name__)
 
@@ -90,6 +91,9 @@ def run_collect(
     github_metrics_by_repo = collect_all_github_metrics(
         repos_with_branch, identity_map, window_months=months, cache_root=cache_root
     )
+    shortcut_metrics = collect_shortcut_metrics(
+        window_months=months, cache_root=cache_root
+    )
 
     return persist.persist_all(
         repos_with_branch,
@@ -101,6 +105,7 @@ def run_collect(
         window_months=months,
         generated_at=generated_at,
         dora_cache_root=cache_root,
+        shortcut_metrics=shortcut_metrics,
     )
 
 

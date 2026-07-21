@@ -37,8 +37,8 @@ BOT_AND_NON_ROSTER_MARKERS = [
     "wishpond[bot]",
 ]
 
-# The 7 scroll-spy sections (spec.md S11 items 2-8); the header band
+# The 8 scroll-spy sections (spec.md S11 items 2-9); the header band
 # (S11 item 1) is checked separately since it has no <section id>.
-SECTION_IDS = ["overview", "activity", "scorecards", "reviews", "dora", "repos", "h1h2"]
+SECTION_IDS = ["overview", "activity", "storypoints", "scorecards", "reviews", "dora", "repos", "h1h2"]
 
 SIDEBAR_COLLAPSE_BREAKPOINT_PX = 900

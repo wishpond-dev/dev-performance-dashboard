@@ -780,6 +780,79 @@
     });
   }
 
+  // ---- Story Points chart (Shortcut) ---------------------------------------
+  function buildTeamStoryPointsConfig(data) {
+    var months = (data.window && data.window.months) || [];
+    var monthly = (data.team && data.team.monthly) || [];
+    var points = months.map(function (m) {
+      var row = findMonthRow(monthly, m);
+      return row && typeof row.story_points === 'number' ? row.story_points : 0;
+    });
+    return {
+      labels: months.map(monthShortLabel),
+      datasets: [
+        { label: 'Story Points', data: points, backgroundColor: '#fbbf24', borderRadius: 3, maxBarThickness: 20 }
+      ]
+    };
+  }
+
+  function buildPerDeveloperStoryPointsConfig(data) {
+    var months = (data.window && data.window.months) || [];
+    var roster = data.roster || [];
+    var developers = data.developers || [];
+    var datasets = roster.map(function (person, idx) {
+      var dev = null;
+      for (var i = 0; i < developers.length; i++) {
+        if (developers[i].handle === person.handle) { dev = developers[i]; break; }
+      }
+      var monthly = (dev && dev.monthly) || [];
+      var series = months.map(function (m) {
+        var row = findMonthRow(monthly, m);
+        return row && typeof row.story_points === 'number' ? row.story_points : 0;
+      });
+      var color = CHART_PALETTE_9[idx % CHART_PALETTE_9.length];
+      return {
+        label: person.name, handle: person.handle, data: series,
+        backgroundColor: color, borderColor: color, maxBarThickness: 9, borderRadius: 2
+      };
+    });
+    return { labels: months.map(monthShortLabel), datasets: datasets };
+  }
+
+  var storyPointsChart = { instance: null, mode: 'team', data: null };
+
+  function initStoryPointsChart(data) {
+    var canvas = document.getElementById('storyPointsChart');
+    if (!canvas || typeof Chart === 'undefined') return;
+    storyPointsChart.data = data;
+    var config = buildTeamStoryPointsConfig(data);
+    storyPointsChart.instance = new Chart(canvas.getContext('2d'), {
+      type: 'bar', data: config, options: activityChartOptions(), plugins: [h1h2DividerPlugin, barDataLabelsPlugin]
+    });
+
+    var toggle = document.getElementById('storyPointsToggle');
+    if (!toggle) return;
+    toggle.addEventListener('click', function () {
+      storyPointsChart.mode = storyPointsChart.mode === 'team' ? 'developer' : 'team';
+      toggle.setAttribute('aria-pressed', storyPointsChart.mode === 'developer' ? 'true' : 'false');
+      toggle.querySelector('.mode-team').classList.toggle('active', storyPointsChart.mode === 'team');
+      toggle.querySelector('.mode-dev').classList.toggle('active', storyPointsChart.mode === 'developer');
+      var next = storyPointsChart.mode === 'team'
+        ? buildTeamStoryPointsConfig(storyPointsChart.data)
+        : buildPerDeveloperStoryPointsConfig(storyPointsChart.data);
+      storyPointsChart.instance.data.labels = next.labels;
+      storyPointsChart.instance.data.datasets = next.datasets;
+      storyPointsChart.instance.update();
+    });
+
+    window.addEventListener('dashboard:developer-filter', function (evt) {
+      if (storyPointsChart.mode !== 'developer' || !storyPointsChart.instance) return;
+      var handle = evt && evt.detail ? evt.detail.handle : null;
+      storyPointsChart.instance.data.datasets = applyDeveloperHighlight(storyPointsChart.instance.data.datasets, handle);
+      storyPointsChart.instance.update();
+    });
+  }
+
   function initScrollSpy() {
     var links = Array.prototype.slice.call(document.querySelectorAll('.sidebar-link'));
     var sections = [];
@@ -1278,6 +1351,7 @@
     renderHeader(data);
     renderKpiRow(data);
     initActivityChart(data);
+    initStoryPointsChart(data);
     renderScorecards(data);
     renderReviews(data);
     renderDora(data);
@@ -1311,7 +1385,10 @@
     computeDelta: computeDelta,
     buildKpiTiles: buildKpiTiles,
     buildTeamActivityChartConfig: buildTeamActivityChartConfig,
+    buildTeamPrsChartConfig: buildTeamPrsChartConfig,
     buildPerDeveloperActivityChartConfig: buildPerDeveloperActivityChartConfig,
+    buildTeamStoryPointsConfig: buildTeamStoryPointsConfig,
+    buildPerDeveloperStoryPointsConfig: buildPerDeveloperStoryPointsConfig,
     applyDeveloperHighlight: applyDeveloperHighlight,
     hexToRgba: hexToRgba,
     buildScorecardFormulaLabel: buildScorecardFormulaLabel,

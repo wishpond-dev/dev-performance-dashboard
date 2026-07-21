@@ -80,7 +80,7 @@ def test_shell_e2e_012_nav_is_keyboard_operable(loaded_page):
     page = loaded_page
     links = page.locator("a.sidebar-link")
     count = links.count()
-    assert count == 7
+    assert count == 8
     for i in range(count):
         links.nth(i).focus()
         assert page.evaluate("document.activeElement.getAttribute('href')") == links.nth(i).get_attribute("href")

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T17:04:03Z",
+  "generated_at": "2026-07-21T19:56:23Z",
   "window": {
     "start": "2025-07",
     "end": "2026-06",
@@ -126,7 +126,9 @@
         "reviews": 163,
         "active_devs": 5,
         "cycle_time_days": 13.789109347442682,
-        "ci_pass_rate": null
+        "ci_pass_rate": null,
+        "story_points": 127,
+        "stories_completed": 103
       },
       {
         "month": "2025-08",
@@ -135,7 +137,9 @@
         "reviews": 194,
         "active_devs": 5,
         "cycle_time_days": 9.147807953042328,
-        "ci_pass_rate": 0.0
+        "ci_pass_rate": 0.0,
+        "story_points": 87,
+        "stories_completed": 83
       },
       {
         "month": "2025-09",
@@ -144,7 +148,9 @@
         "reviews": 241,
         "active_devs": 5,
         "cycle_time_days": 9.952956123737374,
-        "ci_pass_rate": null
+        "ci_pass_rate": null,
+        "story_points": 107,
+        "stories_completed": 95
       },
       {
         "month": "2025-10",
@@ -153,7 +159,9 @@
         "reviews": 249,
         "active_devs": 5,
         "cycle_time_days": 16.10019000771605,
-        "ci_pass_rate": null
+        "ci_pass_rate": null,
+        "story_points": 129,
+        "stories_completed": 109
       },
       {
         "month": "2025-11",
@@ -162,7 +170,9 @@
         "reviews": 132,
         "active_devs": 5,
         "cycle_time_days": 20.989246720679013,
-        "ci_pass_rate": null
+        "ci_pass_rate": null,
+        "story_points": 90,
+        "stories_completed": 68
       },
       {
         "month": "2025-12",
@@ -171,7 +181,9 @@
         "reviews": 335,
         "active_devs": 5,
         "cycle_time_days": 10.131393518518518,
-        "ci_pass_rate": null
+        "ci_pass_rate": null,
+        "story_points": 75,
+        "stories_completed": 68
       },
       {
         "month": "2026-01",
@@ -180,7 +192,9 @@
         "reviews": 160,
         "active_devs": 5,
         "cycle_time_days": 13.36573510208927,
-        "ci_pass_rate": null
+        "ci_pass_rate": null,
+        "story_points": 101,
+        "stories_completed": 75
       },
       {
         "month": "2026-02",
@@ -189,7 +203,9 @@
         "reviews": 174,
         "active_devs": 5,
         "cycle_time_days": 12.922128870673953,
-        "ci_pass_rate": 1.0
+        "ci_pass_rate": 1.0,
+        "story_points": 146,
+        "stories_completed": 105
       },
       {
         "month": "2026-03",
@@ -198,7 +214,9 @@
         "reviews": 190,
         "active_devs": 6,
         "cycle_time_days": 8.75189995659722,
-        "ci_pass_rate": 0.7138480392156862
+        "ci_pass_rate": 0.7138480392156862,
+        "story_points": 120,
+        "stories_completed": 109
       },
       {
         "month": "2026-04",
@@ -207,7 +225,9 @@
         "reviews": 197,
         "active_devs": 6,
         "cycle_time_days": 13.973966139104222,
-        "ci_pass_rate": 0.7054263565891472
+        "ci_pass_rate": 0.7054263565891472,
+        "story_points": 117,
+        "stories_completed": 143
       },
       {
         "month": "2026-05",
@@ -216,7 +236,9 @@
         "reviews": 181,
         "active_devs": 7,
         "cycle_time_days": 14.146752917300864,
-        "ci_pass_rate": 0.8033929477422628
+        "ci_pass_rate": 0.8033929477422628,
+        "story_points": 145,
+        "stories_completed": 146
       },
       {
         "month": "2026-06",
@@ -225,7 +247,9 @@
         "reviews": 265,
         "active_devs": 8,
         "cycle_time_days": 6.852300473027375,
-        "ci_pass_rate": 0.693556708082763
+        "ci_pass_rate": 0.693556708082763,
+        "story_points": 259,
+        "stories_completed": 209
       }
     ],
     "h1": {
@@ -289,7 +313,9 @@
           "review_turnaround_hours": 275.6525403608737,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 70.98792980040756
+          "composite": 70.98792980040756,
+          "story_points": 36,
+          "stories_completed": 35
         },
         {
           "month": "2025-08",
@@ -306,7 +332,9 @@
           "review_turnaround_hours": 103.50598554033489,
           "change_request_rate": 0.0,
           "ci_pass_rate": 0.0,
-          "composite": 77.45614035087719
+          "composite": 77.45614035087719,
+          "story_points": 23,
+          "stories_completed": 24
         },
         {
           "month": "2025-09",
@@ -323,7 +351,9 @@
           "review_turnaround_hours": 144.6396404226313,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 50.64678413219731
+          "composite": 50.64678413219731,
+          "story_points": 20,
+          "stories_completed": 25
         },
         {
           "month": "2025-10",
@@ -340,7 +370,9 @@
           "review_turnaround_hours": 148.17691890166026,
           "change_request_rate": 0.047619047619047616,
           "ci_pass_rate": null,
-          "composite": 47.56285805635203
+          "composite": 47.56285805635203,
+          "story_points": 20,
+          "stories_completed": 18
         },
         {
           "month": "2025-11",
@@ -357,7 +389,9 @@
           "review_turnaround_hours": 260.7184615384616,
           "change_request_rate": 0.041666666666666664,
           "ci_pass_rate": null,
-          "composite": 54.260869565217384
+          "composite": 54.260869565217384,
+          "story_points": 8,
+          "stories_completed": 8
         },
         {
           "month": "2025-12",
@@ -374,7 +408,9 @@
           "review_turnaround_hours": 185.03376912840983,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 21.047688674386762
+          "composite": 21.047688674386762,
+          "story_points": 12,
+          "stories_completed": 12
         },
         {
           "month": "2026-01",
@@ -391,7 +427,9 @@
           "review_turnaround_hours": 207.37065937149276,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 80.75757575757576
+          "composite": 80.75757575757576,
+          "story_points": 26,
+          "stories_completed": 21
         },
         {
           "month": "2026-02",
@@ -408,7 +446,9 @@
           "review_turnaround_hours": 126.33047685185184,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 58.40392135452566
+          "composite": 58.40392135452566,
+          "story_points": 25,
+          "stories_completed": 21
         },
         {
           "month": "2026-03",
@@ -425,7 +465,9 @@
           "review_turnaround_hours": 115.5505997474748,
           "change_request_rate": 0.0,
           "ci_pass_rate": 0.7066666666666666,
-          "composite": 83.5606636727279
+          "composite": 83.5606636727279,
+          "story_points": 26,
+          "stories_completed": 28
         },
         {
           "month": "2026-04",
@@ -442,7 +484,9 @@
           "review_turnaround_hours": 139.1632702020202,
           "change_request_rate": 0.03157894736842106,
           "ci_pass_rate": 0.7192982456140351,
-          "composite": 97.19298245614036
+          "composite": 97.19298245614036,
+          "story_points": 18,
+          "stories_completed": 30
         },
         {
           "month": "2026-05",
@@ -459,7 +503,9 @@
           "review_turnaround_hours": 153.9614201388889,
           "change_request_rate": 0.046983044425499665,
           "ci_pass_rate": 0.8088235294117647,
-          "composite": 91.9249276474075
+          "composite": 91.9249276474075,
+          "story_points": 22,
+          "stories_completed": 24
         },
         {
           "month": "2026-06",
@@ -476,7 +522,9 @@
           "review_turnaround_hours": 106.37232496194827,
           "change_request_rate": 0.014227642276422762,
           "ci_pass_rate": 0.7972972972972973,
-          "composite": 82.42935264838206
+          "composite": 82.42935264838206,
+          "story_points": 27,
+          "stories_completed": 33
         }
       ],
       "h1": {
@@ -524,7 +572,9 @@
           "review_turnaround_hours": 0.2925,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 22.721811005345632
+          "composite": 22.721811005345632,
+          "story_points": 30,
+          "stories_completed": 20
         },
         {
           "month": "2025-08",
@@ -541,7 +591,9 @@
           "review_turnaround_hours": 31.28266666666667,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 18.95302516791858
+          "composite": 18.95302516791858,
+          "story_points": 5,
+          "stories_completed": 10
         },
         {
           "month": "2025-09",
@@ -558,7 +610,9 @@
           "review_turnaround_hours": 110.5575925925926,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 17.32649994502619
+          "composite": 17.32649994502619,
+          "story_points": 21,
+          "stories_completed": 16
         },
         {
           "month": "2025-10",
@@ -575,7 +629,9 @@
           "review_turnaround_hours": 67.13041666666666,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 29.317874221114554
+          "composite": 29.317874221114554,
+          "story_points": 30,
+          "stories_completed": 26
         },
         {
           "month": "2025-11",
@@ -592,7 +648,9 @@
           "review_turnaround_hours": 82.77583333333334,
           "change_request_rate": 0.008771929824561403,
           "ci_pass_rate": null,
-          "composite": 42.847191705776055
+          "composite": 42.847191705776055,
+          "story_points": 19,
+          "stories_completed": 18
         },
         {
           "month": "2025-12",
@@ -609,7 +667,9 @@
           "review_turnaround_hours": 7.9878333333333345,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 12.732506207294811
+          "composite": 12.732506207294811,
+          "story_points": 14,
+          "stories_completed": 9
         },
         {
           "month": "2026-01",
@@ -626,7 +686,9 @@
           "review_turnaround_hours": 41.92688888888889,
           "change_request_rate": 0.2222222222222222,
           "ci_pass_rate": null,
-          "composite": 56.89412906990081
+          "composite": 56.89412906990081,
+          "story_points": 26,
+          "stories_completed": 16
         },
         {
           "month": "2026-02",
@@ -643,7 +705,9 @@
           "review_turnaround_hours": 28.536296296296296,
           "change_request_rate": 0.17142857142857143,
           "ci_pass_rate": 1.0,
-          "composite": 67.35596054230115
+          "composite": 67.35596054230115,
+          "story_points": 43,
+          "stories_completed": 21
         },
         {
           "month": "2026-03",
@@ -660,7 +724,9 @@
           "review_turnaround_hours": 111.60979797979799,
           "change_request_rate": 0.0,
           "ci_pass_rate": 1.0,
-          "composite": 36.50957050157854
+          "composite": 36.50957050157854,
+          "story_points": 3,
+          "stories_completed": 13
         },
         {
           "month": "2026-04",
@@ -677,7 +743,9 @@
           "review_turnaround_hours": 130.50069753086424,
           "change_request_rate": 0.0,
           "ci_pass_rate": 0.5,
-          "composite": 17.379644647450466
+          "composite": 17.379644647450466,
+          "story_points": 5,
+          "stories_completed": 33
         },
         {
           "month": "2026-05",
@@ -694,7 +762,9 @@
           "review_turnaround_hours": 39.58072222222222,
           "change_request_rate": 0.009868421052631578,
           "ci_pass_rate": 0.875,
-          "composite": 36.86049565989527
+          "composite": 36.86049565989527,
+          "story_points": 24,
+          "stories_completed": 26
         },
         {
           "month": "2026-06",
@@ -711,7 +781,9 @@
           "review_turnaround_hours": 140.28704427083332,
           "change_request_rate": 0.06704081449103304,
           "ci_pass_rate": 0.8632897603485838,
-          "composite": 59.80771600272477
+          "composite": 59.80771600272477,
+          "story_points": 52,
+          "stories_completed": 24
         }
       ],
       "h1": {
@@ -759,7 +831,9 @@
           "review_turnaround_hours": 114.52872685185186,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 70.54642971562755
+          "composite": 70.54642971562755,
+          "story_points": 40,
+          "stories_completed": 37
         },
         {
           "month": "2025-08",
@@ -776,7 +850,9 @@
           "review_turnaround_hours": 39.14092592592592,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 44.05777555499111
+          "composite": 44.05777555499111,
+          "story_points": 25,
+          "stories_completed": 22
         },
         {
           "month": "2025-09",
@@ -793,7 +869,9 @@
           "review_turnaround_hours": 67.83587797619047,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 75.47791678345381
+          "composite": 75.47791678345381,
+          "story_points": 28,
+          "stories_completed": 22
         },
         {
           "month": "2025-10",
@@ -810,7 +888,9 @@
           "review_turnaround_hours": 12.492763409961686,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 79.75457875457876
+          "composite": 79.75457875457876,
+          "story_points": 32,
+          "stories_completed": 29
         },
         {
           "month": "2025-11",
@@ -827,7 +907,9 @@
           "review_turnaround_hours": 60.32612318840579,
           "change_request_rate": 0.015555555555555555,
           "ci_pass_rate": null,
-          "composite": 68.66757905481838
+          "composite": 68.66757905481838,
+          "story_points": 28,
+          "stories_completed": 21
         },
         {
           "month": "2025-12",
@@ -844,7 +926,9 @@
           "review_turnaround_hours": 18.317929292929296,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 90.0
+          "composite": 90.0,
+          "story_points": 24,
+          "stories_completed": 24
         },
         {
           "month": "2026-01",
@@ -861,7 +945,9 @@
           "review_turnaround_hours": 113.80109953703703,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 60.19301485846261
+          "composite": 60.19301485846261,
+          "story_points": 20,
+          "stories_completed": 19
         },
         {
           "month": "2026-02",
@@ -878,7 +964,9 @@
           "review_turnaround_hours": 44.20369047619049,
           "change_request_rate": 0.008409785932721714,
           "ci_pass_rate": 1.0,
-          "composite": 73.72547326225373
+          "composite": 73.72547326225373,
+          "story_points": 21,
+          "stories_completed": 19
         },
         {
           "month": "2026-03",
@@ -895,7 +983,9 @@
           "review_turnaround_hours": 77.55888888888887,
           "change_request_rate": 0.006488240064882401,
           "ci_pass_rate": 0.6862745098039216,
-          "composite": 58.99160189513536
+          "composite": 58.99160189513536,
+          "story_points": 26,
+          "stories_completed": 22
         },
         {
           "month": "2026-04",
@@ -912,7 +1002,9 @@
           "review_turnaround_hours": 110.4307608695652,
           "change_request_rate": 0.06626706626706627,
           "ci_pass_rate": 0.6666666666666666,
-          "composite": 52.36432377460596
+          "composite": 52.36432377460596,
+          "story_points": 25,
+          "stories_completed": 31
         },
         {
           "month": "2026-05",
@@ -929,7 +1021,9 @@
           "review_turnaround_hours": 83.19815891472868,
           "change_request_rate": 0.09523809523809523,
           "ci_pass_rate": 0.7983539094650206,
-          "composite": 68.45795868537297
+          "composite": 68.45795868537297,
+          "story_points": 18,
+          "stories_completed": 35
         },
         {
           "month": "2026-06",
@@ -946,7 +1040,9 @@
           "review_turnaround_hours": 173.8439655172414,
           "change_request_rate": 0.01639344262295082,
           "ci_pass_rate": 0.75,
-          "composite": 54.35881600143303
+          "composite": 54.35881600143303,
+          "story_points": 24,
+          "stories_completed": 21
         }
       ],
       "h1": {
@@ -994,7 +1090,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2025-08",
@@ -1011,7 +1109,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2025-09",
@@ -1028,7 +1128,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2025-10",
@@ -1045,7 +1147,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2025-11",
@@ -1062,7 +1166,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2025-12",
@@ -1079,7 +1185,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2026-01",
@@ -1096,7 +1204,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2026-02",
@@ -1113,7 +1223,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2026-03",
@@ -1130,7 +1242,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2026-04",
@@ -1147,7 +1261,9 @@
           "review_turnaround_hours": 57.50033333333333,
           "change_request_rate": 0.0,
           "ci_pass_rate": 1.0,
-          "composite": 13.85394183119728
+          "composite": 13.85394183119728,
+          "story_points": 0,
+          "stories_completed": 1
         },
         {
           "month": "2026-05",
@@ -1164,7 +1280,9 @@
           "review_turnaround_hours": 58.33496913580247,
           "change_request_rate": 0.0,
           "ci_pass_rate": 1.0,
-          "composite": 29.558576419872185
+          "composite": 29.558576419872185,
+          "story_points": 24,
+          "stories_completed": 9
         },
         {
           "month": "2026-06",
@@ -1181,7 +1299,9 @@
           "review_turnaround_hours": 99.27678451178453,
           "change_request_rate": 0.0,
           "ci_pass_rate": 0.8235294117647058,
-          "composite": 54.32833125817389
+          "composite": 54.32833125817389,
+          "story_points": 42,
+          "stories_completed": 33
         }
       ],
       "h1": {
@@ -1232,7 +1352,9 @@
           "review_turnaround_hours": 67.3360925925926,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 27.703711190395065
+          "composite": 27.703711190395065,
+          "story_points": 7,
+          "stories_completed": 3
         },
         {
           "month": "2025-08",
@@ -1249,7 +1371,9 @@
           "review_turnaround_hours": 21.62935185185185,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 46.199489738239585
+          "composite": 46.199489738239585,
+          "story_points": 21,
+          "stories_completed": 18
         },
         {
           "month": "2025-09",
@@ -1266,7 +1390,9 @@
           "review_turnaround_hours": 98.63008333333333,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 11.831592634198145
+          "composite": 11.831592634198145,
+          "story_points": 25,
+          "stories_completed": 20
         },
         {
           "month": "2025-10",
@@ -1283,7 +1409,9 @@
           "review_turnaround_hours": 131.83930555555557,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 15.230827773418943
+          "composite": 15.230827773418943,
+          "story_points": 31,
+          "stories_completed": 23
         },
         {
           "month": "2025-11",
@@ -1300,7 +1428,9 @@
           "review_turnaround_hours": 0.36157407407407405,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 12.384787211022832
+          "composite": 12.384787211022832,
+          "story_points": 22,
+          "stories_completed": 15
         },
         {
           "month": "2025-12",
@@ -1317,7 +1447,9 @@
           "review_turnaround_hours": 24.80810185185185,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 3.598006978152926
+          "composite": 3.598006978152926,
+          "story_points": 9,
+          "stories_completed": 8
         },
         {
           "month": "2026-01",
@@ -1334,7 +1466,9 @@
           "review_turnaround_hours": 74.81750000000001,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 1.1825220064203283
+          "composite": 1.1825220064203283,
+          "story_points": 18,
+          "stories_completed": 9
         },
         {
           "month": "2026-02",
@@ -1351,7 +1485,9 @@
           "review_turnaround_hours": 6.501055555555555,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 5.134059915908598
+          "composite": 5.134059915908598,
+          "story_points": 32,
+          "stories_completed": 28
         },
         {
           "month": "2026-03",
@@ -1368,7 +1504,9 @@
           "review_turnaround_hours": 42.120892857142856,
           "change_request_rate": 0.0,
           "ci_pass_rate": 0.6666666666666666,
-          "composite": 23.72953542969211
+          "composite": 23.72953542969211,
+          "story_points": 51,
+          "stories_completed": 35
         },
         {
           "month": "2026-04",
@@ -1385,7 +1523,9 @@
           "review_turnaround_hours": 51.91425925925926,
           "change_request_rate": 0.0,
           "ci_pass_rate": 0.75,
-          "composite": 27.51898195997051
+          "composite": 27.51898195997051,
+          "story_points": 50,
+          "stories_completed": 35
         },
         {
           "month": "2026-05",
@@ -1402,7 +1542,9 @@
           "review_turnaround_hours": 52.373000000000005,
           "change_request_rate": 0.0,
           "ci_pass_rate": 0.7125,
-          "composite": 66.06132661582097
+          "composite": 66.06132661582097,
+          "story_points": 48,
+          "stories_completed": 34
         },
         {
           "month": "2026-06",
@@ -1419,7 +1561,9 @@
           "review_turnaround_hours": 135.49963991769548,
           "change_request_rate": 0.0,
           "ci_pass_rate": 0.4791666666666667,
-          "composite": 52.31637833815085
+          "composite": 52.31637833815085,
+          "story_points": 80,
+          "stories_completed": 49
         }
       ],
       "h1": {
@@ -1466,7 +1610,9 @@
           "review_turnaround_hours": 69.12907407407407,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 19.73265871470071
+          "composite": 19.73265871470071,
+          "story_points": 14,
+          "stories_completed": 8
         },
         {
           "month": "2025-08",
@@ -1483,7 +1629,9 @@
           "review_turnaround_hours": 19.97388888888889,
           "change_request_rate": 0.0,
           "ci_pass_rate": 0.0,
-          "composite": 33.771357914264506
+          "composite": 33.771357914264506,
+          "story_points": 13,
+          "stories_completed": 9
         },
         {
           "month": "2025-09",
@@ -1500,7 +1648,9 @@
           "review_turnaround_hours": 197.01916666666668,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 40.28245966596338
+          "composite": 40.28245966596338,
+          "story_points": 13,
+          "stories_completed": 12
         },
         {
           "month": "2025-10",
@@ -1517,7 +1667,9 @@
           "review_turnaround_hours": 23.816944444444445,
           "change_request_rate": 0.00909090909090909,
           "ci_pass_rate": null,
-          "composite": 32.976014167364085
+          "composite": 32.976014167364085,
+          "story_points": 16,
+          "stories_completed": 13
         },
         {
           "month": "2025-11",
@@ -1534,7 +1686,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 22.434782608695652
+          "composite": 22.434782608695652,
+          "story_points": 13,
+          "stories_completed": 6
         },
         {
           "month": "2025-12",
@@ -1551,7 +1705,9 @@
           "review_turnaround_hours": 38.15888888888889,
           "change_request_rate": 0.02564102564102564,
           "ci_pass_rate": null,
-          "composite": 30.857064267997146
+          "composite": 30.857064267997146,
+          "story_points": 16,
+          "stories_completed": 15
         },
         {
           "month": "2026-01",
@@ -1568,7 +1724,9 @@
           "review_turnaround_hours": 41.11972222222222,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 38.30463073992313
+          "composite": 38.30463073992313,
+          "story_points": 9,
+          "stories_completed": 9
         },
         {
           "month": "2026-02",
@@ -1585,7 +1743,9 @@
           "review_turnaround_hours": 0.24555555555555555,
           "change_request_rate": 0.0,
           "ci_pass_rate": 1.0,
-          "composite": 44.67970941867232
+          "composite": 44.67970941867232,
+          "story_points": 25,
+          "stories_completed": 16
         },
         {
           "month": "2026-03",
@@ -1602,7 +1762,9 @@
           "review_turnaround_hours": 45.77527777777778,
           "change_request_rate": 0.0,
           "ci_pass_rate": 0.6666666666666666,
-          "composite": 20.53521671987847
+          "composite": 20.53521671987847,
+          "story_points": 14,
+          "stories_completed": 11
         },
         {
           "month": "2026-04",
@@ -1619,7 +1781,9 @@
           "review_turnaround_hours": 320.2236111111111,
           "change_request_rate": 0.05405405405405406,
           "ci_pass_rate": 0.6666666666666666,
-          "composite": 28.58006226148048
+          "composite": 28.58006226148048,
+          "story_points": 19,
+          "stories_completed": 13
         },
         {
           "month": "2026-05",
@@ -1636,7 +1800,9 @@
           "review_turnaround_hours": 262.1143055555556,
           "change_request_rate": 0.0,
           "ci_pass_rate": 0.75,
-          "composite": 38.60895973125093
+          "composite": 38.60895973125093,
+          "story_points": 9,
+          "stories_completed": 18
         },
         {
           "month": "2026-06",
@@ -1653,7 +1819,9 @@
           "review_turnaround_hours": 67.29138888888889,
           "change_request_rate": 0.014925373134328358,
           "ci_pass_rate": 0.75,
-          "composite": 32.60491628215515
+          "composite": 32.60491628215515,
+          "story_points": 17,
+          "stories_completed": 11
         }
       ],
       "h1": {
@@ -1701,7 +1869,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2025-08",
@@ -1718,7 +1888,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2025-09",
@@ -1735,7 +1907,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2025-10",
@@ -1752,7 +1926,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2025-11",
@@ -1769,7 +1945,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2025-12",
@@ -1786,7 +1964,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2026-01",
@@ -1803,7 +1983,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2026-02",
@@ -1820,7 +2002,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2026-03",
@@ -1837,7 +2021,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2026-04",
@@ -1854,7 +2040,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2026-05",
@@ -1871,7 +2059,9 @@
           "review_turnaround_hours": 6.5090509259259255,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 21.874011326708604
+          "composite": 21.874011326708604,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2026-06",
@@ -1888,7 +2078,9 @@
           "review_turnaround_hours": 125.19160660660661,
           "change_request_rate": 0.0,
           "ci_pass_rate": 0.8181818181818182,
-          "composite": 46.974136483161494
+          "composite": 46.974136483161494,
+          "story_points": 17,
+          "stories_completed": 38
         }
       ],
       "h1": {
@@ -1935,7 +2127,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2025-08",
@@ -1952,7 +2146,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2025-09",
@@ -1969,7 +2165,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2025-10",
@@ -1986,7 +2184,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2025-11",
@@ -2003,7 +2203,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2025-12",
@@ -2020,7 +2222,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2026-01",
@@ -2037,7 +2241,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 2,
+          "stories_completed": 1
         },
         {
           "month": "2026-02",
@@ -2054,7 +2260,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2026-03",
@@ -2071,7 +2279,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.06472491909385114
+          "composite": 0.06472491909385114,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2026-04",
@@ -2088,7 +2298,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2026-05",
@@ -2105,7 +2317,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         },
         {
           "month": "2026-06",
@@ -2122,7 +2336,9 @@
           "review_turnaround_hours": 0.0,
           "change_request_rate": 0.0,
           "ci_pass_rate": null,
-          "composite": 0.0
+          "composite": 0.0,
+          "story_points": 0,
+          "stories_completed": 0
         }
       ],
       "h1": {

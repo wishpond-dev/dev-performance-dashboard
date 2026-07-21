@@ -2438,6 +2438,7 @@
   <ul role="list">
     <li role="listitem"><a class="sidebar-link active" href="#overview" aria-current="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg><span class="label">Team Overview</span></a></li>
     <li role="listitem"><a class="sidebar-link" href="#activity" aria-current="false"><svg viewBox="0 0 24 24"><path d="M4 20V10M12 20V4M20 20v-7"/></svg><span class="label">Activity Over Time</span></a></li>
+    <li role="listitem"><a class="sidebar-link" href="#storypoints" aria-current="false"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 3 6-7"/></svg><span class="label">Story Points</span></a></li>
     <li role="listitem"><a class="sidebar-link" href="#scorecards" aria-current="false"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 18c0-2.5 2-4 5-4s5 1.5 5 4"/></svg><span class="label">Developer Scorecards</span></a></li>
     <li role="listitem"><a class="sidebar-link" href="#reviews" aria-current="false"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-8.4 8.4 8.3 8.3 0 0 1-3.8-.9L3 21l1.9-5.8a8.3 8.3 0 0 1-.9-3.7 8.4 8.4 0 0 1 8.4-8.4h.1a8.4 8.4 0 0 1 8.4 8.4z"/><path d="M8.5 11.5l2 2 4-4"/></svg><span class="label">Reviews</span></a></li>
     <li role="listitem"><a class="sidebar-link" href="#dora" aria-current="false"><svg viewBox="0 0 24 24"><path d="M12 2a9 9 0 0 0-9 9c0 3 1.3 5.4 3 7h12c1.7-1.6 3-4 3-7a9 9 0 0 0-9-9z"/><path d="M12 11l3-3"/></svg><span class="label">DORA Metrics</span></a></li>
@@ -2519,6 +2520,20 @@
           <div class="chart-wrap-label"><span style="color:#38bdf8">●</span> PRs Merged</div>
           <canvas id="activityChartPrs" height="240" role="img" aria-label="Team PRs merged by month"></canvas>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="storypoints">
+    <h2>Story Points Delivered &middot; from Shortcut</h2>
+    <div class="card">
+      <div class="chart-toolbar">
+        <button type="button" class="chart-toggle" id="storyPointsToggle" aria-pressed="false">
+          <span class="mode-team active">Team</span> / <span class="mode-dev">Per-developer</span>
+        </button>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="storyPointsChart" height="280" role="img" aria-label="Story points delivered by month"></canvas>
       </div>
     </div>
   </section>

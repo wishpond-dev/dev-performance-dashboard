@@ -1,0 +1,13 @@
+{
+  "_notes": "Maps Shortcut (app.shortcut.com) member UUIDs to roster handles from config/identity-map.json. Used by collector/shortcut_source.py to attribute story points. Built from the Shortcut /members API endpoint cross-referenced with identity-map.json aliases.",
+  "members": {
+    "6086dc25-edac-462c-854e-ef3f71da2f12": "amedwishpond",
+    "5f3abc22-a710-40c6-8d48-481faa9e25ad": "mc4future",
+    "677fffb0-a933-4f04-b215-06709dfdb648": "gabriellaporte-wp",
+    "69b82219-ddd1-4ad6-bb64-0b32c1148b2a": "igorFNegrizoli",
+    "61d44ce1-ee96-4f0c-98b7-5f4aa90f5e14": "pmellingimenes",
+    "6463a78d-0026-48b1-9f58-f3aca52e1b00": "umerbhattiboostani",
+    "6a01ec20-ecbb-4c45-abfd-54604219e5ed": "davidmoradi",
+    "696196ee-38cc-4e95-af7f-c0688a09d8b3": "marcelon-salescloser"
+  }
+}

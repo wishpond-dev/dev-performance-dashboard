@@ -3344,7 +3344,7 @@ body.sidebar-expanded { --sidebar-width: 240px; }
         for (var j = 0; j < monthly.length; j++) { if (monthly[j].month === m) { row = monthly[j]; break; } }
         return row && typeof row.composite === 'number' ? row.composite : 0;
       });
-      // Per-month breakdown for the monthly bar chart (commits + PRs)
+      // Per-month breakdown for the monthly bar chart (commits + PRs + story points + lines)
       var monthlyBreakdown = months.map(function (m) {
         var row = null;
         for (var j = 0; j < monthly.length; j++) { if (monthly[j].month === m) { row = monthly[j]; break; } }
@@ -3352,7 +3352,10 @@ body.sidebar-expanded { --sidebar-width: 240px; }
           month: m,
           commits: row && typeof row.commits === 'number' ? row.commits : 0,
           prs: row && typeof row.prs_merged === 'number' ? row.prs_merged : 0,
-          reviews: row && typeof row.reviews_given === 'number' ? row.reviews_given : 0
+          reviews: row && typeof row.reviews_given === 'number' ? row.reviews_given : 0,
+          story_points: row && typeof row.story_points === 'number' ? row.story_points : 0,
+          lines_added: row && typeof row.lines_added === 'number' ? row.lines_added : 0,
+          lines_removed: row && typeof row.lines_removed === 'number' ? row.lines_removed : 0
         };
       });
       // Raw totals for signal bars
@@ -4227,13 +4230,145 @@ body.sidebar-expanded { --sidebar-width: 240px; }
       return chartWrap;
     }
 
+    // Dual-series mini-chart (e.g. lines added + deleted on a shared y-axis)
+    function buildDualMiniChart(label1, color1, values1, label2, color2, values2, months) {
+      var maxVal = Math.max.apply(null, values1.concat(values2).concat([1]));
+      var niceMax = Math.ceil(maxVal / 10) * 10;
+      if (niceMax < 10) niceMax = 10;
+      var gridSteps = 4;
+
+      var chartWrap = document.createElement('div');
+      chartWrap.className = 'scorecard-monthly-mini';
+
+      var chartTitle = document.createElement('div');
+      chartTitle.className = 'scorecard-monthly-mini-title';
+      chartTitle.innerHTML = '<span style="color:' + color1 + '">●</span> ' + label1 +
+        ' <span style="color:' + color2 + ';margin-left:6px">●</span> ' + label2;
+      chartWrap.appendChild(chartTitle);
+
+      var chartArea = document.createElement('div');
+      chartArea.className = 'scorecard-monthly-chart';
+
+      var yAxis = document.createElement('div');
+      yAxis.className = 'scorecard-monthly-yaxis';
+      for (var gi = gridSteps; gi >= 0; gi--) {
+        var yLabel = document.createElement('div');
+        yLabel.className = 'scorecard-monthly-ylabel';
+        yLabel.textContent = Math.round(niceMax * gi / gridSteps);
+        yAxis.appendChild(yLabel);
+      }
+
+      var barsArea = document.createElement('div');
+      barsArea.className = 'scorecard-monthly-barsarea';
+
+      for (var gl = 0; gl <= gridSteps; gl++) {
+        var gridLine = document.createElement('div');
+        gridLine.className = 'scorecard-monthly-gridline';
+        gridLine.style.bottom = (gl / gridSteps * 100) + '%';
+        barsArea.appendChild(gridLine);
+      }
+
+      var barsRow = document.createElement('div');
+      barsRow.className = 'scorecard-monthly-barsrow';
+
+      months.forEach(function (m, idx) {
+        var monthCol = document.createElement('div');
+        monthCol.className = 'scorecard-month-col';
+
+        var barsContainer = document.createElement('div');
+        barsContainer.className = 'scorecard-month-bars';
+
+        var v1 = values1[idx];
+        var v2 = values2[idx];
+        var h1 = niceMax > 0 ? (v1 / niceMax) * 100 : 0;
+        var h2 = niceMax > 0 ? (v2 / niceMax) * 100 : 0;
+
+        var bar1 = document.createElement('div');
+        bar1.style.height = h1 + '%';
+        bar1.style.background = color1;
+        bar1.style.width = '30%';
+        bar1.style.borderRadius = '2px 2px 0 0';
+        bar1.style.position = 'absolute';
+        bar1.style.bottom = '0';
+        bar1.style.left = '15%';
+
+        var bar2 = document.createElement('div');
+        bar2.style.height = h2 + '%';
+        bar2.style.background = color2;
+        bar2.style.width = '30%';
+        bar2.style.borderRadius = '2px 2px 0 0';
+        bar2.style.position = 'absolute';
+        bar2.style.bottom = '0';
+        bar2.style.left = '55%';
+
+        if (v1 > 0) {
+          var lab1 = document.createElement('div');
+          lab1.className = 'scorecard-month-value';
+          lab1.textContent = v1 > 999 ? (v1 / 1000).toFixed(1) + 'k' : v1;
+          lab1.style.bottom = 'calc(' + h1 + '% + 2px)';
+          lab1.style.left = '0';
+          lab1.style.width = '50%';
+          lab1.style.color = color1;
+          lab1.style.fontSize = '7px';
+          barsContainer.appendChild(lab1);
+        }
+        if (v2 > 0) {
+          var lab2 = document.createElement('div');
+          lab2.className = 'scorecard-month-value';
+          lab2.textContent = v2 > 999 ? (v2 / 1000).toFixed(1) + 'k' : v2;
+          lab2.style.bottom = 'calc(' + h2 + '% + 2px)';
+          lab2.style.left = '50%';
+          lab2.style.width = '50%';
+          lab2.style.color = color2;
+          lab2.style.fontSize = '7px';
+          barsContainer.appendChild(lab2);
+        }
+
+        barsContainer.appendChild(bar1);
+        barsContainer.appendChild(bar2);
+
+        var tipText = monthShortLabel(m) + ': +' + v1 + ' / −' + v2 + ' lines';
+        barsContainer.addEventListener('mouseenter', function (evt) { showBarTooltip(evt, tipText); });
+        barsContainer.addEventListener('mousemove', function (evt) { showBarTooltip(evt, tipText); });
+        barsContainer.addEventListener('mouseleave', hideBarTooltip);
+
+        var monthLabel = document.createElement('div');
+        monthLabel.className = 'scorecard-month-label';
+        monthLabel.textContent = monthShortLabel(m);
+
+        monthCol.appendChild(barsContainer);
+        monthCol.appendChild(monthLabel);
+        barsRow.appendChild(monthCol);
+      });
+
+      barsArea.appendChild(barsRow);
+      chartArea.appendChild(yAxis);
+      chartArea.appendChild(barsArea);
+      chartWrap.appendChild(chartArea);
+
+      return chartWrap;
+    }
+
     var monthLabels = mb.map(function (r) { return r.month; });
     var commitValues = mb.map(function (r) { return r.commits; });
     var prValues = mb.map(function (r) { return r.prs; });
+    var storyPointValues = mb.map(function (r) { return r.story_points; });
+    var linesAddedValues = mb.map(function (r) { return r.lines_added; });
+    var linesRemovedValues = mb.map(function (r) { return r.lines_removed; });
 
     chartsRow.appendChild(buildMiniChart('Commits', '#34d399', commitValues, monthLabels));
     chartsRow.appendChild(buildMiniChart('PRs', '#38bdf8', prValues, monthLabels));
+
+    // Second row: Story Points + Code Lines (different scales)
+    var chartsRow2 = document.createElement('div');
+    chartsRow2.className = 'scorecard-monthly-charts-row';
+    chartsRow2.style.marginTop = '12px';
+
+    chartsRow2.appendChild(buildMiniChart('Story Pts', '#fbbf24', storyPointValues, monthLabels));
+    chartsRow2.appendChild(buildDualMiniChart('Lines +', '#34d399', linesAddedValues, 'Lines −', '#fb7185', linesRemovedValues, monthLabels));
+
     monthlyWrap.appendChild(chartsRow);
+    monthlyWrap.appendChild(chartsRow2);
 
     // Signal bars with raw numbers
     var bars = document.createElement('div');

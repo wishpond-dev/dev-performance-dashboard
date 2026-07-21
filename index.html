@@ -248,7 +248,7 @@ body.sidebar-expanded { --sidebar-width: 240px; }
 .kpi-val, .kpi-lab, .kpi-delta { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 /* Developer Scorecards (TASK-004-013) */
-.scorecard-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.scorecard-grid { display: flex; flex-direction: column; gap: 14px; }
 .scorecard { cursor: pointer; transition: opacity 0.15s ease, border-color 0.15s ease; }
 .scorecard.selected { border-color: var(--primary); }
 .scorecard.dimmed { opacity: 0.4; }
@@ -268,16 +268,16 @@ body.sidebar-expanded { --sidebar-width: 240px; }
 /* Monthly bar chart in scorecards */
 .scorecard-monthly { margin-bottom: 10px; }
 .scorecard-monthly-label { font-size: 9px; color: var(--text-muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: .04em; }
-.scorecard-monthly-chart { display: flex; align-items: flex-end; height: 50px; gap: 1px; }
+.scorecard-monthly-chart { display: flex; align-items: flex-end; height: 80px; gap: 2px; }
 .scorecard-month-col { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; }
-.scorecard-month-bars { width: 100%; height: 42px; position: relative; display: flex; }
+.scorecard-month-bars { width: 100%; height: 70px; position: relative; display: flex; }
 .scorecard-month-label { font-size: 7.5px; color: var(--text-muted); margin-top: 2px; text-align: center; }
 .scorecard-monthly-legend { font-size: 9px; color: var(--text-muted); margin-top: 3px; text-align: center; }
 .signal-bar-raw { font-size: 8.5px; color: #fff; font-weight: 600; }
 
 .signal-bars { display: flex; gap: 6px; align-items: flex-end; }
 .signal-bar-col { flex: 1; min-width: 0; }
-.signal-bar-track { height: 44px; display: flex; align-items: flex-end; }
+.signal-bar-track { height: 56px; display: flex; align-items: flex-end; }
 .signal-bar-fill { width: 100%; border-radius: 3px 3px 0 0; }
 .signal-bar-label { font-size: 9px; color: var(--text-muted); text-align: center; margin-top: 3px; }
 .bar-tooltip {
@@ -342,12 +342,10 @@ body.sidebar-expanded { --sidebar-width: 240px; }
 
 /* Responsive collapse (Scorecards/Reviews/DORA reflow, test-coverage-devpanels.md GAP-3) */
 @media (max-width: 900px) {
-  .scorecard-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .h1h2-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .reviews-dora-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
-  .scorecard-grid { grid-template-columns: 1fr; }
   .dora-grid { grid-template-columns: 1fr; }
   .review-name { width: 84px; }
   .h1h2-grid { grid-template-columns: 1fr; }

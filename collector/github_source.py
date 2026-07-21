@@ -457,7 +457,14 @@ def _populate_from_api(
         # amedwishpond and a coding tool correctly credits only the human.
         # This replaces the single squash commit that git_source.py now
         # excludes, restoring the commit metric's meaning.
-        if number is not None:
+        #
+        # Bucketing: PR commits are attributed to the PR's merge month
+        # (`month`, derived from `merged_at`), NOT the commit's own author
+        # date. This aligns PR commits with the PR count (also by merged_at)
+        # so a PR that sat in review for 2 months doesn't inflate the month
+        # it was authored in and deflate the month it landed. Both metrics
+        # answer "what shipped this month."
+        if number is not None and author_result.category == "roster":
             pr_commits = fetch_pr_commits(client, full_name, number, store)
             for c in pr_commits:
                 commit_author_name = (c.get("commit", {}).get("author", {}) or {}).get("name", "")
@@ -471,15 +478,7 @@ def _populate_from_api(
                 )
                 if commit_result.category != "roster":
                     continue
-                commit_date = _parse_iso(
-                    (c.get("commit", {}).get("author", {}) or {}).get("date", "")
-                )
-                if commit_date is None:
-                    continue
-                commit_month = f"{commit_date.year:04d}-{commit_date.month:02d}"
-                if commit_month not in month_set:
-                    continue
-                accumulators[commit_result.person.handle][commit_month].pr_commits += 1
+                accumulators[commit_result.person.handle][month].pr_commits += 1
 
 
 def collect_repo_github_metrics(

@@ -55,6 +55,41 @@
       "full_name": "marcelon-salescloser/salescloser-new-website",
       "local_path": "/root/projects/salescloser-new-website",
       "default_branch": null
+    },
+    {
+      "name": "ops-salescloser",
+      "org": "wishpond-dev",
+      "full_name": "wishpond-dev/ops-salescloser",
+      "local_path": "/root/projects/ops-salescloser",
+      "default_branch": null
+    },
+    {
+      "name": "salescloser-bot-proxy",
+      "org": "wishpond-dev",
+      "full_name": "wishpond-dev/salescloser-bot-proxy",
+      "local_path": "/root/projects/salescloser-bot-proxy",
+      "default_branch": null
+    },
+    {
+      "name": "salescloser-dashboard-encoding",
+      "org": "wishpond-dev",
+      "full_name": "wishpond-dev/salescloser-dashboard-encoding",
+      "local_path": "/root/projects/salescloser-dashboard-encoding",
+      "default_branch": null
+    },
+    {
+      "name": "salescloser-growthbook-edge",
+      "org": "wishpond-dev",
+      "full_name": "wishpond-dev/salescloser-growthbook-edge",
+      "local_path": "/root/projects/salescloser-growthbook-edge",
+      "default_branch": null
+    },
+    {
+      "name": "termy",
+      "org": "wishpond-dev",
+      "full_name": "wishpond-dev/termy",
+      "local_path": "/root/projects/termy",
+      "default_branch": null
     }
   ]
 }

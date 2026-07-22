@@ -31,13 +31,13 @@ pytestmark = pytest.mark.e2e
 
 def test_repofilter_e2e_001_golden_path_read_filter_clear_zero_console_errors(loaded_page):
     page = loaded_page
-    assert page.locator(".repo-row").count() == 8
+    assert page.locator(".repo-row").count() == 13
     assert page.locator("#h1h2Grid > *").count() >= 4
 
     handle = page.locator(".scorecard").first.get_attribute("data-handle")
     page.locator(".scorecard").first.click()
     page.wait_for_timeout(150)
-    assert page.locator(".repo-row").count() == 8  # never drops a repo while filtered
+    assert page.locator(".repo-row").count() == 13  # never drops a repo while filtered
 
     page.locator(".scorecard").first.click()  # clear
     page.wait_for_timeout(150)
@@ -60,11 +60,11 @@ def test_repofilter_e2e_003_selecting_a_developer_updates_scope_and_keeps_all_ro
     page.wait_for_timeout(150)
 
     assert page.locator("#h1h2Scope").inner_text() == f'Filtered: {dev["name"]}'
-    assert page.locator(".repo-row").count() == 8
+    assert page.locator(".repo-row").count() == 13
     # No stale .selected left un-decided: every row is classified one way or the other.
     selected = page.locator(".repo-row.selected").count()
     dimmed = page.locator(".repo-row.dimmed").count()
-    assert selected + dimmed == 8
+    assert selected + dimmed == 13
     # TASK-004-017 regression guard: with active_repos now populated by the
     # real collector, the selected count must match it exactly (not 0/8,
     # the pre-fix inert state).
@@ -84,8 +84,8 @@ def test_repofilter_e2e_004_switching_developers_leaves_no_stale_highlight(loade
     page.wait_for_timeout(150)
 
     assert page.locator("#h1h2Scope").inner_text() == f'Filtered: {second["name"]}'
-    assert page.locator(".repo-row").count() == 8
-    assert page.locator(".repo-row.selected").count() + page.locator(".repo-row.dimmed").count() == 8
+    assert page.locator(".repo-row").count() == 13
+    assert page.locator(".repo-row.selected").count() + page.locator(".repo-row.dimmed").count() == 13
 
     page.locator(f'.scorecard[data-handle="{second["handle"]}"]').click()  # clear
     page.wait_for_timeout(150)
@@ -98,7 +98,7 @@ def test_repofilter_e2e_005_any_developer_still_renders_all_8_rows(loaded_page, 
     page.locator(f'.scorecard[data-handle="{last_dev["handle"]}"]').click()
     page.wait_for_timeout(150)
 
-    assert page.locator(".repo-row").count() == 8
+    assert page.locator(".repo-row").count() == 13
 
     page.locator(f'.scorecard[data-handle="{last_dev["handle"]}"]').click()  # clear
     page.wait_for_timeout(150)

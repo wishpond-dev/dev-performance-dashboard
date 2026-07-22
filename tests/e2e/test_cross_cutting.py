@@ -107,7 +107,7 @@ def test_e2e_007_all_8_panels_present_and_nonempty(loaded_page):
     assert page.locator("#scorecardGrid .scorecard").count() == 8
     assert page.locator("#reviewList .review-row").count() == 8
     assert page.locator("#doraGrid .dora-box").count() == 4
-    assert page.locator("#repoTableBody .repo-row").count() == 8
+    assert page.locator("#repoTableBody .repo-row").count() == 13
     assert page.locator("#h1h2Grid").locator("> *").count() >= 4
 
 
